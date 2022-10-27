@@ -1,0 +1,13 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: local.jamf.ZoomRooms
+ParentRecipe: com.github.homebysix.pkg.ZoomPresence
+MinimumVersion: '2.3'
+
+Input:
+  CATEGORY: Zoom
+
+Process:
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'

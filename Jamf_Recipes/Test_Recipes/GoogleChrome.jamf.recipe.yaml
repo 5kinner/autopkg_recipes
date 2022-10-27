@@ -1,0 +1,18 @@
+Description: Testing of Google Chrome Recipe jamfupload
+Identifier: local.jamf.GoogleChrome
+ParentRecipe: local.pkg.GoogleChrome
+MinimumVersion: '2.3'
+
+Input:
+  NAME: GoogleChromeRecipe1
+  CATEGORY: JamfUploader
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
