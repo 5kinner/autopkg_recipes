@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: local.jamf.MicrosoftEdge
+Identifier: com.github.5kinner-recipes.jamf.MicrosoftEdge
 ParentRecipe: com.github.rtrouton.pkg.microsoftedge
 MinimumVersion: '2.3'
 

@@ -1,5 +1,5 @@
 Description: Testing of Google Chrome Recipe
-Identifier: local.pkg.GoogleChrome
+Identifier: com.github.5kinner-recipes.pkg.GoogleChrome
 ParentRecipe: com.github.autopkg.download.googlechromepkg
 MinimumVersion: '2.3'
 

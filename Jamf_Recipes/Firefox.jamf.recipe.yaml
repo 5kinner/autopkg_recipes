@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: local.jamf.Firefox
+Identifier: com.github.5kinner-recipes.jamf.Firefox
 ParentRecipe: com.github.autopkg.pkg.FirefoxSignedPkg
 MinimumVersion: '2.3'
 

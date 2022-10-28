@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: local.jamf.ZoomRooms
+Identifier: com.github.5kinner-recipes.upload.ZoomRooms
 ParentRecipe: com.github.homebysix.pkg.ZoomPresence
 MinimumVersion: '2.3'
 
