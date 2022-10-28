@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: local.jamf.GoogleChrome
-ParentRecipe: local.pkg.GoogleChrome
+Identifier: com.github.5kinner-recipes.jamf.GoogleChrome
+ParentRecipe: com.github.5kinner-recipes.pkg.GoogleChrome
 MinimumVersion: '2.3'
 
 Input:
