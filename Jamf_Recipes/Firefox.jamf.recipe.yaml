@@ -27,7 +27,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
   Arguments:
-    category: '%CATEGORY%'
+    category_name: '%CATEGORY%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
   Arguments:
