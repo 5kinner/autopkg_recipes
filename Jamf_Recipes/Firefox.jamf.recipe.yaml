@@ -13,7 +13,7 @@ Input:
   POLICY_CATEGORY: TESTING
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_withRunCommand.xml
-  SELF_SERVICE_DISPLAY_NAME: UNTESTED - Install Latest %NAME%
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
 
@@ -29,12 +29,6 @@ Process:
   Arguments:
     category_name: '%CATEGORY%'
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
-  Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-    replace_group: "True"
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
@@ -42,6 +36,12 @@ Process:
 - Processor: StopProcessingIf
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
