@@ -5,8 +5,8 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: Microsoft Edge
-  CATEGORY: TESTING
-  GROUP_NAME: JamfUploader-%NAME%-update-smart-regex
+  CATEGORY: Applications
+  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   VERSION_CRITERION: Application Version
   TESTING_GROUP_NAME: TESTING
@@ -28,12 +28,6 @@ Process:
   Arguments:
     category_name: '%CATEGORY%'
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
-  Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-    replace_group: "True"
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
@@ -41,6 +35,12 @@ Process:
 - Processor: StopProcessingIf
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
