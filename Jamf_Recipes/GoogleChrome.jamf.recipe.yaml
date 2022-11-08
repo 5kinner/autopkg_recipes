@@ -19,6 +19,7 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: Chrome2022.png
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):admin" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
