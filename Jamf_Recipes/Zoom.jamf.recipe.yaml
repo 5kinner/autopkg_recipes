@@ -5,15 +5,15 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: Zoom IT Client
-  CATEGORY: JamfUploader
-  GROUP_NAME: JamfUploader-%NAME%-update-smart-regex
+  CATEGORY: Applications
+  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   VERSION_CRITERION: Application Version
-  TESTING_GROUP_NAME: JamfUploaderTEST
-  POLICY_CATEGORY: JamfUploader
+  TESTING_GROUP_NAME: TESTING
+  POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
-  SELF_SERVICE_DISPLAY_NAME: PILOT - Install Latest AutoPKG %NAME%
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
 
@@ -24,11 +24,9 @@ Input:
 Process:
 - Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
   Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-    replace_group: "True"
+    category_name: '%CATEGORY%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
@@ -37,6 +35,12 @@ Process:
 - Processor: StopProcessingIf
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
