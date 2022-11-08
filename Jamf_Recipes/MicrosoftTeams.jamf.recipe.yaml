@@ -24,11 +24,9 @@ Input:
 Process:
 - Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
   Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-    replace_group: "True"
+    category_name: '%CATEGORY%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
@@ -37,6 +35,12 @@ Process:
 - Processor: StopProcessingIf
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
