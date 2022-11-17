@@ -17,6 +17,7 @@
     <limit_to_users>
         <user_groups>
             <user_group>%AD_GROUP%</user_group>
+            <user_group>%AD_GROUP2%</user_group>
         </user_groups>
     </limit_to_users>
     <limitations>
@@ -59,7 +60,7 @@
         <action>Install</action>
       </package>
       <package>
-        <name>%extra_pkg_name%</name>
+        <name>%EXTRA_PKG%</name>
         <action>Install</action>
       </package>
     </packages>
