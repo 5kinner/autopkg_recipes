@@ -6,10 +6,9 @@ MinimumVersion: '2.3'
 Input:
   NAME: Keyshot
   CATEGORY: Applications
-  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
-  VERSION_CRITERION: Application Version
-  TESTING_GROUP_NAME: TESTING
+  TESTER_USERNAME: TESTING
+  AD_GROUP: AD Group1
+  AD_GROUP2: AD Group2
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
@@ -19,6 +18,7 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: Keyshot11.png
+  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
