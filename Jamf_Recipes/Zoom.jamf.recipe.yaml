@@ -23,6 +23,8 @@ Input:
 
 Process:
 - Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+  Arguments: 
+    version: '%jamfversion%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
   Arguments:
