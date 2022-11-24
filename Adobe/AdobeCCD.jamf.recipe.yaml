@@ -1,0 +1,51 @@
+Description: Recipe using Parent pkg recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.AdobeCCD
+ParentRecipe: com.github.rtrouton.pkg.AdobeCreativeCloudInstallerUniversal
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Adobe Creative Cloud Desktop
+  CATEGORY: Applications
+  TESTER_USERNAME: TESTING
+  AD_GROUP: AD Group1
+  AD_GROUP2: AD Group2
+  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
+  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
+  POLICY_CATEGORY: UNTESTED
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_selfservice.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELF_SERVICE_DESCRIPTION: |
+    Installs the Latest Version %NAME%
+
+    Version: *%version%*
+  SELFSERVICE_ICON: AdobeCCD.png
+  EXTRA_PKG: Name
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+  Arguments:
+    category_name: '%CATEGORY%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
