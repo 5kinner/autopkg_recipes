@@ -58,7 +58,7 @@
   </self_service>
   <package_configuration>
     <packages>
-      <size>2</size>
+      <size>1</size>
       <package>
         <name>%pkg_name%</name>
         <action>Install</action>
