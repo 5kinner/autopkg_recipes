@@ -11,8 +11,6 @@ Input:
   AD_GROUP2: AD Group2
   AD_GROUP3: AD Group3
   AD_GROUP4: AD Group4
-  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
