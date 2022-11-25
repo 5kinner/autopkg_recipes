@@ -18,8 +18,6 @@
         <user_groups>
             <user_group>%AD_GROUP%</user_group>
             <user_group>%AD_GROUP2%</user_group>
-            <user_group>%AD_GROUP3%</user_group>
-            <user_group>%AD_GROUP4%</user_group>
         </user_groups>
     </limit_to_users>
     <limitations>
@@ -32,8 +30,6 @@
             <user_group>
                 <name>%AD_GROUP%</name>
                 <name>%AD_GROUP2%</name>
-                <name>%AD_GROUP3%</name>
-                <name>%AD_GROUP4%</name>
             </user_group>
         </user_groups>
         <network_segments/>
