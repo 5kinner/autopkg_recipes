@@ -22,7 +22,6 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: AdobeCCD.png
-  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:

@@ -18,6 +18,8 @@
         <user_groups>
             <user_group>%AD_GROUP%</user_group>
             <user_group>%AD_GROUP2%</user_group>
+            <user_group>%AD_GROUP3%</user_group>
+            <user_group>%AD_GROUP4%</user_group>
         </user_groups>
     </limit_to_users>
     <limitations>
@@ -28,8 +30,10 @@
         </users>
         <user_groups>
             <user_group>
-                <name>%AD_GROUP%</name>
-                <name>%AD_GROUP2%</name>
+                <user_group>%AD_GROUP%</user_group>
+                <user_group>%AD_GROUP2%</user_group>
+                <user_group>%AD_GROUP3%</user_group>
+                <user_group>%AD_GROUP4%</user_group>
             </user_group>
         </user_groups>
         <network_segments/>
@@ -57,10 +61,6 @@
       <size>2</size>
       <package>
         <name>%pkg_name%</name>
-        <action>Install</action>
-      </package>
-      <package>
-        <name>%EXTRA_PKG%</name>
         <action>Install</action>
       </package>
     </packages>
