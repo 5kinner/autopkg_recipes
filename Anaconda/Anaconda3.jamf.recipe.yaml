@@ -7,7 +7,7 @@ Input:
   NAME: Anaconda
   CATEGORY: Applications
   AD_GROUP: AD Group
-  TESTING_USERNAME: TESTER
+  TESTER_USERNAME: TESTER
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
