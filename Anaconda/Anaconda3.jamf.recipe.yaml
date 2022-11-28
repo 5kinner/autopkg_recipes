@@ -16,7 +16,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: Anaconda.png
+  SELFSERVICE_ICON: Anaconda3.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
