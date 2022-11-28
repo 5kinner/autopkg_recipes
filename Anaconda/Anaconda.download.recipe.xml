@@ -7,7 +7,7 @@
 Different installer types are available. Use INSTALLER_TYPE
 to chose between 'sh' or 'pkg'. Use ARCH_TYPE to choose between Architecture types 'x86_64' or 'arm64'</string>
     <key>Identifier</key>
-    <string>com.github.5kinner-recipes.download.AnacondaINC</string>
+    <string>com.github.5kinner-recipes.download.Anaconda</string>
     <key>Input</key>
     <dict>
         <key>INSTALLER_TYPE</key>
