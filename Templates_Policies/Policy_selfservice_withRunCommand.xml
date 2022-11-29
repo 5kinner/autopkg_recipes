@@ -12,13 +12,9 @@
     </override_default_settings>
   </general>
   <scope>
-    <all_computers>false</all_computers>
+    <all_computers>true</all_computers>
     <computers/>
-    <computer_groups>
-      <computer_group>
-        <name>%GROUP_NAME%</name>
-      </computer_group>
-    </computer_groups>
+    <computer_groups/>
   </scope>
   <self_service>
     <use_for_self_service>true</use_for_self_service>
