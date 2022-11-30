@@ -29,7 +29,7 @@ Process:
 
 - Processor: Copier
   Arguments:
-    destination_path: '%RECIPE_CACHE_DIR%'
+    destination_path: '%RECIPE_CACHE_DIR%/'
     overwrite: 'true'
     source_path: '%found_filename%'
 
