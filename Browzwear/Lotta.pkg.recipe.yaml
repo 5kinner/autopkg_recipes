@@ -1,0 +1,12 @@
+Description: Copies pkg out of DMG
+Identifier: com.github.5kinner-recipes.pkg.BrowzwearLotta
+ParentRecipe: com.github.5kinner-recipes.download.BrowzwearLotta
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Browzwear Lotta
+
+Process:
+  - Processor: PkgCopier
+    Arguments:
+      source_pkg: "%RECIPE_CACHE_DIR%/*.dmg"

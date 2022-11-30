@@ -1,4 +1,4 @@
-Description: Testing of Google Chrome Recipe
+Description: Renaming of Zoom IT Installer
 Identifier: com.github.5kinner-recipes.pkg.Zoom
 ParentRecipe: com.github.homebysix.pkg.Zoom
 MinimumVersion: '2.3'
