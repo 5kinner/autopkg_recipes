@@ -4,13 +4,13 @@ Identifier: com.github.5kinner-recipes.download.BrowzwearLotta
 
 Input:
   NAME: Lotta
-  SEARCH_STRING: Lotta
+  SEARCH_STRING: Lotta_2022
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''
   NAME_EXCEPTION: ''
-  FILE_SHARE: /path/to/offline/repository
-  VERSION_STRING_SEPARATOR: '-'
-  MAX_FOLDER_DEPTH: '1'
+  FILE_SHARE: /Path/to/fileshare/
+  VERSION_STRING_SEPARATOR: '_'
+  MAX_FOLDER_DEPTH: '2'
 
 Process:
 - Processor: com.github.mlbz521.SharedProcessors/OfflineApps
