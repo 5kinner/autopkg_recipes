@@ -1,12 +1,10 @@
 Description: |
-  Downloads the latest verison of AutoCAD from a local file share.
-  
-  Supports the new format found with AutoCAD 2021."
-Identifier: com.github.mlbz521.download.AutoCAD
+  Downloads the Staged version of Browzwear Lotta from a local file share.
+Identifier: com.github.5kinner-recipes.download.BrowzwearLotta
 
 Input:
-  NAME: AutoCAD
-  SEARCH_STRING: AutoCAD
+  NAME: Lotta
+  SEARCH_STRING: Lotta
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''
   NAME_EXCEPTION: ''
@@ -42,6 +40,3 @@ Process:
 - Processor: CodeSignatureVerifier
   Arguments:
     input_path: '%RECIPE_CACHE_DIR%/%app_name%'
-    requirement: identifier "com.autodesk.AutoCAD%found_major_version%.installer" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XXKJ396S2Y
-
-- Processor: EndOfCheckPhase
