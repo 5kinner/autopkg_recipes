@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: PkgCopier
     Arguments:
-      source_pkg: "%RECIPE_CACHE_DIR%/*.dmg"
+      source_pkg: "%RECIPE_CACHE_DIR%/*.dmg/*.pkg"
