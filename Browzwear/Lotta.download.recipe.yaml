@@ -22,11 +22,3 @@ Process:
     search_path: '%FILE_SHARE%'
     search_string: '%SEARCH_STRING%'
     version_separator: '%VERSION_STRING_SEPARATOR%'
-
-- Processor: FileFinder
-  Arguments:
-    pattern: '%cached_path%/*.dmg'
-
-- Processor: CodeSignatureVerifier
-  Arguments:
-    input_path: '%RECIPE_CACHE_DIR%/%found_filename%'
