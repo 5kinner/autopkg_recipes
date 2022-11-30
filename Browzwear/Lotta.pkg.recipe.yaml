@@ -10,9 +10,3 @@ Process:
   - Processor: FileFinder
     Arguments:
       pattern: "%RECIPE_CACHE_DIR%/downloads/*.dmg"
-
-Process:
-  - Processor: PkgCopier
-    Arguments:
-      source_pkg: "%found_filename%/*.pkg"
-      pkg_path: "%RECIPE_CACHE_DIR%/Name.dmg"
