@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: FileFinder
     Arguments:
-      pattern: "%cachped_path%/*.dmg"
+      pattern: "%cached_path%/*.dmg"
