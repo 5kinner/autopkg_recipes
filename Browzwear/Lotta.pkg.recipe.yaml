@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/downloads/*.dmg"
+      pattern: "%cachped_path%/*.dmg"
