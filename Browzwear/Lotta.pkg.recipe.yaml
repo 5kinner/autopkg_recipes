@@ -5,8 +5,9 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: Browzwear Lotta
+  SOURCE_DMG: Lotta.dmg
 
 Process:
   - Processor: PkgCopier
     Arguments:
-      source_pkg: "%RECIPE_CACHE_DIR%/*.dmg/*.pkg"
+      source_pkg: "%RECIPE_CACHE_DIR%/%SOURCE_DMG%/*.pkg"
