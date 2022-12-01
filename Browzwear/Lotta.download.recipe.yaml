@@ -4,9 +4,9 @@ Identifier: com.github.5kinner-recipes.download.BrowzwearLotta
 
 Input:
   NAME: Lotta
-
+  PACKAGE_LOCATION: /path/to/folder/
 Process:
 - Processor: URLDownloader
   Arguments:
-    PKG: '/Path/to/folder/'
+    PKG: '%PACKAGE_LOCATION%'
     url: ''
