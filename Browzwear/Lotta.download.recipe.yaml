@@ -1,26 +1,34 @@
 Description: |
   Downloads the Staged version of Browzwear Lotta from a local file share.
 Identifier: com.github.5kinner-recipes.download.BrowzwearLotta
-MinimumVersion: "2.3"
 
 Input:
-  LOCAL_REPO: /path/to/folder
-  LIST_NAME: App Name
-  VENDOR: Vendor
+  NAME: Lotta
+  SEARCH_STRING: Lotta_2022
+  MAJOR_VERSION: ''
+  NAME_LIMITATION: ''
+  NAME_EXCEPTION: ''
+  FILE_SHARE: /Path/to/fileshare/
+  VERSION_STRING_SEPARATOR: '_'
+  MAX_FOLDER_DEPTH: '2'
 
 Process:
-  - Processor: com.github.eth-its-recipes.processors/SubDirectoryList
-    Arguments:
-      root_path: "%LOCAL_REPO%/%VENDOR%/%LIST_NAME%"
+- Processor: com.github.mlbz521.SharedProcessors/OfflineApps
+  Arguments:
+    exception_string: '%NAME_EXCEPTION%'
+    limitation_string: '%NAME_LIMITATION%'
+    major_version: '%MAJOR_VERSION%'
+    max_depth: '%MAX_FOLDER_DEPTH%'
+    search_path: '%FILE_SHARE%'
+    search_string: '%SEARCH_STRING%'
+    version_separator: '%VERSION_STRING_SEPARATOR%'
 
-  - Processor: com.github.eth-its-recipes.processors/LocalRepoUpdateChecker
-    Arguments:
-      RECIPE_CACHE_DIR: "%RECIPE_CACHE_DIR%"
-      found_files: "%found_filenames%"
+- Processor: FileFinder
+  Arguments:
+    pattern: '%cached_path%/*.dmg'
 
-  - Processor: URLDownloader
-    Comment: "Downloads the file from the source repo to the AutoPkg cache"
-    Arguments:
-      url: file://%root_path%/%version%/%latest_file%.dmg
-
-  - Processor: EndOfCheckPhase
+- Processor: Copier
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%'
+    overwrite: 'true'
+    source_path: '%found_filename%'
