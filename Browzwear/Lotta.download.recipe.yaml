@@ -26,9 +26,3 @@ Process:
 - Processor: FileFinder
   Arguments:
     pattern: '%cached_path%/*.dmg'
-
-- Processor: Copier
-  Arguments:
-    destination_path: '%RECIPE_CACHE_DIR%/'
-    overwrite: 'false'
-    source_path: '%found_filename%'
