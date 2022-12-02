@@ -7,12 +7,7 @@ Input:
   NAME: Browzwear Lotta
 
 Process:
-  - Processor: FileFinder
-    Arguments:
-      pattern: "%cached_path%/*.dmg"
-
-Process:
   - Processor: PkgCopier
     Arguments:
-      source_pkg: "%found_filename%/*.pkg"
+      source_pkg: "%found_filename%"
       pkg_path: "%RECIPE_CACHE_DIR%/%Name%-%version%.dmg"
