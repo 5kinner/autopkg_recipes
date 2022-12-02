@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: PkgCopier
     Arguments:
-      source_pkg: "%found_filename%"
+      source_pkg: "%found_filename%/*.pkg"
