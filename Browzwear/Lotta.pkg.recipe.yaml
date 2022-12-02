@@ -10,4 +10,3 @@ Process:
   - Processor: PkgCopier
     Arguments:
       source_pkg: "%found_filename%"
-      pkg_path: "%RECIPE_CACHE_DIR%/%Name%-%version%.dmg"
