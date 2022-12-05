@@ -1,5 +1,5 @@
 Description: Copies pkg out of DMG
-Identifier: com.github.5kinner-recipes.pkg.BrowzwearvStitcher
+Identifier: com.github.5kinner-recipes.pkg.BrowzwearVStitcher
 ParentRecipe: com.github.5kinner-recipes.download.BrowzwearVStitcher
 MinimumVersion: '2.3'
 
