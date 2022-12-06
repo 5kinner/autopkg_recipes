@@ -1,0 +1,18 @@
+Description: Downloads the latest version of Gravity Sketch.
+Identifier: com.github.5kinner-recipes.download.GravitySketch
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Gravity Sketch
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: https://server-production-gravity-public.s3.amazonaws.com/cloudbuilds/Mac/GravitySketch.dmg
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%/GravitySketch.app'
+    requirement: identifier "com.GravitySketch.GravitySketch" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E9NPA36AEK
