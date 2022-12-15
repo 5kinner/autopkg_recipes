@@ -1,0 +1,35 @@
+Description: Downloads the latest Screaming Frog and creates a package.
+Identifier: com.github.5kinner-recipes.pkg.ScreamingFrog
+ParentRecipe: com.github.thenikola.download.ScreamingFrogSEO
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Screaming Frog
+
+Process:
+- Processor: AppDmgVersioner
+  Arguments:
+    dmg_path: '%pathname%'
+
+- Processor: PkgRootCreator
+  Arguments:
+    pkgdirs:
+      Applications: '0775'
+    pkgroot: '%RECIPE_CACHE_DIR%/%NAME%'
+
+- Processor: Copier
+  Arguments:
+    destination_path: '%pkgroot%/Applications/Screaming Frog SEO Spider.app'
+    source_path: '%pathname%/Screaming Frog SEO Spider.app'
+
+- Processor: PkgCreator
+  Arguments:
+    pkg_request:
+      chown:
+      - group: admin
+        path: Applications
+        user: root
+      id: com.screaming.frog.pkg
+      options: purge_ds_store
+      pkgdir: '%RECIPE_CACHE_DIR%'
+      pkgname: '%NAME%-%version%'
