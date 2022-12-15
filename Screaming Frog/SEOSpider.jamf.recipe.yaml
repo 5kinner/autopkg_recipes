@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of Screaming Frog SEO Spider then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.ScreamingFrog
-ParentRecipe: com.github.5kinner-recipes.pkg.ScreamingFrog
+Identifier: com.github.5kinner-recipes.jamf.SEOSpider
+ParentRecipe: com.github.5kinner-recipes.pkg.SEOSpider
 MinimumVersion: '2.3'
 
 Input:
@@ -16,7 +16,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: ScreamingFrog2022.png
+  SELFSERVICE_ICON: SEOSpider2022.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
