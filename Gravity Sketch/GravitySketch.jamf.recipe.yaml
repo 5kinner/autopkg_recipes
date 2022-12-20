@@ -6,10 +6,10 @@ MinimumVersion: '2.3'
 Input:
   NAME: Gravity Sketch
   CATEGORY: Applications
-  TESTER_USERNAME: TESTING
+  TESTER_USERNAME: TESTER
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
-  POLICY_CATEGORY: UNTESTED
+  POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%

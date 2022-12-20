@@ -9,9 +9,7 @@ Input:
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
-  GROUP_NAME: AutoPKG - PILOT-%NAME%-smart
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
-  POLICY_CATEGORY: UNTESTED
+  POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
