@@ -4,7 +4,7 @@ ParentRecipe: com.github.homebysix.pkg.AWSCLI
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Amazon AWS CLi
+  NAME: Amazon AWS Cli
   CATEGORY: Applications
   AD_GROUP: AD Group
   TESTER_USERNAME: TESTER
