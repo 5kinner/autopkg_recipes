@@ -16,7 +16,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: Docker.png
+  SELFSERVICE_ICON: Eclipse.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
