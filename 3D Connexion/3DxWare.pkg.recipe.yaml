@@ -4,20 +4,10 @@ ParentRecipe: com.github.5kinner-recipes.download.3DxWare
 MinimumVersion: '2.3'
 
 Input:
-  NAME: 3D Connexion Software
+  NAME: %NAME%
 
 Process:
-  - Processor: com.github.dataJAR-recipes.Shared Processors/DistributionPkgInfo
-    Arguments:
-      pkg_path: "%pathname%"
-
   - Processor: PkgCopier
     Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg"
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%.pkg"
       source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.dmg"
-
-  - Processor: PathDeleter
-    Arguments:
-      path_list:
-        - "%RECIPE_CACHE_DIR%/unpack"
-        - "%RECIPE_CACHE_DIR%/payload"
