@@ -23,8 +23,3 @@ Process:
       find: "-"
       input_string: "%pkg_path%"
       replace: "."
-
-  - Processor: PkgCopier
-    Arguments:
-      pkg_path: "%output_string%"
-      source_pkg: "%output_string%"
