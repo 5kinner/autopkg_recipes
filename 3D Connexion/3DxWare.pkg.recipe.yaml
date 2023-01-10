@@ -13,7 +13,7 @@ Process:
       result_output_var_name: "version"
       text_in: "%pathname%"
 
-- Processor: com.github.homebysix.FindAndReplace/FindAndReplace
+  - Processor: com.github.homebysix.FindAndReplace/FindAndReplace
     Arguments:
       find: "-"
       input_string: "%version%"
