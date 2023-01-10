@@ -20,6 +20,6 @@ Process:
 
   - Processor: com.github.homebysix.FindAndReplace/FindAndReplace
     Arguments:
-      find: -
-      intput_string: "%pkg_path%"
-      replace: .
+      find: "-"
+      input_string: "%pkg_path%"
+      replace: "."
