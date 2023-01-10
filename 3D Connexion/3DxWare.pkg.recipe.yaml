@@ -7,7 +7,8 @@ Input:
   NAME: 3DxWare
 
 Process:
-  - Processor: PkgCopier
+  - Processor: com.github.jazzace.processors/TextSearcher
     Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%_%version%.pkg"
-      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.dmg"
+      re_pattern: "\_v(.*)\."
+      result_output_var_name: "version"
+      text_in: "%pathname%"
