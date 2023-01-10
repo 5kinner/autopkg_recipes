@@ -7,7 +7,7 @@ Input:
   NAME: 3D Connexion Software
 
 Process:
-  - Processor: DistributionPkgInfo
+  - Processor: com.github.dataJAR-recipes.Shared Processors/DistributionPkgInfo
     Arguments:
       pkg_path: "%RECIPE_CACHE_DIR%/downloads/*.dmg/*.pkg"
 
