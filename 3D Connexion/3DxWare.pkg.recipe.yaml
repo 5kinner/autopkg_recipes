@@ -26,5 +26,5 @@ Process:
 
   - Processor: PkgCopier
     Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%"
+      pkg_path: "%RECIPE_CACHE_DIR%/"
       source_pkg: "%output_string%"
