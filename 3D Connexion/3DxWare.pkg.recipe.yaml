@@ -7,25 +7,14 @@ Input:
   NAME: 3D Connexion Software
 
 Process:
-  - Processor: FlatPkgUnpacker
+  - Processor: DistributionPkgInfo
     Arguments:
-      destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      flat_pkg_path: "%pathname%/Install 3Dconnexion software.pkg"
-
-  - Processor: PkgPayloadUnpacker
-    Arguments:
-      destination_path: "%RECIPE_CACHE_DIR%/payload"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%/unpack/Install 3Dconnexion software.pkg/Payload"
-
-  - Processor: Versioner
-    Arguments:
-      input_plist_path: "%RECIPE_CACHE_DIR%/payload/Google Chrome.app/Contents/Info.plist"
-      plist_version_key: CFBundleShortVersionString
+      pkg_path: "%RECIPE_CACHE_DIR%/downloads/*.dmg/*.pkg"
 
   - Processor: PkgCopier
     Arguments:
       pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg"
-      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.pkg"
+      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.dmg"
 
   - Processor: PathDeleter
     Arguments:
