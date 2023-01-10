@@ -9,7 +9,7 @@ Input:
 Process:
   - Processor: com.github.dataJAR-recipes.Shared Processors/DistributionPkgInfo
     Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%/downloads/*.dmg/*.pkg"
+      pkg_path: "%input_path%"
 
   - Processor: PkgCopier
     Arguments:
