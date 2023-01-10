@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of 3DxWare Drivers</string>
+	<string>Downloads the latest version of 3D Connexion 3DxWare Drivers</string>
 	<key>Identifier</key>
 	<string>com.github.5kinner-recipes.download.3DxWare</string>
 	<key>Input</key>
