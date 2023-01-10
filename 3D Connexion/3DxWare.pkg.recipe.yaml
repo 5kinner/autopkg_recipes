@@ -3,9 +3,6 @@ Identifier: com.github.5kinner-recipes.pkg.3DxWare
 ParentRecipe: com.github.5kinner-recipes.download.3DxWare
 MinimumVersion: '2.3'
 
-Input:
-  NAME: %NAME%
-
 Process:
   - Processor: PkgCopier
     Arguments:
