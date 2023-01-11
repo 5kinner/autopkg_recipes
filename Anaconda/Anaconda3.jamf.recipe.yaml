@@ -20,10 +20,6 @@ Input:
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
-  Arguments:
-    category_name: '%CATEGORY%'
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
