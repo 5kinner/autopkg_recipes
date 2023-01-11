@@ -1,4 +1,4 @@
-Description: Creates a Package of 3D Connexion Software
+Description: Downloads the latest version of 3D Connexion 3DxWare Drivers and creates a package.
 Identifier: com.github.5kinner-recipes.pkg.3DxWare
 ParentRecipe: com.github.5kinner-recipes.download.3DxWare
 MinimumVersion: '2.3'
