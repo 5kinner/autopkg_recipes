@@ -9,7 +9,7 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
+  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
