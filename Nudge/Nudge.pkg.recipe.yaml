@@ -1,0 +1,31 @@
+Description: Downloads and packages the latest release of Nudge.
+Identifier: com.github.5kinner-recipes.pkg.Nudge
+ParentRecipe: com.github.erikng.download.Nudge
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Nudge
+
+Process:
+- Processor: FlatPkgUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/unpack'
+    flat_pkg_path: '%pathname%'
+
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/unpack/Nudge*.pkg'
+  
+- Processor: PkgPayloadUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/payload'
+    pkg_payload_path: '%found_filename%/Payload'
+  
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/payload/Nudge.app/Contents/Info.plist'
+ 
+- Processor: PkgCopier
+  Arguments:
+    pkg_path: '%RECIPE_CACHE_DIR%/Nudge-%version%.pkg'
+    source_pkg: '%pathname%'
