@@ -1,0 +1,35 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.GoogleEarth
+ParentRecipe: com.github.nstrauss.pkg.GoogleEarthPro
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Google Earth
+  CATEGORY: Applications
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_selfservice_withRunCommand.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELF_SERVICE_DESCRIPTION: |
+    Installs the Latest Version %NAME%
+
+    Version: *%version%*
+  SELFSERVICE_ICON: GoogleEarth.png
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):admin" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
