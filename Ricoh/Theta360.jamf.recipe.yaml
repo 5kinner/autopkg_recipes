@@ -6,11 +6,9 @@ MinimumVersion: '2.3'
 Input:
   NAME: Theta 360
   CATEGORY: Applications
-  AD_GROUP: AD Group
-  TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
