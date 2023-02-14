@@ -11,7 +11,7 @@ Input:
   AD_GROUP2: AD Group2
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
+  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andextraPKG.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
@@ -22,8 +22,6 @@ Input:
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
@@ -31,12 +29,6 @@ Process:
 - Processor: StopProcessingIf
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
-
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
-  Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
