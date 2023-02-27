@@ -7,6 +7,6 @@ Input:
   NAME: McNeel Rhino
 
 Process:
-  - Processor: PkgCopier
+  - Processor: AppPkgCreator
     Arguments:
-      source_pkg: "%found_filename%/*.pkg"
+      source_pkg: "%pathname%/*.app"
