@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: AppPkgCreator
     Arguments:
-      source_pkg: "%found_filename%/*.app"
+      app_path: "%found_filename%/*.app"
