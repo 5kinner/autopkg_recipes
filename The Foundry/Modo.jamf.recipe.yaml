@@ -17,7 +17,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: Rhino7.png
+  SELFSERVICE_ICON: Modo.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
