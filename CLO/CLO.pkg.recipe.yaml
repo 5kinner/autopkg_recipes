@@ -7,7 +7,7 @@ Input:
   NAME: CLO 3D
 
 Process:
- - Processor: com.github.jazzace.processors/TextSearcher
+ -  Processor: com.github.jazzace.processors/TextSearcher
     Arguments:
       re_pattern: [0-9]+_[0-9]+_[0-9]+
       result_output_var_name: "version"
