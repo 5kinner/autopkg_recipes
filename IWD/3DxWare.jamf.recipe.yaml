@@ -1,0 +1,35 @@
+Description: Downloads the latest version of the 3DxWare Software/Drivers, and creates a package. This package
+  is then uploaded to jamf and a policy created.
+Identifier: com.github.5kinner-recipes.jamf.3DxWare
+ParentRecipe: com.github.5kinner-recipes.pkg.3DxWare
+MinimumVersion: '2.3'
+
+Input:
+  NAME: 3DxWare
+  CATEGORY: Applications
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELF_SERVICE_DESCRIPTION: |
+    Installs the Latest Version %NAME%
+
+    Version: *%version%*
+  SELFSERVICE_ICON: 3DxWare.png
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"

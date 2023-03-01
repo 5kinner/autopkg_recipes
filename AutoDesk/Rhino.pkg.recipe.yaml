@@ -1,0 +1,12 @@
+Description: Copies pkg out of DMG
+Identifier: com.github.5kinner-recipes.pkg.Rhino
+ParentRecipe: com.github.5kinner-recipes.download.Rhino
+MinimumVersion: '2.3'
+
+Input:
+  NAME: McNeel Rhino
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      app_path: "%found_filename%/*.app"
