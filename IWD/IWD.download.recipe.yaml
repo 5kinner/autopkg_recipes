@@ -14,10 +14,10 @@ Process:
 
   - Processor: CodeSignatureVerifier
     Arguments:
-     input_path: '%pathname%'
+      input_path: '%pathname%'
       expected_authority_names:
-        - 'Developer ID Installer: IWD (VN74J447P6)'
-        - 'Developer ID Certification Authority'
-        - 'Apple Root CA'
+       - 'Developer ID Installer: IWD (VN74J447P6)'
+       - 'Developer ID Certification Authority'
+       - 'Apple Root CA'
 
 	  
