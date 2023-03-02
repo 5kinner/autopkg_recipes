@@ -7,17 +7,17 @@ Input:
   URL: https://dl.iwd.io/IWD_Display_installer.pkg
 
 Process:
-  - Processor: URLDownloader
-    Arguments:
+- Processor: URLDownloader
+  Arguments:
 
-  - Processor: EndOfCheckPhase
+- Processor: EndOfCheckPhase
 
-  - Processor: CodeSignatureVerifier
-    Arguments:
-      input_path: '%pathname%'
-      expected_authority_names:
-       - 'Developer ID Installer: IWD (VN74J447P6)'
-       - 'Developer ID Certification Authority'
-       - 'Apple Root CA'
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%'
+    expected_authority_names:
+     - 'Developer ID Installer: IWD (VN74J447P6)'
+     - 'Developer ID Certification Authority'
+     - 'Apple Root CA'
 
 	  
