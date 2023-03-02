@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Rhino
-ParentRecipe: com.github.5kinner-recipes.pkg.Rhino
+Identifier: com.github.5kinner-recipes.jamf.RhinoPROD
+ParentRecipe: com.github.5kinner-recipes.pkg.RhinoPROD
 MinimumVersion: '2.3'
 
 Input:
