@@ -8,7 +8,6 @@ Input:
 
 Process:
 - Processor: URLDownloader
-  Arguments:
 
 - Processor: EndOfCheckPhase
 
