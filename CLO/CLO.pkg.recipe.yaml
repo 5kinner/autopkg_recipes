@@ -21,4 +21,5 @@ Process:
 
   - Processor: AppPkgCreator
     Arguments:
+      version: "%output_string%"
       app_path: "%found_filename%/*.app"
