@@ -1,0 +1,22 @@
+Description: Downloads the latest IWD 3D app
+Identifier: com.github.5kinner-recipes.download.IWD3D
+MinimumVersion: "2.3"
+
+Input:
+  NAME: IWD 3D
+  URL: https://dl.iwd.io/IWD_3D_Editor_MacOS.pkg
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: '%URL%'
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%'
+    expected_authority_names:
+     - 'Developer ID Installer: IWD (VN74J447P6)'
+     - 'Developer ID Certification Authority'
+     - 'Apple Root CA'
