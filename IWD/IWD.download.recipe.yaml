@@ -1,0 +1,23 @@
+Description: Downloads the latest IWD Display Desktop app
+Identifier: com.github.5kinner-recipes.download.IWDDisplay
+MinimumVersion: "2.3"
+
+Input:
+  NAME: IWD Display Desktop
+  URL: https://dl.iwd.io/IWD_Display_installer.pkg
+
+Process:
+  - Processor: URLDownloader
+    Arguments:
+
+  - Processor: EndOfCheckPhase
+
+  - Processor: CodeSignatureVerifier
+    Arguments:
+     input_path: '%pathname%'
+      expected_authority_names:
+        - 'Developer ID Installer: IWD (VN74J447P6)'
+        - 'Developer ID Certification Authority'
+        - 'Apple Root CA'
+
+	  
