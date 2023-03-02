@@ -9,7 +9,7 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: '%url%'
+    url: '%URL%'
 
 - Processor: EndOfCheckPhase
 
