@@ -1,6 +1,6 @@
 Description: |
-  Downloads the Staged version of McNeel Rhino from a local file share.
-Identifier: com.github.5kinner-recipes.download.Rhino
+  Downloads the Staged version of AutoDesk Maya from a local file share.
+Identifier: com.github.5kinner-recipes.download.Maya
 
 Input:
   NAME: AutoDesk Maya 

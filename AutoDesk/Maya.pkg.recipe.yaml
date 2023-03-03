@@ -1,0 +1,158 @@
+Description: Downloads and packages Maya with built-in licensing information
+Identifier: com.github.moofit-recipes.pkg.Maya
+ParentRecipe: com.github.moofit-recipes.download.Maya
+
+Input:
+  NAME: Maya
+  FILE_NAME_SEARCH_TERM: ''
+  VERSION_YEAR: ''
+  PRODUCT_KEY: ''
+  EULA_LOCALE: GB
+  SERIAL_NUMBER: ''
+  LIC_SERVER: ''
+  PATH_TO_DMG: ''
+
+Process:
+- Processor: PkgRootCreator
+  Arguments:
+    pkgdirs:
+      root/private/tmp: '0777'
+      scripts: '0755'
+    pkgroot: '%RECIPE_CACHE_DIR%/payload'
+
+- Processor: Copier
+  Arguments:
+    destination_path: '%pkgroot%/root/private/tmp/%NAME%.app'
+    source_path: '%found_filename%/*.app'
+
+- Processor: FileCreator
+  Comment: Make postinstall script for use in the package
+  Arguments:
+    file_content: |
+      #!/bin/zsh
+      
+      ##### Define Functions
+      
+      writelog()
+      {
+          # Write to system log
+          /usr/bin/logger -is -t "${LOG_PROCESS}" "${1}"
+      }
+      
+      cleanup()
+      {
+          writelog "Cleaning up..."
+          rm -rf "/tmp/%NAME%.pkg"
+      }
+      
+      ##### Run script
+      
+      # Install %NAME%
+      writelog "Installing %NAME% %VER%..."
+      
+      if [[ -e "/tmp/%NAME%.app" ]]; then
+          EXIT_CODE=0
+          writelog "Installing all pkgs within %NAME%.app...."
+      
+          # It's worthwhile noting that the following lines are a workaround to two issues with Autodesk's non-native PKG
+          # installers; they don't work when a user isn't logged into the Mac, and they don't work when bundled inside a pkg
+          # with a postinstall script. Therefore, we need to manually install all pkgs present inside the Setup.app bundle,
+          # with the first pkg always being the AdskLicensing-*.pkg.
+          #
+          # Le sigh.
+      
+          IFS=$'\
+      '
+      
+          # Install main licensing package
+          for LICENSING_PKG in $(/usr/bin/find "/tmp/%NAME%.app" -name "*Licensing*.pkg"); do
+              writelog "Installing ${LICENSING_PKG}..."
+              if ! /usr/sbin/installer -pkg "${LICENSING_PKG}" -target /; then
+                  writelog "Could not install ${LICENSING_PKG}. Please inspect the Autodesk setup logs for more info."
+                  EXIT_CODE=1
+              else
+                  writelog "${LICENSING_PKG} install successful."
+              fi
+          done
+      
+          # Install all other packages
+          for COMPONENT_PKG in $(/usr/bin/find "/tmp/%NAME%.app" -name "*.pkg" ! -name "*Licensing*.pkg"); do
+              writelog "Installing ${COMPONENT_PKG}..."
+              if ! /usr/sbin/installer -pkg "${COMPONENT_PKG}" -target /; then
+                  writelog "Could not install ${COMPONENT_PKG}. Please inspect the Autodesk setup logs for more info."
+                  EXIT_CODE=1
+              else
+                  writelog "${COMPONENT_PKG} install successful."
+              fi
+          done
+      
+          # Install ODIS, if it's there
+          for ODIS_SCRIPT in $(/usr/bin/find "/tmp/%NAME%.app" -name "installbuilder.sh"); do
+              if [[ -n ${ODIS_SCRIPT} ]]; then
+                  writelog "Installing ${ODIS_SCRIPT}..."
+                  if ! "${ODIS_SCRIPT}" --mode unattended --unattendedmodeui none; then
+                      writelog "Could not install ${ODIS_SCRIPT}. Please inspect the Autodesk setup logs for more info."
+                      EXIT_CODE=1
+                  else
+                      writelog "${ODIS_SCRIPT} install successful."
+                  fi
+              fi
+          done
+          unset IFS
+      else
+          writelog "No %NAME% %VER% installer binary was found. Bailing..."
+          exit 1
+      fi
+      
+      if [[ ${EXIT_CODE} -ne 0 ]]; then
+          writelog "Could not install %NAME% %VER%. Please inspect the Autodesk setup logs for more info. Bailing..."
+          exit 1
+      else
+          writelog "%NAME% %VER% install successful."
+      fi
+      
+      # A few permissions and silly installer fixes
+      /bin/chmod -R 755 "/Library/Application Support/Autodesk"
+      CURRENT_USER=$(/bin/echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }')
+      if [[ -n ${CURRENT_USER} ]]; then
+          CURRENT_USER_HOME=$(/usr/bin/finger -m ${CURRENT_USER} | awk '/^Directory/ {print $2}')
+          if [[ -e "${CURRENT_USER_HOME}/Library/Application Support/Autodesk" ]]; then
+              writelog "Fixing a permissions bug for "${CURRENT_USER}"... psssh..."
+              /usr/sbin/chown -R "${CURRENT_USER}" "${CURRENT_USER_HOME}/Library/Application Support/Autodesk"
+          fi
+      fi
+      
+      # Activate application
+      writelog "Licensing %NAME% %VER%..."
+      PIT_FILE=$(/usr/bin/find "/Library/Application Support/Autodesk" -name ProductInformation.pit)
+      if ! "/Library/Application Support/Autodesk/AdskLicensing/Current/helper/AdskLicensingInstHelper" \\
+          register \\
+          --cf "${PIT_FILE}" \\
+          --prod_key %PK% \\
+          --prod_ver %PV% \\
+          --eula_locale %EL% \\
+          --serial_number %SN% \\
+          --lic_method %LM% --lic_servers '@'%LS%; then
+          writelog "Could not license %NAME% %VER%. Please inspect the Autodesk setup logs for more info. Bailing..."
+          cleanup
+          exit 1
+      else
+          writelog "%NAME% %VER% licensing successful."
+          cleanup
+      fi"
+    file_mode: '0755'
+    file_path: '%RECIPE_CACHE_DIR%/payload/scripts/postinstall'
+
+- Processor: AutodeskPostInstallSetup
+  Arguments:
+    PRODUCT_VERSION: '%VERSION_YEAR%.0.0.F'
+
+- Processor: PkgCreator
+  Arguments:
+    pkg_request:
+      id: com.autodesk.Maya%VERSION_YEAR%
+      options: purge_ds_store
+      pkgname: '%NAME%-%VERSION_YEAR%'
+      pkgroot: '%RECIPE_CACHE_DIR%/payload/root'
+      scripts: '%RECIPE_CACHE_DIR%/payload/scripts'
+      version: '%VERSION_YEAR%'
