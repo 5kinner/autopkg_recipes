@@ -18,12 +18,12 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: Rhino7.png
-  UPDATE_PREDICATE: pkg_uploaded == False
+  UPDATE_PREDICATE: download_changed == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+- Processor: StopProcessingIf
   Arguments:
-    pkg_category: '%CATEGORY%'
+    predicate: '%UPDATE_PREDICATE%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
