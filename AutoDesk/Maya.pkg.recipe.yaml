@@ -1,6 +1,6 @@
 Description: Downloads and packages Maya with built-in licensing information
-Identifier: com.github.moofit-recipes.pkg.Maya
-ParentRecipe: com.github.moofit-recipes.download.Maya
+Identifier: com.github.5kinner-recipes.pkg.Maya
+ParentRecipe: com.github.5kinner-recipes.download.Maya
 
 Input:
   NAME: Maya
