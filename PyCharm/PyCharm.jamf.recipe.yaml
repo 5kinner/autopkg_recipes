@@ -1,0 +1,36 @@
+Description: Downloads and creates a PKG of PyCharm then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.PyCharm
+ParentRecipe: com.github.hansen-m.pkg.pycharm
+MinimumVersion: '2.3'
+
+Input:
+  NAME: PyCharm
+  CATEGORY: Applications
+  AD_GROUP: AD Group
+  TESTER_USERNAME: TESTER
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELF_SERVICE_DESCRIPTION: |
+    Installs the Latest Version %NAME%
+
+    Version: *%version%*
+  SELFSERVICE_ICON: PyCharm.png
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
