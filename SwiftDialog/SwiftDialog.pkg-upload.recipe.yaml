@@ -1,0 +1,13 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.upload.SwiftDialog
+ParentRecipe: com.github.grahampugh.recipes.pkg.swiftDialog
+MinimumVersion: '2.3'
+
+Input:
+  CATEGORY: Applications
+
+Process:
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
