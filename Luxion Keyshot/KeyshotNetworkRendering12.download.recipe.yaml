@@ -15,7 +15,7 @@ Process:
 - Processor: URLDownloader
   Arguments:
     filename: '%NAME%.pkg'
-    url: https://download.keyshot.com/keyshot2023/keyshot_network_rendering_mac64_%version%.pkg
+    url: https://download.keyshot.com/keyshot2023/keyshot_network_rendering_mac64_2023.1_%version%.pkg
 
 - Processor: EndOfCheckPhase
 
