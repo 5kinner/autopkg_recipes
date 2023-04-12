@@ -3,7 +3,7 @@ Identifier: com.github.5kinner-recipes.download.KeyshotNetworkRendering12
 MinimumVersion: '2.3'
 
 Input:
-  NAME: KeyShotNetworkRendering12
+  NAME: KeyShotNetworkRendering
 
 Process:
 - Processor: URLTextSearcher
@@ -14,7 +14,7 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%.pkg'
+    filename: '%NAME%_%version%.pkg'
     url: https://download.keyshot.com/keyshot2023/keyshot_network_rendering_mac64_2023.1_%version%.pkg
 
 - Processor: EndOfCheckPhase
