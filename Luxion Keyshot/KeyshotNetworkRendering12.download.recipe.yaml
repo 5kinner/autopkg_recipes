@@ -10,7 +10,7 @@ Process:
   Arguments:
     re_pattern: https:\/\/download\.keyshot\.com\/keyshot12\/keyshot_network_rendering_mac64_([0-9]+(\.[0-9]+)+)\.pkg
     result_output_var_name: version
-    url: https://www.keyshot.com/dd/
+    url: https://www.keyshot.com/download/
 
 - Processor: URLDownloader
   Arguments:
