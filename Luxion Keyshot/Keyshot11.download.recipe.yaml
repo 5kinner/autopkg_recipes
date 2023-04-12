@@ -6,16 +6,10 @@ Input:
   NAME: KeyShot 11
 
 Process:
-- Processor: URLTextSearcher
-  Arguments:
-    re_pattern: https://download/.keyshot/.com//keyshot11//keyshot_mac64_11.3.3.2.pkg
-    result_output_var_name: version
-    url: https://www.keyshot.com/direct-downloads/
 
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%_v%version%.pkg'
-    url: https://download.keyshot.com/keyshot11/keyshot_mac64_11.3.3%version%.pkg
+    url: https://download.keyshot.com/keyshot11/keyshot_mac64_11.3.3.2.pkg
 
 - Processor: EndOfCheckPhase
 
