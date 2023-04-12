@@ -1,0 +1,28 @@
+Description: Downloads the latest version of KeyShot Network Rendering 12.
+Identifier: com.github.5kinner-recipes.download.KeyshotNetworkRendering12
+MinimumVersion: '2.3'
+
+Input:
+  NAME: KeyShotNetworkRendering12
+
+Process:
+- Processor: URLTextSearcher
+  Arguments:
+    re_pattern: https:\/\/download\.keyshot\.com\/keyshot12\/keyshot_network_rendering_mac64_([0-9]+(\.[0-9]+)+)\.pkg
+    result_output_var_name: version
+    url: https://www.keyshot.com/dd/
+
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%.pkg'
+    url: https://download.keyshot.com/keyshot12/keyshot_network_rendering_mac64_%version%.pkg
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: Luxion, Inc (W7B24M74T3)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%pathname%'
