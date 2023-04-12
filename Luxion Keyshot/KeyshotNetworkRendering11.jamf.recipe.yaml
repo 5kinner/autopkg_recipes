@@ -17,7 +17,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: KeyshotNetworkRendering11.png
+  SELFSERVICE_ICON: KeyshotNetworkRendering.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
