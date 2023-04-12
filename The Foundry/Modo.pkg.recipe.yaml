@@ -1,0 +1,12 @@
+Description: Creates pkg out of DMG
+Identifier: com.github.5kinner-recipes.pkg.Modo
+ParentRecipe: com.github.5kinner-recipes.download.Modo
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Modo
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      app_path: "%found_filename%/*.app"
