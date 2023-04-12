@@ -10,12 +10,12 @@ Process:
   Arguments:
     re_pattern: https:\/\/download\.keyshot\.com\/keyshot12\/keyshot_network_rendering_mac64_([0-9]+(\.[0-9]+)+)\.pkg
     result_output_var_name: version
-    url: https://www.keyshot.com/resources/download/
+    url: https://www.keyshot.com/keyshot2023/
 
 - Processor: URLDownloader
   Arguments:
     filename: '%NAME%.pkg'
-    url: https://download.keyshot.com/keyshot12/keyshot_network_rendering_mac64_%version%.pkg
+    url: https://download.keyshot.com/keyshot2023/keyshot_network_rendering_mac64_%version%.pkg
 
 - Processor: EndOfCheckPhase
 
