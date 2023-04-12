@@ -1,0 +1,28 @@
+Description: Downloads the latest version of KeyShot 11.
+Identifier: com.github.5kinner-recipes.download.Keyshot11
+MinimumVersion: '2.3'
+
+Input:
+  NAME: KeyShot 11
+
+Process:
+- Processor: URLTextSearcher
+  Arguments:
+    re_pattern: https:\/\/download\.keyshot\.com\/keyshot11\/keyshot_mac64_([0-9]+(\.[0-9]+)+)\.pkg
+    result_output_var_name: version
+    url: https://www.keyshot.com/direct-downloads/
+
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%_v%version%.pkg'
+    url: https://download.keyshot.com/keyshot11/keyshot_mac64_%version%.pkg
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: Luxion, Inc (W7B24M74T3)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%pathname%'

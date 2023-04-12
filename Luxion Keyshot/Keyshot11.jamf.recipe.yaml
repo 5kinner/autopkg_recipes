@@ -1,10 +1,10 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Keyshot
-ParentRecipe: com.github.jazzace.pkg.keyshot
+Identifier: com.github.5kinner-recipes.jamf.Keyshot11
+ParentRecipe: com.github.5kinner-recipes.download.Keyshot11
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Keyshot
+  NAME: Keyshot 11
   CATEGORY: Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1

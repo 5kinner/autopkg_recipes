@@ -11,13 +11,14 @@ Input:
   AD_GROUP2: AD Group2
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andTester.xml
+  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andextraPKG.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
 
     Version: *%version%*
   SELFSERVICE_ICON: Keyshot12.png
+  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
