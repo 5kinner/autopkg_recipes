@@ -18,7 +18,6 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: KeyshotNetworkRendering11.png
-  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
