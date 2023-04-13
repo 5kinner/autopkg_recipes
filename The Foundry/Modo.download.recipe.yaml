@@ -29,5 +29,5 @@ Process:
 
 - Processor: Copier
   Arguments:
-    source_path: '%cached_path%*.dmg'
+    source_path: '%cached_path%.dmg'
     destination_path: '%RECIPE_CACHE_DIR%'
