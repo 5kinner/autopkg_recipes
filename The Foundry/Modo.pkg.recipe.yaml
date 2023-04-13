@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: AppPkgCreator
     Arguments:
-      app_path: "%found_filename%.dmg"
+      app_path: "%pathanme%"
