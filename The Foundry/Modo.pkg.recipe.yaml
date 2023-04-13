@@ -7,6 +7,10 @@ Input:
   NAME: Modo
 
 Process:
-  - Processor: AppPkgCreator
-    Arguments:
-      app_path: '%RECIPE_CACHE_DIR%/%filename%/*.app'
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/*.dmg'
+
+- Processor: AppPkgCreator
+  Arguments:
+      app_path: '%found_filename%/*.app'
