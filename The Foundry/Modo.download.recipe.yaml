@@ -27,14 +27,13 @@ Process:
   Arguments:
     pattern: '%cached_path%/*.dmg'
 
-- Processor: com.github.homebysix.FindAndReplace/FindAndReplace
-  Arguments:
-    find: "_macOS"
-    input_string: "%version%"
-    replace: ""
-
 - Processor: Copier
   Arguments:
     source_path: '%found_filename%'
     destination_path: '%RECIPE_CACHE_DIR%/'
 
+- Processor: com.github.homebysix.FindAndReplace/FindAndReplace
+  Arguments:
+    find: "_macOS"
+    input_string: "%version%"
+    replace: ""
