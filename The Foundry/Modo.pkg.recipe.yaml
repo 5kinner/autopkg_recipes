@@ -19,4 +19,5 @@ Process:
 
 - Processor: AppPkgCreator
   Arguments:
-     app_path: '%found_filename%/*%version%.app'
+    version: '%output_string%'
+    app_path: '%found_filename%/*%version%.app'
