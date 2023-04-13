@@ -26,3 +26,7 @@ Process:
 - Processor: FileFinder
   Arguments:
     pattern: '%cached_path%'
+
+- Processor: PkgCopier
+  Arguments:
+    source_pkg: "%cached_path%"
