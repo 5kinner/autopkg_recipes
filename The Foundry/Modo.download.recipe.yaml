@@ -25,7 +25,7 @@ Process:
 
 - Processor: FileFinder
   Arguments:
-    pattern: '%cached_path%/*.pkg'
+    pattern: '%cached_path%.dmg/*.pkg'
 
 - Processor: PkgCopier
   Arguments:
