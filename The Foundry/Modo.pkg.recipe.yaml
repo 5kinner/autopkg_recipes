@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: AppPkgCreator
     Arguments:
-      app_path: "%found_filename%/*.app"
+      app_path: "%cached_path.dmg%/*.app"
