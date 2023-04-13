@@ -9,4 +9,4 @@ Input:
 Process:
   - Processor: AppPkgCreator
     Arguments:
-      app_path: '%RECIPE_CACHE_DIR%/*.dmg/*.app'
+      app_path: '%RECIPE_CACHE_DIR%/%filename%/*.app'
