@@ -11,6 +11,12 @@ Process:
   Arguments:
     pattern: '%RECIPE_CACHE_DIR%/*.dmg'
 
+- Processor: com.github.homebysix.FindAndReplace/FindAndReplace
+  Arguments:
+    find: "_macOS"
+    input_string: "%version%"
+    replace: ""
+
 - Processor: AppPkgCreator
   Arguments:
-      app_path: '%found_filename%/*%version%.app'
+     app_path: '%found_filename%/*%version%.app'
