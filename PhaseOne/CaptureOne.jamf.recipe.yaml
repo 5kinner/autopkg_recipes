@@ -1,0 +1,36 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.CaptureOne
+ParentRecipe: com.github.5kinner-recipes.pkg.CaptureOne
+MinimumVersion: '2.3'
+
+Input:
+  NAME: CaptureOne 23
+  CATEGORY: Applications
+  AD_GROUP: AD Group
+  TESTER_USERNAME: TESTER
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELF_SERVICE_DESCRIPTION: |
+    Installs the Latest Version %NAME%
+
+    Version: 23
+  SELFSERVICE_ICON: CaptrueOne23.png
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
