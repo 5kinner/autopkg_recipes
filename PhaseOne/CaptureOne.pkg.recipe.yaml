@@ -1,0 +1,35 @@
+Description: Downloads the latest CaptureOne and creates a package.
+Identifier: com.github.5kinner-recipes.pkg.CaptureOne
+ParentRecipe: com.github.foigus.download.CaptureOne
+MinimumVersion: '2.3'
+
+Input:
+  NAME: CaptureOne
+
+Process:
+- Processor: AppDmgVersioner
+  Arguments:
+    dmg_path: '%pathname%'
+
+- Processor: PkgRootCreator
+  Arguments:
+    pkgdirs:
+      Applications: '0775'
+    pkgroot: '%RECIPE_CACHE_DIR%/%NAME%'
+
+- Processor: Copier
+  Arguments:
+    destination_path: '%pkgroot%/Applications/Capture One 23.app'
+    source_path: '%pathname%/Capture One 23.app'
+
+- Processor: PkgCreator
+  Arguments:
+    pkg_request:
+      chown:
+      - group: admin
+        path: Applications
+        user: root
+      id: com.CaptureOne16.pkg
+      options: purge_ds_store
+      pkgdir: '%RECIPE_CACHE_DIR%'
+      pkgname: '%NAME%-%version%'
