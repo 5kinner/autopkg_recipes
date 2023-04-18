@@ -9,7 +9,7 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: https://downloads.tableau.com/tssoftware/TableauDesktop-/%DL_Version%.dmg
+    url: https://downloads.tableau.com/tssoftware/TableauDesktop-%DL_Version%.dmg
 
 - Processor: EndOfCheckPhase
 
