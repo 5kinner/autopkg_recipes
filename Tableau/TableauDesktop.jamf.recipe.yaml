@@ -7,6 +7,7 @@ Input:
   NAME: Tableau Desktop 2023
   CATEGORY: Applications
   AD_GROUP: AD Group
+  AD_GROUP2: AD Group
   TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
