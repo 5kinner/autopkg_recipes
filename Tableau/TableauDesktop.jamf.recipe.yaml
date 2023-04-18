@@ -17,6 +17,7 @@ Input:
 
     Version: %version%
   SELFSERVICE_ICON: TableauDesktop.png
+  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
