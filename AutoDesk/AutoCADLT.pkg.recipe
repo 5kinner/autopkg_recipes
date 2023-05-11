@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads and packages AutoCAD with built-in licensing information</string>
+    <key>Identifier</key>
+    <string>com.github.moofit-recipes.pkg.AutoCAD</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>AutoCAD</string>
+        <key>FILE_NAME_SEARCH_TERM</key>
+        <string></string>
+        <key>VERSION_YEAR</key>
+        <string></string>
+        <key>PRODUCT_KEY</key>
+        <string></string>
+        <key>EULA_LOCALE</key>
+        <string>GB</string>
+        <key>SERIAL_NUMBER</key>
+        <string></string>
+        <key>LIC_SERVER</key>
+        <string></string>
+        <key>PATH_TO_DMG</key>
+        <string></string>
+    </dict>
+    <key>ParentRecipe</key>
+    <string>com.github.moofit-recipes.download.AutoCAD</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>PkgRootCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkgroot</key>
+                <string>%RECIPE_CACHE_DIR%/payload</string>
+                <key>pkgdirs</key>
+                <dict>
+                    <key>root/private/tmp</key>
+                    <string>0777</string>
+                    <key>scripts</key>
+                    <string>0755</string>
+                </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%found_filename%/*.app</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/root/private/tmp/%NAME%.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FileCreator</string>
+            <key>Comment</key>
+            <string>Make postinstall script for use in the package</string>
+            <key>Arguments</key>
+            <dict>
+                <key>file_path</key>
+                <string>%RECIPE_CACHE_DIR%/payload/scripts/postinstall</string>
+                <key>file_content</key>
+                <string>#!/bin/zsh
+
+##### Define Functions
+
+writelog()
+{
+    # Write to system log
+    /usr/bin/logger -is -t "${LOG_PROCESS}" "${1}"
+}
+
+cleanup()
+{
+    writelog "Cleaning up..."
+    rm -rf "/tmp/%NAME%.pkg"
+}
+
+##### Run script
+
+# Install %NAME%
+writelog "Installing %NAME% %VER%..."
+
+if [[ -e "/tmp/%NAME%.app" ]]; then
+    EXIT_CODE=0
+    writelog "Installing all pkgs within %NAME%.app...."
+
+    # It's worthwhile noting that the following lines are a workaround to two issues with Autodesk's non-native PKG
+    # installers; they don't work when a user isn't logged into the Mac, and they don't work when bundled inside a pkg
+    # with a postinstall script. Therefore, we need to manually install all pkgs present inside the Setup.app bundle,
+    # with the first pkg always being the AdskLicensing-*.pkg.
+    #
+    # Le sigh.
+
+    IFS=$'\n'
+
+    # Install main licensing package
+    for LICENSING_PKG in $(/usr/bin/find "/tmp/%NAME%.app" -name "*Licensing*.pkg"); do
+        writelog "Installing ${LICENSING_PKG}..."
+        if ! /usr/sbin/installer -pkg "${LICENSING_PKG}" -target /; then
+            writelog "Could not install ${LICENSING_PKG}. Please inspect the Autodesk setup logs for more info."
+            EXIT_CODE=1
+        else
+            writelog "${LICENSING_PKG} install successful."
+        fi
+    done
+
+    # Install all other packages
+    for COMPONENT_PKG in $(/usr/bin/find "/tmp/%NAME%.app" -name "*.pkg" ! -name "*Licensing*.pkg"); do
+        writelog "Installing ${COMPONENT_PKG}..."
+        if ! /usr/sbin/installer -pkg "${COMPONENT_PKG}" -target /; then
+            writelog "Could not install ${COMPONENT_PKG}. Please inspect the Autodesk setup logs for more info."
+            EXIT_CODE=1
+        else
+            writelog "${COMPONENT_PKG} install successful."
+        fi
+    done
+
+    # Install ODIS, if it's there
+    for ODIS_SCRIPT in $(/usr/bin/find "/tmp/%NAME%.app" -name "installbuilder.sh"); do
+        if [[ -n ${ODIS_SCRIPT} ]]; then
+            writelog "Installing ${ODIS_SCRIPT}..."
+            if ! "${ODIS_SCRIPT}" --mode unattended --unattendedmodeui none; then
+                writelog "Could not install ${ODIS_SCRIPT}. Please inspect the Autodesk setup logs for more info."
+                EXIT_CODE=1
+            else
+                writelog "${ODIS_SCRIPT} install successful."
+            fi
+        fi
+    done
+    unset IFS
+
+    # Run postInstallODISMaster, if it's there
+    for POSTINSTALLODISMASTER_SH in $(/usr/bin/find "/tmp/%NAME%.app" -name "postInstallODISMaster.sh"); do
+        if [[ -n ${POSTINSTALLODISMASTER_SH} ]]; then
+            writelog "Installing ${POSTINSTALLODISMASTER_SH}..."
+            if ! "${POSTINSTALLODISMASTER_SH}" nobody; then
+                writelog "Could not install ${POSTINSTALLODISMASTER_SH}. Please inspect the Autodesk setup logs for more info."
+                EXIT_CODE=1
+            else
+                writelog "${POSTINSTALLODISMASTER_SH} install successful."
+            fi
+        fi
+    done
+else
+    writelog "No %NAME% %VER% installer binary was found. Bailing..."
+    exit 1
+fi
+
+if [[ ${EXIT_CODE} -ne 0 ]]; then
+    writelog "Could not install %NAME% %VER%. Please inspect the Autodesk setup logs for more info. Bailing..."
+    exit 1
+else
+    writelog "%NAME% %VER% install successful."
+fi
+
+# Activate application
+writelog "Licensing %NAME% %VER%..."
+PIT_FILE=$(/usr/bin/find "/Library/Application Support/Autodesk" -name ProductInformation.pit)
+if ! "/Library/Application Support/Autodesk/AdskLicensing/Current/helper/AdskLicensingInstHelper" \
+    register \
+    --cf "${PIT_FILE}" \
+    --prod_key %PK% \
+    --prod_ver %PV% \
+    --eula_locale %EL% \
+    --serial_number %SN% \
+    --lic_method %LM% --lic_servers '@'%LS%; then
+    writelog "Could not license %NAME% %VER%. Please inspect the Autodesk setup logs for more info. Bailing..."
+    cleanup
+    exit 1
+else
+    writelog "%NAME% %VER% licensing successful."
+    cleanup
+fi
+
+# A few permissions and silly installer fixes
+/bin/chmod -R 755 "/Library/Application Support/Autodesk"
+CURRENT_USER=$(/bin/echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }')
+if [[ -n ${CURRENT_USER} ]]; then
+    CURRENT_USER_HOME=$(/usr/bin/finger -m ${CURRENT_USER} | awk '/^Directory/ {print $2}')
+    if [[ -e "${CURRENT_USER_HOME}/Library/Application Support/Autodesk" ]]; then
+        writelog "Fixing a permissions bug for "${CURRENT_USER}"... psssh..."
+        /usr/sbin/chown -R "${CURRENT_USER}" "${CURRENT_USER_HOME}/Library/Application Support/Autodesk"
+    fi
+fi</string>
+                <key>file_mode</key>
+                <string>0755</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>AutodeskPostInstallSetup</string>
+            <key>Arguments</key>
+            <dict>
+                <key>PRODUCT_VERSION</key>
+                <string>%VERSION_YEAR%.0.0.F</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_request</key>
+                <dict>
+                    <key>pkgname</key>
+                    <string>%NAME%-%VERSION_YEAR%</string>
+                    <key>id</key>
+                    <string>com.autodesk.AutoCAD%VERSION_YEAR%</string>
+                    <key>options</key>
+                    <string>purge_ds_store</string>
+                    <key>pkgroot</key>
+                    <string>%RECIPE_CACHE_DIR%/payload/root</string>
+                    <key>scripts</key>
+                    <string>%RECIPE_CACHE_DIR%/payload/scripts</string>
+                    <key>version</key>
+                    <string>%VERSION_YEAR%</string>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
