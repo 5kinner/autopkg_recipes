@@ -156,10 +156,6 @@ Process:
     file_mode: '0755'
     file_path: '%RECIPE_CACHE_DIR%/payload/scripts/postinstall'
 
-- Processor: AutodeskPostInstallSetup
-  Arguments:
-    PRODUCT_VERSION: '%VERSION_YEAR%.0.0.F'
-
 - Processor: PkgCreator
   Arguments:
     pkg_request:
