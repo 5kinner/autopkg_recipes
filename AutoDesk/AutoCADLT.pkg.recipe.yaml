@@ -130,10 +130,10 @@ Process:
       if ! "/Library/Application Support/Autodesk/AdskLicensing/Current/helper/AdskLicensingInstHelper" \\
           register \\
           --cf "${PIT_FILE}" \\
-          --prod_key %PK% \\
-          --prod_ver %PV% \\
-          --eula_locale %EL% \\
-          --lic_method "USER"; then
+          --prod_key 057P1 \\
+          --prod_ver 2024 \\
+          --eula_locale GB \\
+          --lic_method USER; then
           writelog "Could not license %NAME% %VER%. Please inspect the Autodesk setup logs for more info. Bailing..."
           cleanup
           exit 1
