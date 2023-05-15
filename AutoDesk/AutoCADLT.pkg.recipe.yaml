@@ -17,7 +17,6 @@ Process:
   Arguments:
     pkgdirs:
       root/private/tmp: '0777'
-      scripts: '0755'
     pkgroot: '%RECIPE_CACHE_DIR%/payload'
 
 - Processor: Copier
@@ -29,8 +28,6 @@ Process:
   Arguments:
     pkg_request:
       id: com.autodesk.AutoCADLT%VERSION_YEAR%
-      options: purge_ds_store
       pkgname: '%NAME%-%VERSION_YEAR%'
       pkgroot: '%RECIPE_CACHE_DIR%/payload/root'
-      scripts: '%RECIPE_CACHE_DIR%/payload/scripts'
       version: '%VERSION_YEAR%'
