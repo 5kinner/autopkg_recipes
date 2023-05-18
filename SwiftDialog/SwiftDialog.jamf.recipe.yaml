@@ -1,0 +1,39 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.SwiftDialog
+ParentRecipe: com.github.grahampugh.recipes.pkg.swiftDialog
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Swift Dialog
+  CATEGORY: Applications
+  POLICY_CATEGORY: Development
+  GROUP_NAME: Swiftdialog-update-smart
+  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
+  TESTING_GROUP_NAME: Testing
+  POLICY_NAME: Auto Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_update-smart-NOselfservice.xml
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+    - Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    replace_policy: "True"
+
+
