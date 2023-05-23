@@ -11,25 +11,7 @@ Process:
   Arguments:
     input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app/Contents/info.plist'
 
-- Processor: PkgRootCreator
+- Processor: AppPkgCreator
   Arguments:
-    pkgdirs:
-      Applications: '0775'
-    pkgroot: '%RECIPE_CACHE_DIR%/%NAME%'
-
-- Processor: Copier
-  Arguments:
-    destination_path: '%pkgroot%/Applications/BrowserStackLocal.app'
-    source_path: '%pathname%/BrowserStackLocal.app'
-
-- Processor: PkgCreator
-  Arguments:
-    pkg_request:
-      chown:
-      - group: admin
-        path: Applications
-        user: root
-      id: com.browserstack.local.pkg
-      options: purge_ds_store
-      pkgdir: '%RECIPE_CACHE_DIR%'
-      pkgname: '%NAME%-%version%'
+    version: '%version%'
+    app_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app'
