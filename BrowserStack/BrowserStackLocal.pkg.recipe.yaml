@@ -7,9 +7,9 @@ Input:
   NAME: BrowserStack Local
 
 Process:
-- Processor: AppDmgVersioner
+- Processor: Versioner
   Arguments:
-    dmg_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app'
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app/Contents/info.plist'
 
 - Processor: PkgRootCreator
   Arguments:
