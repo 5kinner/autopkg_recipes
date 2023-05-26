@@ -17,7 +17,6 @@ Input:
 
     Version: %version%
   SELFSERVICE_ICON: TableauPrep.png
-  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
