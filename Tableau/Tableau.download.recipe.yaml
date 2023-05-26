@@ -1,0 +1,24 @@
+Description: Downloads a specified version of Tableau software.
+Identifier: com.github.5kinner-recipes.download.TableauProduct
+MinimumVersion: '2.3'
+Comment: Tested only for specfici version on Prep or Desktop
+
+Input:
+  NAME: Tableau
+  PRODUCT: Prep
+  DL_Version: 2023-1-0
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: https://downloads.tableau.com/tssoftware/Tableau%PRODUCT%-%DL_Version%.dmg
+
+- Processor: EndOfCheckPhase
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%/*.pkg'
+    expected_authority_names:
+     - 'Developer ID Installer: Tableau Software, LLC (QJ4XPRK37C)'
+     - 'Developer ID Certification Authority'
+     - 'Apple Root CA'
