@@ -4,7 +4,7 @@ ParentRecipe: com.github.5kinner-recipes.pkg.TableauProduct
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Tableau Product
+  NAME: Tableau Prep
   CATEGORY: Applications
   AD_GROUP: AD Group
   TESTER_USERNAME: TESTER
