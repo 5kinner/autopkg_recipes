@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of Photo Mechanic then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.PhotoMechanic
-ParentRecipe: com.github.poundbangbash.eholtam-recipes.pkg.photomechanic
+ParentRecipe: com.github.5kinner-recipes.pkg.PhotoMechanic
 MinimumVersion: '2.3'
 
 Input:
