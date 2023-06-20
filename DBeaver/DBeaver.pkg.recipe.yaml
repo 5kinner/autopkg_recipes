@@ -1,0 +1,13 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.pkg.DBeaver
+ParentRecipe: com.github.peshay.download.DBeaverCE
+MinimumVersion: '2.3'
+
+Input:
+  NAME: DBeaver
+
+Process:
+- Processor: AppPkgCreator
+  Arguments:
+    version: '%version%'
+    app_path: '%pathname%'
