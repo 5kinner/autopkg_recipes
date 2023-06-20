@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.DBeaver
-ParentRecipe: com.github.ahousseini-recipes.pkg.DBeaver
+ParentRecipe: com.github.5kinner-recipes.pkg.DBeaver
 MinimumVersion: '2.3'
 
 Input:
