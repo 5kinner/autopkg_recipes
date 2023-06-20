@@ -20,7 +20,6 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%-%version%-%ARCH_TYPE%.%INSTALLER_TYPE%'
     url: '%url%'
 
 - Processor: CodeSignatureVerifier
