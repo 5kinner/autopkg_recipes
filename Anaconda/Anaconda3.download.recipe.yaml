@@ -15,10 +15,6 @@ Input:
 Process:
 - Processor: URLTextSearcher
   Arguments:
-    url: '%SEARCH_URL%'
-
-- Processor: URLTextSearcher
-  Arguments:
     re_pattern: '%SEARCH_PATTERN%'
     url: '%SEARCH_URL%'
 
