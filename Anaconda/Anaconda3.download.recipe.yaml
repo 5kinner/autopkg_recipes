@@ -3,14 +3,14 @@ Description: |
   Different installer types are available. Use INSTALLER_TYPE
   to chose between 'sh' or 'pkg'. Use ARCH_TYPE to choose between Architecture types 'x86_64' or 'arm64'
 Identifier: com.github.5kinner-recipes.download.Anaconda3
-MinimumVersion: 2.3
+MinimumVersion: '2.3'
 
 Input:
   NAME: Anaconda
   INSTALLER_TYPE: pkg
   ARCH_TYPE: arm64
   SEARCH_URL: https://www.anaconda.com/download/#macos
-  SEARCH_PATTERN: https://repo\.anaconda\.com/archive/Anaconda3-[0-9]+\.[0-9]+-[0-9]+-MacOSX-%ARCH_TYPE%\.%INSTALLER_TYPE%
+  SEARCH_PATTERN: (https://repo\.anaconda\.com/archive/Anaconda3-[0-9]+\.[0-9]+-[0-9]+-MacOSX-%ARCH_TYPE%\.%INSTALLER_TYPE%)
 
 Process:
 - Processor: URLTextSearcher
@@ -30,7 +30,7 @@ Process:
 - Processor: CodeSignatureVerifier
   Arguments:
     expected_authority_names:
-    - 'Developer ID Installer: Anaconda, Inc (Z5788K4JT7)'
+    - 'Developer ID Installer: Anaconda, Inc (W7B24M74T3)'
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
