@@ -6,18 +6,12 @@ MinimumVersion: '2.3'
 Input:
   NAME: VLC
   CATEGORY: Applications
-  GROUP_NAME: AUTOPKG_VLC-Update-Smart
+  GROUP_NAME: AutoPkg_VLC-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
-  TESTING_GROUP_NAME: 
-  POLICY_CATEGORY: Applications
-  POLICY_NAME: AutoPKG Auto Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
-  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
-  SELFSERVICE_ICON: VLC.png
+  TESTING_GROUP_NAME: Testers
+  POLICY_CATEGORY: Auto Updating
+  POLICY_NAME: AutoPkg Auto Install Latest %NAME%
+  POLICY_TEMPLATE: Policy_update-smart-NOselfservice.xml
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
