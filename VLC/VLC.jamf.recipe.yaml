@@ -9,12 +9,9 @@ Input:
   GROUP_NAME: AutoPkg_VLC-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   TESTING_GROUP_NAME: Testers
-  POLICY_CATEGORY: Auto Updating
-  POLICY_NAME: AutoPkg Auto Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_update-smart-NOselfservice.xml
-  POLICY_CATEGORY2: Applications
-  POLICY_NAME2: Install Latest %NAME%
-  POLICY_TEMPLATE2: Policy_selfservice_AllComputers.xml
+  POLICY_NAME: Install Latest %NAME%
+  POLICY_CATEGORY: Applications
+  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
@@ -42,14 +39,14 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
     policy_name: '%POLICY_NAME%'
+    policy_category: '%POLICY_CATEGORY%'
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_name: '%POLICY_NAME2%'
-    policy_category: '%POLICY_CATEGORY2%'
-    policy_template: '%POLICY_TEMPLATE2%'
-    icon: '%SELFSERVICE_ICON%'
+    policy_name: 'AutoPkg Auto Install Latest %NAME%'
+    policy_category: 'Auto Updating'
+    policy_template: 'Policy_update-smart-NOselfservice.xml'
     replace_policy: "True"
