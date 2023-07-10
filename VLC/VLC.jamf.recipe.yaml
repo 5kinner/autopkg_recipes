@@ -7,7 +7,7 @@ Input:
   NAME: VLC
   CATEGORY: Applications
   GROUP_NAME: AutoPkg - VLC-Auto-Update
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
+  GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   TESTING_GROUP_NAME: Testers
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
