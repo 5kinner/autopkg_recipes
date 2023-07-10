@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <policy>
   <general>
-    <name>%POLICY_NAME%</name>
+    <name>%policy_name%</name>
     <enabled>true</enabled>
     <frequency>Ongoing</frequency>
     <category>
-      <name>%POLICY_CATEGORY%</name>
+      <name>%policy_category%</name>
     </category>
     <override_default_settings>
       <force_afp_smb>false</force_afp_smb>
@@ -26,7 +26,7 @@
     <feature_on_main_page>false</feature_on_main_page>
     <self_service_categories>
       <category>
-        <name>%POLICY_CATEGORY%</name>
+        <name>%policy_category%</name>
         <display_in>true</display_in>
         <feature_in>false</feature_in>
       </category>
