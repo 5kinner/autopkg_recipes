@@ -46,7 +46,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_name: 'AutoPkg Auto Install Latest %NAME%'
+    policy_name: 'AutoPkg Auto Update %NAME%'
     policy_category: 'Auto Updating'
     policy_template: 'Policy_update-smart-NOselfservice.xml'
     replace_policy: "True"
