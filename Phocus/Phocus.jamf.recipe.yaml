@@ -8,6 +8,7 @@ Input:
   CATEGORY: My Applications
   GROUP_NAME: AutoPkg - Phocus-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
+  AD_GROUP: AD Group
   TESTER_USERNAME: Tester
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
