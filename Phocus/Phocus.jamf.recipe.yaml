@@ -16,6 +16,7 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: Phocus.png
+  COMPLETE_MSG: Message
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -36,7 +37,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_selfservice_AD_Group.xml'
+    policy_template: 'Policy_selfservice_AD_Group_withCompleteMSG.xml'
     policy_name: 'Install Latest %NAME%'
     policy_category: 'My Applications'
     icon: '%SELFSERVICE_ICON%'
