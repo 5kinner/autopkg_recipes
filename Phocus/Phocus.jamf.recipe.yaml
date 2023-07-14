@@ -37,7 +37,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_selfservice_AD_Group_withCompleteMSG.xml'
+    policy_template: 'Policy_selfservice_AD_Group.xml'
     policy_name: 'Install Latest %NAME%'
     policy_category: 'My Applications'
     icon: '%SELFSERVICE_ICON%'
@@ -45,7 +45,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_update-smart-NOselfservice.xml'
+    policy_template: 'Policy_update-smart-NOselfservice_withCompleteMSG.xml'
     policy_name: 'AutoPkg Auto Update %NAME%'
     policy_category: 'Auto Updating'
     replace_policy: "True"
