@@ -33,6 +33,7 @@ Process:
     policy_name: '%POLICY_NAME%'
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
+    policy_category: '%POLICY_CATEGORY%'
     replace_policy: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
