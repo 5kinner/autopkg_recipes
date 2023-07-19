@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Terraform
-ParentRecipe: com.github.homebysix.pkg.Terraform
+ParentRecipe: com.github.timsutton.pkg.Terraform
 MinimumVersion: '2.3'
 
 Input:
