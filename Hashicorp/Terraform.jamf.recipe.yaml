@@ -1,10 +1,10 @@
 Description: Downloads and creates a PKG of then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Sketch
-ParentRecipe: com.github.homebysix.pkg.Sketch
+Identifier: com.github.5kinner-recipes.jamf.Terraform
+ParentRecipe: com.github.homebysix.pkg.Terraform
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Sketch
+  NAME: Terraform
   CATEGORY: Applications
   AD_GROUP: AD Group
   TESTER_USERNAME: TESTER
@@ -16,7 +16,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: Sketch.png
+  SELFSERVICE_ICON: Terraform.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
