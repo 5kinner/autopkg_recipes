@@ -3,7 +3,7 @@
         <general>
             <name>%policy_name%</name>
             <enabled>true</enabled>
-            <trigger>CHECK_IN</trigger>
+            <trigger>CHECKIN</trigger>
             <trigger_checkin>true</trigger_checkin>
             <frequency>Ongoing</frequency>
             <category>
