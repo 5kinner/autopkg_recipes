@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Sketch
-ParentRecipe: com.github.timsutton.pkg.Sketch
+ParentRecipe: com.github.homebysix.pkg.Sketch
 MinimumVersion: '2.3'
 
 Input:
