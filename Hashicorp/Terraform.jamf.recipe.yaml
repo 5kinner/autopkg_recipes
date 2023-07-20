@@ -7,7 +7,7 @@ Input:
   NAME: Terraform
   CATEGORY: Applications
   AD_GROUP: AD Group
-  TESTER_USERNAME: TESTER
+  TESTER_USERNAME: TESTER_NAME
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
