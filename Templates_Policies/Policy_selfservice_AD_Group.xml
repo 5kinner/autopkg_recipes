@@ -5,7 +5,7 @@
     <enabled>true</enabled>
     <frequency>Ongoing</frequency>
     <category>
-      <name>%policy_category%</name>
+      <name>%POLICY_CATEGORY%</name>
     </category>
   </general>
   <scope>
@@ -41,7 +41,7 @@
     <feature_on_main_page>false</feature_on_main_page>
     <self_service_categories>
       <category>
-        <name>%policy_category%</name>
+        <name>%POLICY_CATEGORY%</name>
         <display_in>true</display_in>
         <feature_in>false</feature_in>
       </category>

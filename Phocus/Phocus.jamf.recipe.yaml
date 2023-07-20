@@ -10,6 +10,7 @@ Input:
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   AD_GROUP: AD Group
   TESTER_USERNAME: Tester
+  SELF_SERVICE_POLICY_CATEGORY: My Applications
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
@@ -39,7 +40,7 @@ Process:
   Arguments:
     policy_template: 'Policy_selfservice_AD_Group.xml'
     policy_name: 'Install Latest %NAME%'
-    policy_category: 'My Applications'
+    policy_category: '%SELF_SERVICE_POLICY_CATEGORY%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
 
