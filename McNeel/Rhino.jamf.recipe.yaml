@@ -37,3 +37,5 @@ Process:
     replace_policy: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_macth: '%NAME%'
