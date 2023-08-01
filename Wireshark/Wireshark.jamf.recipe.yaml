@@ -1,0 +1,37 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.Wireshark
+ParentRecipe: com.github.homebysix.pkg.Wireshark
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Wireshark
+  CATEGORY: Applications
+  GROUP_NAME: AutoPkg - Wireshark-Needs-Update
+  GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
+  TESTER_USERNAME: Tester
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_template: 'Policy_customtrigger_AllComputers.xml'
+    policy_name: 'Install Latest %NAME% User Initiated'
+    policy_category: '%CATEGORY%'
+    replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
