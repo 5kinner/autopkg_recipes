@@ -6,6 +6,7 @@ MinimumVersion: '2.3'
 Input:
   NAME: Wireshark
   CATEGORY: Applications
+  POLICY_NAME: Install Wireshark
   GROUP_NAME: AutoPkg - Wireshark-Needs-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   TESTER_USERNAME: Tester
@@ -31,7 +32,7 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
     policy_template: 'Policy_customtrigger_AllComputers.xml'
-    policy_name: 'Install Latest %NAME% User Initiated'
+    policy_name: '%POLICY_NAME%'
     policy_category: '%CATEGORY%'
     replace_policy: "True"
 
