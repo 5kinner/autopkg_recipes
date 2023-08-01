@@ -9,6 +9,7 @@ Input:
   GROUP_NAME: AutoPkg - Wireshark-Needs-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   TESTER_USERNAME: Tester
+  CUSTOM_TRIGGER: Jamf Trigger
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
