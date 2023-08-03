@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Keyshot12
-ParentRecipe: com.github.5kinner-recipes.download.Keyshot12
+ParentRecipe: com.github.jazzace.pkg.keyshot
 MinimumVersion: '2.3'
 
 Input:
@@ -36,3 +36,5 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
