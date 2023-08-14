@@ -8,13 +8,14 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
+  POLICY_TEMPLATE: Policy_selfservice_withRunCommand.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
     Installs the Latest Version %NAME%
 
     Version: *%version%*
   SELFSERVICE_ICON: MSEdge2022.png
+  POLICY_RUN_COMMAND: 'chown -R "$(stat -f%Su /dev/console):admin" "/Applications/%NAME%.app" && echo "Corrected permissions for %NAME%."'
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
