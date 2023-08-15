@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.AdoberAcrobat
-ParentRecipe: com.github.autopkg.pkg.AdobeReader
+ParentRecipe: com.github.novaksam.pkg.AdobeAcrobatDCUpdate
 MinimumVersion: '2.3'
 
 Input:
