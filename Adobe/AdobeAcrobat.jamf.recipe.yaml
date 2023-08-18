@@ -7,9 +7,10 @@ Input:
   NAME: Adobe Acrobat
   CATEGORY: My Applications
   GROUP_NAME: AutoPkg - Adobe Acrobat-Auto-Update
-  GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
+  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
+  TESTING_GROUP_NAME: Testers
   POLICY_NAME: Autopkg Auto Update %NAME%
-  POLICY_TEMPLATE: Policy_update-smart-NOselfservice_withCompleteMSG.xml
+  POLICY_TEMPLATE: Policy_update-smart-NOselfservice_withCompleteMSG_andTester
   POLICY_CATEGORY: Auto Updating
   TESTER_USERNAME: Tester
   UPDATE_PREDICATE: pkg_uploaded == False
