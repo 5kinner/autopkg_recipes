@@ -13,6 +13,7 @@ Input:
   POLICY_TEMPLATE: Policy_update-smart-NOselfservice_withCompleteMSG_andTester
   POLICY_CATEGORY: Auto Updating
   TESTER_USERNAME: Tester
+  COMPLETE_MSG: Message
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
