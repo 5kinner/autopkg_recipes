@@ -10,7 +10,7 @@ Input:
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   TESTING_GROUP_NAME: Testers
   POLICY_NAME: Autopkg Auto Update %NAME%
-  POLICY_TEMPLATE: Policy_update-smart-NOselfservice_withCompleteMSG_andTester
+  POLICY_TEMPLATE: Policy_update-smart-NOselfservice_withCompleteMSG_andTester.xml
   POLICY_CATEGORY: Auto Updating
   TESTER_USERNAME: Tester
   COMPLETE_MSG: Message
