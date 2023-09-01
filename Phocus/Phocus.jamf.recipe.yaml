@@ -35,6 +35,7 @@ Process:
   Arguments:
     computergroup_name: '%GROUP_NAME%'
     computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
