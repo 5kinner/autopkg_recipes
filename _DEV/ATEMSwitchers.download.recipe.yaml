@@ -1,5 +1,5 @@
 Description: |
-  Downloads latest version of DaVinci Resolve 18.
+  Downloads latest version of ATEM Switchers.
   
   This product requires registration in order to download, so
   you _must_ override all input variables beginning with 'REG_'
@@ -7,18 +7,12 @@ Description: |
   
   Notably, REG_COUNTRY must contain sane values:
   - REG_COUNTRY is of the form 'us', 'ca', etc.
-Identifier: com.github.5kinner-recipes.download.atemswitchers
-MinimumVersion: 2.0.0
+Identifier: com.github.5kinner-recipes.pkg.ATEMswitchers
+ParentRecipe: com.github.timsutton.download.davinciresolve18
+MinimumVersion: '2.3'
 
 Input:
-  NAME: ATEMSwitchers
-  PRODUCT_NAME_PATTERN: ^ATEM Switchers (?P<version>9(\.\d+)*)( Update)*$
-  REG_FIRSTNAME: John
-  REG_LASTNAME: Smith
-  REG_EMAIL: JS@gmail.com
-  REG_PHONE: '1234567890'
-  REG_CITY: Oklahama
-  REG_COUNTRY: en
+  NAME: ATEM Switchers
 
 Process:
 - Processor: com.github.timsutton.Blackmagic/BlackMagicURLProvider
