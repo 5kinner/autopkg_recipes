@@ -41,7 +41,7 @@ Notably, REG_COUNTRY must contain sane values:
     <array>
         <dict>
             <key>Processor</key>
-            <string>com.github.timsutton-recipes/BlackMagicURLProvider</string>
+            <string>com.github.timsutton-recipes.BlackMagic/BlackMagicURLProvider</string>
             <key>Arguments</key>
             <dict>
                 <key>product_name_pattern</key>
