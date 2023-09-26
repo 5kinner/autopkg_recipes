@@ -35,6 +35,6 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%-%version%.zip'
+    filename: '%NAME%-%version%.dmg'
 
 - Processor: EndOfCheckPhase
