@@ -21,7 +21,7 @@ Input:
   REG_COUNTRY: en
 
 Process:
-- Processor: com.github.timsutton.Blackmagic/BlackMagicURLProvider
+- Processor: com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider
   Arguments:
     product_name: Atem Switchers
     product_name_pattern: '%PRODUCT_NAME_PATTERN%'
