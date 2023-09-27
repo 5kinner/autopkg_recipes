@@ -1,0 +1,18 @@
+Description: |
+  Downloads and packages the latest version of ATEM Switchers.
+  
+  This product requires registration in order to download, so
+  you _must_ override all input variables beginning with 'REG_'
+  and they must contain data.
+  
+  Notably, REG_COUNTRY must contain sane values:
+  - REG_COUNTRY is of the form 'us', 'ca', etc.
+Identifier: com.github.5kinner-recipes.download.ATEMswitchers
+MinimumVersion: '2.3'
+
+Input:
+  NAME: ATEMSwitchers
+
+Process:
+- Processor: Unarchiver
+
