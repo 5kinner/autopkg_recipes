@@ -19,7 +19,7 @@ Process:
 
   - Processor: FileFinder
     Arguments:
-      pattern: '%RECIPE_CACHE_DIR%/ATEMSwitchers/*.dmg'
+      pattern: '%RECIPE_CACHE_DIR%/ATEM Switchers/*.dmg'
 
   - Processor: PkgCopier
     Arguments:
