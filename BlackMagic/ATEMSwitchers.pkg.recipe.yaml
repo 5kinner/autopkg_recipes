@@ -17,6 +17,10 @@ Input:
 Process:
   - Processor: Unarchiver
 
+  - Processor: FileFinder
+    Arguments:
+      pattern: '%RECIPE_CACHE_DIR%/ATEMSwitchers/*.dmg'
+
   - Processor: PkgCopier
     Arguments:
-      source_pkg: "%pathname%/*.pkg"
+      source_pkg: "%found_filename%/*.pkg"
