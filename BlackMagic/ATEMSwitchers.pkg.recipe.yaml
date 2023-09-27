@@ -15,8 +15,8 @@ Input:
   NAME: ATEMSwitchers
 
 Process:
-- Processor: Unarchiver
+  - Processor: Unarchiver
 
-- Processor: PkgCopier
-   Arguments:
-    source_pkg: "%found_filename%/*.pkg"
+  - Processor: PkgCopier
+    Arguments:
+      source_pkg: "%found_filename%/*.pkg"
