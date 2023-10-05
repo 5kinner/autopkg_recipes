@@ -8,4 +8,4 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: https://www.foxit.com/downloads/latest.html?product=Foxit-Editor&platform=Mac-OS-X&version=&package_type=&distID=
+    url: https://www.foxit.com/downloads/latest.html?product=FoxitPDFEditor&platform=Mac-OS-X&version=&package_type=&distID=
