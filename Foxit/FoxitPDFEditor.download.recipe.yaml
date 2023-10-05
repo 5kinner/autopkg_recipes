@@ -1,0 +1,42 @@
+Description: Download recipe for the latest version of Foxit PDF Editor.
+Identifier: com.github.5kinner-recipes.download.FoxitPDFEditor
+MinimumVersion: 2.3
+
+Input:
+  NAME: Foxit PDF Editor
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%.pkg'
+    url: https://www.foxit.com/downloads/latest.html?product=Foxit-Editor&platform=Mac-OS-X&version=&package_type=&distID=
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: Foxit Corporation (8GN47HTP75)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg'
+
+- Processor: FlatPkgUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/extracted_pkg/'
+    flat_pkg_path: '%RECIPE_CACHE_DIR%/downloads/%NAME%.pkg'
+
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/extracted_pkg/*.pkg'
+
+- Processor: PkgPayloadUnpacker
+  Arguments:
+    destination_path: '%RECIPE_CACHE_DIR%/extracted_pkg/payload'
+    pkg_payload_path: '%RECIPE_CACHE_DIR%/extracted_pkg/%found_basename%/payload'
+
+- Processor: FileFinder
+  Arguments:
+    pattern: '%RECIPE_CACHE_DIR%/extracted_pkg/payload/Applications/*.app'
+
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%found_filename%/Contents/Info.plist'
