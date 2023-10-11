@@ -1,14 +1,14 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.SPSS
-ParentRecipe: com.github.mlbz521.pkg.SPSSStatistics
+ParentRecipe: com.github.5kinner-recipes.pkg.SPSS
 MinimumVersion: '2.3'
 
 Input:
-  NAME: SPSS
-  CATEGORY: Applications
+  NAME: IBM SPSS
+  CATEGORY: My Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group
-  POLICY_CATEGORY: UNTESTED
+  POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
@@ -16,7 +16,7 @@ Input:
     Installs the Latest Version %NAME%
 
     Version: *%version%*
-  SELFSERVICE_ICON: SPSS.png
+  SELFSERVICE_ICON: IBM_SPSS.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
