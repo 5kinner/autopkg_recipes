@@ -3,7 +3,7 @@ Description: |
 Identifier: com.github.5kinner-recipes.download.SPSS
 
 Input:
-  NAME: SPSS
+  NAME: IBM SPSS
   SEARCH_STRING: SPSS
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''

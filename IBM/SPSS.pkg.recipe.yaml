@@ -4,7 +4,7 @@ ParentRecipe: com.github.5kinner-recipes.download.SPSS
 MinimumVersion: '2.3'
 
 Input:
-  NAME: SPSS
+  NAME: IBM SPSS
 
 Process:
   - Processor: FlatPkgUnpacker
