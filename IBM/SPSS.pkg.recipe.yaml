@@ -10,7 +10,7 @@ Process:
   - Processor: FlatPkgUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      flat_pkg_path: "%pathname%"
+      flat_pkg_path: "%found_filename%"
 
   - Processor: PkgPayloadUnpacker
     Arguments:
