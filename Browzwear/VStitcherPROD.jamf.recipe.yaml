@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.BrowzwearVStitcherTPROD
+Identifier: com.github.5kinner-recipes.jamf.BrowzwearVStitcherPROD
 MinimumVersion: '2.3'
 
 Input:
