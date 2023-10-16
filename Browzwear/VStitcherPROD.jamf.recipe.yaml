@@ -21,6 +21,8 @@ Input:
 
 Process:
 - Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
+  Arguments:
+    recipeoverride_identifier: com.test.recipe
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
