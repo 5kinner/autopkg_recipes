@@ -17,12 +17,13 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: VStitcher2022.png
+  RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
 - Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
   Arguments:
-    recipeoverride_identifier: com.test.recipe
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
