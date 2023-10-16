@@ -20,7 +20,7 @@ Input:
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.recipes.postprocessors/LastRecipeRunChecker
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
