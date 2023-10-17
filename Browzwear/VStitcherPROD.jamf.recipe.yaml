@@ -32,3 +32,9 @@ Process:
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
 
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: 'Policy_selfservice_Group.xml'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
