@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.BrowzwearLotta
+Identifier: com.github.5kinner-recipes.jamf.BrowzwearLottaTEST
 ParentRecipe: com.github.5kinner-recipes.pkg.BrowzwearLotta
 MinimumVersion: '2.3'
 
@@ -18,7 +18,6 @@ Input:
 
     Version: *%version%*
   SELFSERVICE_ICON: Lotta2022.png
-  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -36,3 +35,5 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+
+- Processor: com.github.grahampugh.recipes.postprocessors/LastRecipeRunResult
