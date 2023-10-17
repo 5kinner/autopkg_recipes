@@ -11,6 +11,7 @@ Input:
   GROUP_NAME: Off Network
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
+  POLICY_NAME2: Off Network
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELF_SERVICE_DESCRIPTION: |
@@ -35,7 +36,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_name: '%POLICY_NAME%'
+    policy_name: '%POLICY_NAME2%'
     policy_template: 'Policy_selfservice_Group.xml'
     group_name: '%GROUP_NAME%'
     icon: '%SELFSERVICE_ICON%'
