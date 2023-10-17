@@ -8,6 +8,7 @@ Input:
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
+  GROUP_NAME: Off Network
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
@@ -36,5 +37,6 @@ Process:
   Arguments:
     policy_name: '%POLICY_NAME%'
     policy_template: 'Policy_selfservice_Group.xml'
+    group_name: '%GROUP_NAME%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
