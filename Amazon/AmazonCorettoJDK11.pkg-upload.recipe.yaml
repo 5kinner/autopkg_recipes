@@ -11,3 +11,5 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
