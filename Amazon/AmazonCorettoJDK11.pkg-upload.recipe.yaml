@@ -13,3 +13,5 @@ Process:
     pkg_category: '%CATEGORY%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "Amazon_Coretto_Java_JDK"
