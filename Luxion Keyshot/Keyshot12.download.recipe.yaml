@@ -14,7 +14,6 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    filename: '%NAME%_v%version%.pkg'
     url: https://download.keyshot.com/keyshot2023/keyshot_mac64_2023.2_%version%.pkg
 
 - Processor: EndOfCheckPhase
