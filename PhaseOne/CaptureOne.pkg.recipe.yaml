@@ -19,8 +19,8 @@ Process:
 
 - Processor: Copier
   Arguments:
-    destination_path: '%pkgroot%/Applications/Capture One 23.app'
-    source_path: '%pathname%/Capture One 23.app'
+    destination_path: '%pkgroot%/Applications/Capture One.app'
+    source_path: '%pathname%/Capture One.app'
 
 - Processor: PkgCreator
   Arguments:
