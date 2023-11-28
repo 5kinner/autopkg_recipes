@@ -8,13 +8,13 @@ Input:
 Process:
 - Processor: URLTextSearcher
   Arguments:
-    re_pattern: https:\/\/download\.keyshot\.com\/keyshot2023\/keyshot_mac64_2023.2_([0-9]+(\.[0-9]+)+)\.pkg
+    re_pattern: https:\/\/download\.keyshot\.com\/keyshot2023\/keyshot_mac64_2023.3_([0-9]+(\.[0-9]+)+)\.pkg
     result_output_var_name: version
     url: https://www.keyshot.com/direct-downloads/
 
 - Processor: URLDownloader
   Arguments:
-    url: https://download.keyshot.com/keyshot2023/keyshot_mac64_2023.2_%version%.pkg
+    url: https://download.keyshot.com/keyshot2023/keyshot_mac64_2023.3_%version%.pkg
 
 - Processor: EndOfCheckPhase
 
