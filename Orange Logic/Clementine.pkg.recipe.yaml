@@ -1,0 +1,12 @@
+Description: Downloads the Staged version of Orange Logic Clementine from a local file share and creates a PKG
+Identifier: com.github.5kinner-recipes.pkg.Clementine
+ParentRecipe: com.github.5kinner-recipes.download.Clementine
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Clementine
+
+Process:
+  - Processor: AppPkgCreator
+    Arguments:
+      app_path: "%found_filename%/*.app"
