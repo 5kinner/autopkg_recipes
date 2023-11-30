@@ -1,9 +1,9 @@
-Description: Downloads the Staged version of Orange Logic Clementine from a local file share.
-Identifier: com.github.5kinner-recipes.download.Clementine
+Description: Downloads the Staged version of Orange Logic Cortex from a local file share.
+Identifier: com.github.5kinner-recipes.download.Cortex
 
 Input:
-  NAME: Clementine
-  SEARCH_STRING: ClementineSetup
+  NAME: Cortex
+  SEARCH_STRING: Cortex Tools
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''
   NAME_EXCEPTION: ''
