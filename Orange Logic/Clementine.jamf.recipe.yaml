@@ -30,8 +30,7 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
-    SELF_SERVICE_DESCRIPTION: '|
-    Installs the Latest Version %NAME%
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
 
     Version: *%version%*'
 
