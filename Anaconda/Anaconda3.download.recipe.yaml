@@ -30,4 +30,8 @@ Process:
     - Apple Root CA
     input_path: '%pathname%'
 
+- Processor: com.github.grahampugh.recipes.commonprocessors/PkgInfoReader
+  Arguments:
+    source_pkg: "%pathname%"
+
 - Processor: EndOfCheckPhase
