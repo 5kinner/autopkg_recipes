@@ -30,8 +30,10 @@ Process:
     - Apple Root CA
     input_path: '%pathname%'
 
-- Processor: com.github.grahampugh.recipes.commonprocessors/PkgInfoReader
+- Processor: com.github.jazzace.processors/TextSearcher
   Arguments:
-    source_pkg: "%pathname%"
+    re_pattern: "[0-9]+.[0-9]+-[0-9]+"
+    result_output_var_name: "version"
+    text_in: "%pathname%"
 
 - Processor: EndOfCheckPhase
