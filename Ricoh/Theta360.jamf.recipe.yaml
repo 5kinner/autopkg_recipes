@@ -34,4 +34,3 @@ Process:
     Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
-  Arguments:
