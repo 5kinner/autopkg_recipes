@@ -37,4 +37,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    versions_to_keep: 2
+    pkg_name_match: "Visual Studio Code"
+    versions_to_keep: 3
