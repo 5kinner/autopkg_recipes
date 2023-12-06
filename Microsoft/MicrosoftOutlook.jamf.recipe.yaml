@@ -10,10 +10,6 @@ Input:
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
   SELFSERVICE_ICON: MSOUT2022.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
@@ -32,3 +28,11 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "Microsoft_Outlook"
