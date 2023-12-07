@@ -14,10 +14,6 @@ Input:
   POLICY_NAME2: Off Network
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
   SELFSERVICE_ICON: VStitcher2022.png
   RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -33,6 +29,10 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -41,3 +41,11 @@ Process:
     group_name: '%GROUP_NAME%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 5
