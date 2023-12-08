@@ -33,7 +33,7 @@ Process:
   Arguments:
     policy_template: 'Policy_selfservice_AllComputers.xml'
     policy_name: 'Install Latest %NAME%'
-    policy_category: 'Applications'
+    POLICY_CATEGORY: 'Applications'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
