@@ -10,10 +10,6 @@ Input:
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   TESTING_GROUP_NAME: Testers
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
   SELFSERVICE_ICON: VLC.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
@@ -40,6 +36,10 @@ Process:
     policy_category: 'Applications'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -47,3 +47,7 @@ Process:
     policy_name: 'AutoPkg Auto Update %NAME%'
     policy_category: 'Auto Updating'
     replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 4
