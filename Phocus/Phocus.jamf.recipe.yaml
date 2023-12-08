@@ -12,10 +12,6 @@ Input:
   TESTER_USERNAME: Tester
   POLICY_CATEGORY: My Applications
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
   SELFSERVICE_ICON: Phocus.png
   COMPLETE_MSG: Message
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -44,6 +40,10 @@ Process:
     policy_category: '%POLICY_CATEGORY%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -51,3 +51,7 @@ Process:
     policy_name: 'AutoPkg Auto Update %NAME%'
     policy_category: 'Auto Updating'
     replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 2
