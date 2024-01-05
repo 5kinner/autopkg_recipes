@@ -9,9 +9,9 @@ Input:
 Process:
 - Processor: Versioner
   Arguments:
-    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/Vectoraster.app/Contents/info.plist'
+    input_plist_path: '%pathname%/Vectoraster.app/Contents/info.plist'
 
 - Processor: AppPkgCreator
   Arguments:
     version: '%version%'
-    app_path: '%RECIPE_CACHE_DIR%/%NAME%/BVectoraster.app'
+    app_path: '%pathname%/Vectoraster.app'
