@@ -1,0 +1,17 @@
+Description: Downloads the latest Vectoraster and creates a package.
+Identifier: com.github.5kinner-recipes.pkg.Vectoraster
+ParentRecipe: com.github.dataJAR-recipes.download.Vectoraster 8
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Vectoraster
+
+Process:
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/Vectoraster.app/Contents/info.plist'
+
+- Processor: AppPkgCreator
+  Arguments:
+    version: '%version%'
+    app_path: '%RECIPE_CACHE_DIR%/%NAME%/BVectoraster.app'
