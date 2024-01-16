@@ -12,10 +12,6 @@ Input:
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELF_SERVICE_DESCRIPTION: |
-    Installs the Latest Version %NAME%
-
-    Version: *%version%*
   SELFSERVICE_ICON: HandBrake.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
