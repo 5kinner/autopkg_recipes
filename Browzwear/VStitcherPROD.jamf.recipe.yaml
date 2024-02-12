@@ -8,10 +8,8 @@ Input:
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
-  GROUP_NAME: Off Network
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
-  POLICY_NAME2: Off Network
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: VStitcher2022.png
@@ -27,18 +25,6 @@ Process:
   Arguments:
     policy_name: '%POLICY_NAME%'
     policy_template: '%POLICY_TEMPLATE%'
-    icon: '%SELFSERVICE_ICON%'
-    replace_policy: "True"
-    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
-
-
-    Version: *%version%*'
-
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
-  Arguments:
-    policy_name: '%POLICY_NAME2%'
-    policy_template: 'Policy_selfservice_Group.xml'
-    group_name: '%GROUP_NAME%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
