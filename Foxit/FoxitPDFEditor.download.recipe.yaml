@@ -1,6 +1,6 @@
 Description: Download recipe for the latest version of Foxit PDF Editor.
-Identifier: com.github.5kinner-recipes.download.FoxitPDFEditorTEST
-MinimumVersion: 2.3
+Identifier: com.github.5kinner-recipes.download.FoxitPDFEditor
+MinimumVersion: 1.0
 
 Input:
   NAME: Foxit PDF Editor
