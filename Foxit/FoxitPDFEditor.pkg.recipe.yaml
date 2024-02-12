@@ -19,7 +19,7 @@ Process:
 
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/unpack/IBM*/SPSS Statistics.app/Contents/Info.plist"
+      pattern: "%RECIPE_CACHE_DIR%/unpack/Applications/%NAME%.app/Contents/Info.plist"
 
   - Processor: Versioner
     Arguments:
@@ -29,7 +29,7 @@ Process:
   - Processor: PkgCopier
     Arguments:
       pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg"
-      source_pkg: "%RECIPE_CACHE_DIR%/downloads/SPSS*/*.pkg"
+      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.pkg"
 
   - Processor: PathDeleter
     Arguments:
