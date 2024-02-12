@@ -15,7 +15,7 @@ Process:
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/foxit.pkg/payload"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/Foxit_PDF_Editor.pkg/payload"
 
   - Processor: FileFinder
     Arguments:
