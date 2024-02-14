@@ -1,0 +1,13 @@
+Description: Downloads and makes a pkg for the latest version of Foxit PDF Editor.
+Identifier: com.github.5kinner-recipes.pkg.FoxitPDFEditorPATCH
+ParentRecipe: com.github.5kinner-recipes.download.FoxitPDFEditorPATCH
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Foxit PDF Editor PATCH
+
+Process:
+  - Processor: PkgCopier
+    Arguments:
+      pkg_path: "%RECIPE_CACHE_DIR%"
+      source_pkg: "%pathname%"
