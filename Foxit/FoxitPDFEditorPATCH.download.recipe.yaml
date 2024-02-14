@@ -3,7 +3,7 @@ Identifier: com.github.5kinner-recipes.download.FoxitPDFEditorPATCH
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Foxit PDF Editor
+  NAME: Foxit PDF Editor PATCH
 
 Process:
 - Processor: URLTextSearcher
