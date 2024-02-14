@@ -38,4 +38,4 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Microsoft_Edge_"
+    pkg_name_match: "Microsoft_Edge"
