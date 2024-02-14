@@ -9,5 +9,4 @@ Input:
 Process:
   - Processor: PkgCopier
     Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%/test"
       source_pkg: "%pathname%"
