@@ -17,8 +17,9 @@ Input:
   REG_LASTNAME: Smith
   REG_EMAIL: JS@gmail.com
   REG_PHONE: '1234567890'
+  REG_STREET: Street
   REG_CITY: Oklahama
-  REG_COUNTRY: en
+  REG_COUNTRY: us
 
 Process:
 - Processor: com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider
@@ -27,6 +28,7 @@ Process:
     product_name_pattern: '%PRODUCT_NAME_PATTERN%'
     registration_info:
       city: '%REG_CITY%'
+      street: '%REG_STREET%'
       country: '%REG_COUNTRY%'
       email: '%REG_EMAIL%'
       firstname: '%REG_FIRSTNAME%'
