@@ -6,8 +6,6 @@ MinimumVersion: '2.3'
 Input:
   NAME: FFMpeg
   CATEGORY: Applications
-  TESTER_USERNAME: TESTING
-  AD_GROUP: AD Group
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
