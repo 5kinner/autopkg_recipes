@@ -23,7 +23,7 @@ Input:
 Process:
 - Processor: com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider
   Arguments:
-    product_name: Blackmagic RAW
+    product_name: braw
     product_name_pattern: '%PRODUCT_NAME_PATTERN%'
     registration_info:
       city: '%REG_CITY%'
