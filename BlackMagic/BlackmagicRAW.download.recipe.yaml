@@ -1,0 +1,40 @@
+Description: |
+  Downloads latest version of Blackmagic RAW.
+  
+  This product requires registration in order to download, so
+  you _must_ override all input variables beginning with 'REG_'
+  and they must contain data.
+  
+  Notably, REG_COUNTRY must contain sane values:
+  - REG_COUNTRY is of the form 'us', 'ca', etc.
+Identifier: com.github.5kinner-recipes.download.ATEMswitchers
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Blackmagic RAW
+  PRODUCT_NAME_PATTERN: ^Blackmagic RAW (?P<version>9(\.\d+)*)( Update)*$
+  REG_FIRSTNAME: John
+  REG_LASTNAME: Smith
+  REG_EMAIL: JS@gmail.com
+  REG_PHONE: '1234567890'
+  REG_CITY: Oklahama
+  REG_COUNTRY: en
+
+Process:
+- Processor: com.github.timsutton.download.davinciresolvelite11/BlackMagicURLProvider
+  Arguments:
+    product_name: Blackmagic RAW
+    product_name_pattern: '%PRODUCT_NAME_PATTERN%'
+    registration_info:
+      city: '%REG_CITY%'
+      country: '%REG_COUNTRY%'
+      email: '%REG_EMAIL%'
+      firstname: '%REG_FIRSTNAME%'
+      lastname: '%REG_LASTNAME%'
+      phone: '%REG_PHONE%'
+
+- Processor: URLDownloader
+  Arguments:
+    filename: '%NAME%-%version%.dmg'
+
+- Processor: EndOfCheckPhase
