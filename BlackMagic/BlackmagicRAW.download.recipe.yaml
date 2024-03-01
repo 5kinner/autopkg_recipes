@@ -7,7 +7,7 @@ Description: |
   
   Notably, REG_COUNTRY must contain sane values:
   - REG_COUNTRY is of the form 'us', 'ca', etc.
-Identifier: com.github.5kinner-recipes.download.ATEMswitchers
+Identifier: com.github.5kinner-recipes.download.BlackmagicRAW
 MinimumVersion: '2.3'
 
 Input:
