@@ -12,7 +12,7 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: Blackmagic RAW
-  PRODUCT_NAME_PATTERN: ^Blackmagic RAW (?P<version>9(\.\d+)*)( Update)*$
+  PRODUCT_NAME_PATTERN: Blackmagic RAW 3\.\d+\.\d+
   REG_FIRSTNAME: John
   REG_LASTNAME: Smith
   REG_EMAIL: JS@gmail.com
