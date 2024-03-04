@@ -9,7 +9,7 @@
             </category>
         </general>
         <scope>
-            <all_computers>false</all_computers>
+            <all_computers>true</all_computers>
             <computers/>
             <computer_groups/>
         </scope>
