@@ -8,7 +8,9 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
+  POLICY_TEMPLATE: PPolicy_selfservice_AllComputers_2PKG_1SCRIPT.xml
+  EXTRA_PKG: Extra Pkg
+  SCRIPT_NAME: Script name
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: ABetterFinderRENAME.png
   UPDATE_PREDICATE: pkg_uploaded == False
