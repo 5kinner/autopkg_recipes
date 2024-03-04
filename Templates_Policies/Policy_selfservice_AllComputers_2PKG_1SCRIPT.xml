@@ -45,7 +45,7 @@
         <scripts>
             <size>1</size>
             <script>
-                <name>%sSCRIPT_NAME%</name>
+                <name>%SCRIPT_NAME%</name>
                 <priority>After</priority>
                 <parameter4/>
                 <parameter5/>
