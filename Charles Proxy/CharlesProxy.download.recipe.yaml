@@ -4,15 +4,16 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: Charles Proxy
-  SEARCH_URL: https://www.charlesproxy.com/download/latest-release/
-  SEARCH_PATTERN: (/assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg*)
 
 Process:
 - Processor: URLTextSearcher
   Arguments:
     re_pattern: \d+\.\d+\.\d+\
-    url: https://www.charlesproxy.com/latest.do
-    curl_opts: [-A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"]
+    url: ttps://www.charlesproxy.com/latest.do
+
+- Processor: URLDownloader
+  Arguments:
+    url: https://www.charlesproxy.com/assets/release/%match%/charles-proxy-%match%.dmg
 
 - Processor: CodeSignatureVerifier
   Arguments:
@@ -21,3 +22,11 @@ Process:
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
+
+- Processor: com.github.jazzace.processors/TextSearcher
+  Arguments:
+    re_pattern: "[0-9]+.[0-9]+-[0-9]+"
+    result_output_var_name: "version"
+    text_in: "%pathname%"
+
+- Processor: EndOfCheckPhase
