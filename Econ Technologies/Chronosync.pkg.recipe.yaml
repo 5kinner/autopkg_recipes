@@ -1,0 +1,17 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.pkg.Chronosync
+ParentRecipe: com.github.homebysix.download.ChronoSync
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Chronosync
+
+Process:
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app/Contents/info.plist'
+
+- Processor: PkgCopier
+  Arguments:
+    pkg_path: '%RECIPE_CACHE_DIR%/%NAME%_v%version%.pkg'
+    source_pkg: '%pathname%/Install.pkg'
