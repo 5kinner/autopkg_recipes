@@ -22,7 +22,7 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    url: https://www.charlesproxy.com/assets/release/%url%/charles-proxy-%url%.dmg
+    url: https://www.charlesproxy.com/assets/release/%url%/charles-proxy-%url%.dmg?k=e0fb53750e
 
 - Processor: CodeSignatureVerifier
   Arguments:
