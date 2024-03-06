@@ -11,12 +11,14 @@ Process:
     re_pattern: \d+\.\d+\.\d+\
     url: https://www.charlesproxy.com/download/latest-release/
     result_output_var_name: url
+    curl_opts: [-A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"]
 
 - Processor: URLTextSearcher
   Arguments:
     re_pattern: dmg\?(.*?)"
     url: https://www.charlesproxy.com/download/latest-release/
     result_output_var_name: code
+    curl_opts: [-A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"]
 
 - Processor: URLDownloader
   Arguments:
