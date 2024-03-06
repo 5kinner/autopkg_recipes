@@ -5,7 +5,7 @@ MinimumVersion: '2.3'
 Input:
   NAME: Charles Proxy
   SEARCH_URL: https://www.charlesproxy.com/latest.do
-  SEARCH_PATTERN: (/assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg)
+  SEARCH_PATTERN: (/assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg*)
 
 Process:
 - Processor: URLTextSearcher
