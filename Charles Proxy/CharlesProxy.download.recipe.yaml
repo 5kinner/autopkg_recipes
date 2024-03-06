@@ -10,21 +10,12 @@ Input:
 Process:
 - Processor: URLTextSearcher
   Arguments:
-    re_pattern: https://www.charlesproxy.com/assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg*
+    re_pattern: /assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg.*\b
     result_output_var_name: url
     url: https://www.charlesproxy.com/download/latest-release/
     curl_opts: [-A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"]
 
 - Processor: URLDownloaderPython
-
-- Processor: URLTextSearcher
-  Arguments:
-    re_pattern: '%SEARCH_PATTERN%'
-    url: '%SEARCH_URL%'
-
-- Processor: URLDownloader
-  Arguments:
-    url: 'https://www.charlesproxy.com/%match%'
 
 - Processor: CodeSignatureVerifier
   Arguments:
@@ -33,11 +24,3 @@ Process:
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
-
-- Processor: com.github.jazzace.processors/TextSearcher
-  Arguments:
-    re_pattern: "[0-9]+.[0-9]+-[0-9]+"
-    result_output_var_name: "version"
-    text_in: "%pathname%"
-
-- Processor: EndOfCheckPhase
