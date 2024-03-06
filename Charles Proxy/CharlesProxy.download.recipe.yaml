@@ -9,13 +9,13 @@ Process:
 - Processor: URLTextSearcher
   Arguments:
     re_pattern: \d+\.\d+\.\d+\
-    url: https://www.charlesproxy.com/latest.do
+    url: https://www.charlesproxy.com/download/latest-release/
     result_output_var_name: url
 
 - Processor: URLTextSearcher
   Arguments:
     re_pattern: dmg\?(.*?)"
-    url: https://www.charlesproxy.com/latest.do
+    url: https://www.charlesproxy.com/download/latest-release/
     result_output_var_name: code
 
 - Processor: URLDownloader
