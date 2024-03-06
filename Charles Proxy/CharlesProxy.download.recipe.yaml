@@ -1,0 +1,34 @@
+Description: Downloads and creates a PKG of Charles Proxy then uploads to Jamf
+Identifier: com.github.5kinner-recipes.download.CharlesProxy
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Charles Proxy
+  SEARCH_URL: https://www.charlesproxy.com/latest.do
+  SEARCH_PATTERN: (https://www\.charlesproxy\.com/assets/release/\d+\.\d+\.\d+/charles-proxy-\d+\.\d+\.\d+\.dmg)
+
+Process:
+- Processor: URLTextSearcher
+  Arguments:
+    re_pattern: '%SEARCH_PATTERN%'
+    url: '%SEARCH_URL%'
+
+- Processor: URLDownloader
+  Arguments:
+    url: '%match%'
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: Anaconda, Inc (Z5788K4JT7)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%pathname%'
+
+- Processor: com.github.jazzace.processors/TextSearcher
+  Arguments:
+    re_pattern: "[0-9]+.[0-9]+-[0-9]+"
+    result_output_var_name: "version"
+    text_in: "%pathname%"
+
+- Processor: EndOfCheckPhase
