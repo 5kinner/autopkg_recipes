@@ -15,7 +15,7 @@ Process:
 
 - Processor: URLDownloader
   Arguments:
-    url: '%match%'
+    url: 'https://www.charlesproxy.com/%match%'
 
 - Processor: CodeSignatureVerifier
   Arguments:
