@@ -7,9 +7,9 @@ Input:
   NAME: Chronosync
 
 Process:
-- Processor: Versioner
+- Processor: com.github.grahampugh.recipes.commonprocessors/PkgInfoReader
   Arguments:
-    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/BrowserStackLocal.app/Contents/info.plist'
+    source_pkg: "%pathname%/Install.pkg"
 
 - Processor: PkgCopier
   Arguments:
