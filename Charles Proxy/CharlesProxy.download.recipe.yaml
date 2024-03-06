@@ -10,10 +10,17 @@ Process:
   Arguments:
     re_pattern: \d+\.\d+\.\d+\
     url: https://www.charlesproxy.com/latest.do
+    result_output_var_name: url
+
+- Processor: URLTextSearcher
+  Arguments:
+    re_pattern: dmg\?(.*?)"
+    url: https://www.charlesproxy.com/latest.do
+    result_output_var_name: code
 
 - Processor: URLDownloader
   Arguments:
-    url: https://www.charlesproxy.com/assets/release/%match%/charles-proxy-%match%.dmg
+    url: https://www.charlesproxy.com/assets/release/%match%/charles-proxy-%match%.dmg%code%
 
 - Processor: CodeSignatureVerifier
   Arguments:
