@@ -9,7 +9,7 @@ Process:
 - Processor: URLTextSearcher
   Arguments:
     re_pattern: \d+\.\d+\.\d+\
-    url: ttps://www.charlesproxy.com/latest.do
+    url: https://www.charlesproxy.com/latest.do
 
 - Processor: URLDownloader
   Arguments:
