@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Zoom
-ParentRecipe: com.github.5kinner-recipes.pkg.Zoom
+ParentRecipe: com.github.homebysix.pkg.Zoom
 MinimumVersion: '2.3'
 
 Input:
