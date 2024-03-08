@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.DaVinciResolve
-ParentRecipe: com.github.davidbpirie.pkg.BlackmagicDaVinciResolve
+ParentRecipe: com.github.5kinner-recipes.pkg.DaVinciResolve
 MinimumVersion: '2.3'
 
 Input:
