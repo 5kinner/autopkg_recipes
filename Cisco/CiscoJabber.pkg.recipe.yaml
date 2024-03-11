@@ -1,0 +1,17 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.pkg.CiscoJabber
+ParentRecipe: com.github.joshua-d-miller.download.ciscojabber
+MinimumVersion: '2.3'
+
+Input:
+  NAME: CiscoJabber
+
+Process:
+- Processor: com.github.grahampugh.recipes.commonprocessors/PkgInfoReader
+  Arguments:
+    source_pkg: "%pathname%/Install.pkg"
+
+- Processor: PkgCopier
+  Arguments:
+    pkg_path: '%RECIPE_CACHE_DIR%/%NAME%_v%version%.pkg'
+    source_pkg: '%pathname%/Install.pkg'
