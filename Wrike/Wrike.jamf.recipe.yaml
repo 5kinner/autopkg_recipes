@@ -8,7 +8,7 @@ Input:
   CATEGORY: Applications
   AD_GROUP: AD Group
   TESTER_USERNAME: TESTER
-  POLICY_CATEGORY: UNTESTED
+  POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
