@@ -37,3 +37,8 @@ Process:
     policy_template: '%POLICY_TEMPLATE%'
     policy_category: '%POLICY_CATEGORY%'
     replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "Adobe Acrobat Reader"
+    versions_to_keep: 3
