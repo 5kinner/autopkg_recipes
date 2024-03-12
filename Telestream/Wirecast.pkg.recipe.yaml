@@ -10,8 +10,3 @@ Process:
   - Processor: AppPkgCreator
     Arguments:
       app_path: "%pathname%/*.app"
-
-  - Processor: PkgCopier
-    Arguments:
-      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg"
-      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.pkg"

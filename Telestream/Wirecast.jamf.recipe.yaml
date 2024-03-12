@@ -1,10 +1,10 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.CiscoJabber
-ParentRecipe: com.github.5kinner-recipes.pkg.CiscoJabber
+Identifier: com.github.5kinner-recipes.jamf.Wirecast
+ParentRecipe: com.github.5kinner-recipes.pkg.Wirecast
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Cisco Jabber
+  NAME: Wirecast
   CATEGORY: My Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group
@@ -12,7 +12,7 @@ Input:
   POLICY_NAME: Install Latest %NAME%
   POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: CiscoJabber.png
+  SELFSERVICE_ICON: Wirecast.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -36,5 +36,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Cisco Jabber"
+    pkg_name_match: "Wirecast"
     versions_to_keep: 2
