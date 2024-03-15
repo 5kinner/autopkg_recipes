@@ -38,4 +38,4 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    versions_to_keep: 4
+    versions_to_keep: 3
