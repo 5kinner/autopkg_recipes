@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.CLO
+Identifier: com.github.5kinner-recipes.jamf.CLOPROD
 ParentRecipe: com.github.5kinner-recipes.pkg.CLO
 MinimumVersion: '2.3'
 
@@ -17,13 +17,9 @@ Input:
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
   Arguments:
-    pkg_category: '%CATEGORY%'
-
-- Processor: StopProcessingIf
-  Arguments:
-    predicate: '%UPDATE_PREDICATE%'
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
