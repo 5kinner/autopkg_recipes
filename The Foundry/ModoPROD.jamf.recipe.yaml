@@ -17,14 +17,9 @@ Input:
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
   Arguments:
-    pkg: "%found_filename%/*.pkg"
-    pkg_category: '%CATEGORY%'
-
-- Processor: StopProcessingIf
-  Arguments:
-    predicate: '%UPDATE_PREDICATE%'
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -38,3 +33,5 @@ Process:
     Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 3
