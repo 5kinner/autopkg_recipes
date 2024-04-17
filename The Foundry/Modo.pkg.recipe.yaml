@@ -20,4 +20,4 @@ Process:
 - Processor: AppPkgCreator
   Arguments:
     version: '%output_string%'
-    app_path: '%found_filename%/*%version%.app'
+    app_path: '%found_filename%/Modo*.app'
