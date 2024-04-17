@@ -11,13 +11,13 @@ Process:
   Arguments:
     pattern: '%RECIPE_CACHE_DIR%/*.dmg'
 
-- Processor: com.github.homebysix.FindAndReplace/FindAndReplace
+- Processor: com.github.jazzace.processors/TextSearcher
   Arguments:
-    find: "_macOS"
-    input_string: "%version%"
-    replace: ""
+    re_pattern: Modo\d+\.\d+v\d+
+    result_output_var_name: "shortversion"
+    text_in: "%found_basename%"
 
 - Processor: AppPkgCreator
   Arguments:
     version: '%output_string%'
-    app_path: '%found_filename%/Modo*.app'
+    app_path: '%found_filename%/%shortversion%.app'
