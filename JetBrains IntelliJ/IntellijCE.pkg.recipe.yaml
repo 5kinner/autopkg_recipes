@@ -9,5 +9,4 @@ Input:
 Process:
 - Processor: AppPkgCreator
   Arguments:
-    version: "%output_string%"
-    app_path: "%found_filename%/*.app"
+    app_path: "%input_path%/*.app"
