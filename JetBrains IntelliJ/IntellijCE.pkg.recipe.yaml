@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of IntelliJ CE then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.IntelliJ
-ParentRecipe: com.github.5kinner-recipes.pkg.IntelliJ
+Identifier: com.github.5kinner-recipes.pkg.IntelliJ
+ParentRecipe: com.github.bnpl.autopkg.download.intellijideace
 MinimumVersion: '2.3'
 
 Input:

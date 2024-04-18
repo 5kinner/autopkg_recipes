@@ -20,7 +20,7 @@ Process:
 - Processor: CodeSignatureVerifier
   Arguments:
     expected_authority_names:
-    - 'Developer ID Installer: Anaconda, Inc (Z5788K4JT7)'
+    - 'Developer ID Installer: XK72 Limited (9A5PCU4FSD)'
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
