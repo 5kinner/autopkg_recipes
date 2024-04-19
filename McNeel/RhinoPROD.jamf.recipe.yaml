@@ -14,12 +14,13 @@ Input:
   POLICY_TEMPLATE: Policy_selfservice.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Rhino7.png
+  RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: download_changed == False
 
 Process:
-- Processor: StopProcessingIf
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
   Arguments:
-    predicate: '%UPDATE_PREDICATE%'
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -33,3 +34,5 @@ Process:
     Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 3

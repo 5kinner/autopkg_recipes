@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Rhino
+Identifier: com.github.5kinner-recipes.jamf.RhinoTEST
 ParentRecipe: com.github.5kinner-recipes.pkg.Rhino
 MinimumVersion: '2.3'
 
@@ -36,6 +36,4 @@ Process:
 
     Version: *%version%*'
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
-  Arguments:
-    pkg_name_match: "Rhino"
+- Processor: com.github.grahampugh.recipes.postprocessors/LastRecipeRunResult
