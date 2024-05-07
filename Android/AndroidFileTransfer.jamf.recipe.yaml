@@ -1,0 +1,54 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.AndroidFileTransfer
+ParentRecipe: com.github.amsysuk-recipes.pkg.androidfiletransfer
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Android File Transfer
+  CATEGORY: Applications
+  GROUP_NAME: AutoPkg - AndroidFileTransfer-Auto-Update
+  GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
+  TESTING_GROUP_NAME: Testers
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELFSERVICE_ICON: AndroidFileTransfer.png
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.recipes.commonprocessors/VersionRegexGenerator
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+    computergroup_name: '%GROUP_NAME%'
+    computergroup_template: '%GROUP_TEMPLATE%'
+    replace_group: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_template: 'Policy_selfservice_AllComputers.xml'
+    policy_name: 'Install Latest %NAME%'
+    POLICY_CATEGORY: 'Applications'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_template: 'Policy_update-smart-NOselfservice.xml'
+    policy_name: 'AutoPkg Auto Update %NAME%'
+    policy_category: 'Auto Updating'
+    replace_policy: "True"
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 2
