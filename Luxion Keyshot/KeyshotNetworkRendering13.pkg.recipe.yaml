@@ -1,0 +1,14 @@
+Description: Recipe using Parent download recipe and packages then uploads to Jamf
+Identifier: com.github.5kinner-recipes.pkg.KeyshotNetworkRendering13
+ParentRecipe: com.github.5kinner-recipes.download.KeyshotNetworkRendering13
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Keyshot Network Rendering 13
+
+Process:
+  - Processor: com.github.jazzace.processors/TextSearcher
+    Arguments:
+      re_pattern: keyshot_network_rendering_mac64_(\d+\.\d+\_\d+\.\d+\.\d+\.\d+)\.pkg
+      result_output_var_name: "version"
+      text_in: "%pathname%"

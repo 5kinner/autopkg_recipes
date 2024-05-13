@@ -1,20 +1,19 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Keyshot12
-ParentRecipe: com.github.5kinner-recipes.pkg.Keyshot12
+Identifier: com.github.5kinner-recipes.jamf.KeyshotNetworkRendering13
+ParentRecipe: com.github.5kinner-recipes.pkg.KeyshotNetworkRendering13
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Keyshot 12
+  NAME: Keyshot Network Rendering 13
   CATEGORY: Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andextraPKG.xml
+  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andTester.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: Keyshot12.png
-  EXTRA_PKG: Name
+  SELFSERVICE_ICON: KeyshotNetworkRendering.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
