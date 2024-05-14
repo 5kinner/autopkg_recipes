@@ -19,7 +19,7 @@ Process:
 
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/unpack/Applications/KeyShot Network Monitor.app/Contents/Info.plist"
+      pattern: "%RECIPE_CACHE_DIR%/unpack/KeyShot Network Monitor.app/Contents/Info.plist"
 
   - Processor: Versioner
     Arguments:
