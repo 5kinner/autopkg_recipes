@@ -14,6 +14,7 @@ Input:
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Keyshot12.png
   EXTRA_PKG: Name
+  RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
