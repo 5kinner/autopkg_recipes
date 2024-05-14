@@ -15,11 +15,11 @@ Process:
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/Keyshot_Network_Rendering_Apps/payload"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/5._KeyShot_App/payload"
 
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/unpack/KeyShot Network Monitor.app/Contents/Info.plist"
+      pattern: "%RECIPE_CACHE_DIR%/unpack/KeyShot.app/Contents/Info.plist"
 
   - Processor: Versioner
     Arguments:
