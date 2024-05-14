@@ -1,30 +1,26 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Keyshot13
-ParentRecipe: com.github.5kinner-recipes.pkg.Keyshot13
+Identifier: com.github.5kinner-recipes.jamf.KeyshotNetworkRendering13
+ParentRecipe: com.github.5kinner-recipes.pkg.KeyshotNetworkRendering13
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Keyshot 13
+  NAME: Keyshot Network Rendering 13
   CATEGORY: Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group1
   AD_GROUP2: AD Group2
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andextraPKG.xml
+  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andTester.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: Keyshot12.png
-  EXTRA_PKG: Name
+  SELFSERVICE_ICON: KeyshotNetworkRendering.png
+  RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
   Arguments:
-    pkg_category: '%CATEGORY%'
-
-- Processor: StopProcessingIf
-  Arguments:
-    predicate: '%UPDATE_PREDICATE%'
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
@@ -38,3 +34,5 @@ Process:
     Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 5

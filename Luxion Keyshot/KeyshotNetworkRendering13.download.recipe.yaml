@@ -1,14 +1,15 @@
-Description: Downloads the latest version of KeyShot 13.
+Description: Downloads the latest version of KeyShot 13 Network Rendering.
 Identifier: com.github.5kinner-recipes.download.KeyshotNetworkRendering13
 MinimumVersion: '2.3'
 
 Input:
-  NAME: KeyShot 13
+  NAME: KeyShotNetworkRendering13
 
 Process:
 - Processor: URLDownloader
   Arguments:
     url: https://www.keyshot.com/download/370770/
+    filename: '%NAME%.pkg'
 
 - Processor: EndOfCheckPhase
 
