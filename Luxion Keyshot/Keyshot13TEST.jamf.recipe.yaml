@@ -1,5 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Keyshot13
+Identifier: com.github.5kinner-recipes.jamf.Keyshot13TEST
 ParentRecipe: com.github.5kinner-recipes.pkg.Keyshot13
 MinimumVersion: '2.3'
 
