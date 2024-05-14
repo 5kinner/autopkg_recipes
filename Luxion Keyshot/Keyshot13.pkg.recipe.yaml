@@ -7,8 +7,32 @@ Input:
   NAME: Keyshot 13
 
 Process:
-  - Processor: com.github.jazzace.processors/TextSearcher
+  - Processor: FlatPkgUnpacker
     Arguments:
-      re_pattern: keyshot_mac64_(\d+\.\d+\_\d+\.\d+\.\d+\.\d+)\.pkg
-      result_output_var_name: "version"
-      text_in: "%pathname%"
+      destination_path: "%RECIPE_CACHE_DIR%/expanded"
+      flat_pkg_path: "%pathname%"
+
+  - Processor: PkgPayloadUnpacker
+    Arguments:
+      destination_path: "%RECIPE_CACHE_DIR%/unpack"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/Keyshot_Network_Rendering_Apps/payload"
+
+  - Processor: FileFinder
+    Arguments:
+      pattern: "%RECIPE_CACHE_DIR%/unpack/KeyShot Network Monitor.app/Contents/Info.plist"
+
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: "%found_filename%"
+      plist_version_key: CFBundleShortVersionString
+
+  - Processor: PkgCopier
+    Arguments:
+      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg"
+      source_pkg: "%RECIPE_CACHE_DIR%/downloads/*.pkg"
+
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/unpack"
+        - "%RECIPE_CACHE_DIR%/expanded"
