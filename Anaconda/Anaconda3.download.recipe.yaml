@@ -9,7 +9,7 @@ Input:
   NAME: Anaconda
   INSTALLER_TYPE: pkg
   ARCH_TYPE: arm64
-  SEARCH_URL: https://www.anaconda.com/download/#macos
+  SEARCH_URL: https://www.anaconda.com/download/success
   SEARCH_PATTERN: (https://repo\.anaconda\.com/archive/Anaconda3-[0-9]+\.[0-9]+-[0-9]+-MacOSX-%ARCH_TYPE%\.%INSTALLER_TYPE%)
 
 Process:
