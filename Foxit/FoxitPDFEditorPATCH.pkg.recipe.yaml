@@ -12,6 +12,11 @@ Process:
       destination_path: "%RECIPE_CACHE_DIR%/expanded"
       flat_pkg_path: "%pathname%"
 
+  - Processor: PkgPayloadUnpacker
+    Arguments:
+      destination_path: "%RECIPE_CACHE_DIR%/unpack"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/payload"
+
   - Processor: PkgCopier
     Arguments:
       source_pkg: "%pathname%"
