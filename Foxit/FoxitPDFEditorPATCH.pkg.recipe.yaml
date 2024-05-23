@@ -17,6 +17,21 @@ Process:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
       pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded/payload"
 
+  - Processor: FileFinder
+    Arguments:
+      pattern: "%RECIPE_CACHE_DIR%/unpack/Library/PDF Services/Save as Foxit PDF.app/Contents/Info.plist"
+
+  - Processor: Versioner
+    Arguments:
+      input_plist_path: "%found_filename%"
+      plist_version_key: CFBundleShortVersionString
+
+  - Processor: PathDeleter
+    Arguments:
+      path_list:
+        - "%RECIPE_CACHE_DIR%/unpack"
+        - "%RECIPE_CACHE_DIR%/expanded"
+
   - Processor: PkgCopier
     Arguments:
       source_pkg: "%pathname%"
