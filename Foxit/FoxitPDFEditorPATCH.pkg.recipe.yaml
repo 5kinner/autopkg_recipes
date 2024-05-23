@@ -7,9 +7,10 @@ Input:
   NAME: Foxit PDF Editor PATCH
 
 Process:
-  - Processor: com.github.grahampugh.recipes.commonprocessors/PkgInfoReader
+  - Processor: FlatPkgUnpacker
     Arguments:
-      source_pkg: "%pathname%"
+      destination_path: "%RECIPE_CACHE_DIR%/expanded"
+      flat_pkg_path: "%pathname%"
 
   - Processor: PkgCopier
     Arguments:
