@@ -9,9 +9,10 @@ Input:
   GROUP_NAME: AutoPkg - FoxitPDF-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   POLICY_CATEGORY: Applications
-  POLICY_NAME: Update %NAME%
-  SELF_SERVICE_DISPLAY_NAME: Update %NAME%
-  SELFSERVICE_ICON: FoxitPDF.png
+  CUSTOM_TRIGGER: Trigger
+  SCRIPT_NAME: Script
+  PARA_4: Para4
+  PARA_5: Para5
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -33,11 +34,14 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_name: '%POLICY_NAME%'
+    policy_name: 'Update %NAME%'
     policy_category: '%POLICY_CATEGORY%'
-    policy_template: 'Policy_update-smart-Login-Once-NOselfservice.xml'
-    icon: '%SELFSERVICE_ICON%'
+    policy_template: 'Policy_update-smart-Login-Custom-Once.xml'
     replace_policy: "True"
-    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Patch for %NAME%
 
-    Version: *%version%*'
+  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: 'Update %NAME% - If Not Running'
+    policy_category: '%POLICY_CATEGORY%'
+    policy_template: 'Policy_update-smart-Script-Custom_Trigger.xml'
+    replace_policy: "True"
