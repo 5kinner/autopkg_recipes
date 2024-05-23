@@ -34,6 +34,7 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
     policy_name: '%POLICY_NAME%'
+    policy_category: '%POLICY_CATEGORY%'
     policy_template: 'Policy_update-smart-Login-Once-NOselfservice.xml'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
