@@ -39,7 +39,7 @@ Process:
     policy_template: 'Policy_update-smart-Login-Custom-Once.xml'
     replace_policy: "True"
 
-  - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
     policy_name: 'Update %NAME% - If Not Running'
     policy_category: '%POLICY_CATEGORY%'
