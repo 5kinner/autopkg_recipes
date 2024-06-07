@@ -10,7 +10,6 @@ Process:
   Arguments:
     url: 'https://www.foxit.com/downloads/latest.html?product=Foxit-PhantomPDF-Mac&platform=Mac-OS-X&version=&package_type=pkg&language=ML'
     prefetch_filename: True
-    curl_opts: [-A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"]
 
 - Processor: CodeSignatureVerifier
   Arguments:
