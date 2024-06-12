@@ -8,5 +8,13 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: 'https://www.polleverywhere.com/app.dmg?hsLang=en'
+    url: https://www.polleverywhere.com/app.dmg?hsLang=en
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    expected_authority_names:
+    - 'Developer ID Installer: Poll Everywhere, Inc. (W48F3X5M8W)'
+    - Developer ID Certification Authority
+    - Apple Root CA
+    input_path: '%pathname%'
 
