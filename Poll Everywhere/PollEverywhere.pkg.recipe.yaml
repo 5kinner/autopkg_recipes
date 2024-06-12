@@ -9,16 +9,12 @@ Input:
 Process:
 - Processor: CodeSignatureVerifier
   Arguments:
-    expected_authority_names:
-    - 'Developer ID Installer: Poll Everywhere, Inc. (W48F3X5M8W)'
-    - Developer ID Certification Authority
-    - Apple Root CA
     input_path: '%pathname%/*.app'
+    requirement: 'identifier "com.polleverywhere.PollEv-Presenter" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = W48F3X5M8W'
 
 - Processor: FileFinder
   Arguments:
     pattern: "%pathname%/*.app/Contents/Info.plist"
-
 
 - Processor: Versioner
   Arguments:
