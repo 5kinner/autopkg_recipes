@@ -8,5 +8,5 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: https://www.polleverywhere.com/app.dmg?hsLang=en
+    url: 'https://www.polleverywhere.com/app.dmg?hsLang=en'
 
