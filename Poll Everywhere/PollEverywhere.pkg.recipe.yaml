@@ -18,7 +18,7 @@ Process:
 
 - Processor: Versioner
   Arguments:
-    input_plist_path: "%found_filename%"
+    input_plist_path: "%pathname%/*.app/Contents/Info.plist"
     plist_version_key: CFBundleVersion
 
 - Processor: AppPkgCreator
