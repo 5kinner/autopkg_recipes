@@ -1,10 +1,10 @@
-Description: Downloads Poll Everywhere
+Description: Downloads Poll Everywhere and makes a package
 Identifier: com.github.5kinner-recipes.pkg.PollEverywhere
 ParentRecipe: com.github.5kinner-recipes.download.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
-  NAME: PollEverywhere
+  NAME: Poll Everywhere
 
 Process:
 - Processor: CodeSignatureVerifier
@@ -14,7 +14,7 @@ Process:
 
 - Processor: Versioner
   Arguments:
-    input_plist_path: "%pathname%/Poll Everywhere.app/Contents/Info.plist"
+    input_plist_path: "%pathname%/%NAME%.app/Contents/Info.plist"
     plist_version_key: CFBundleVersion
 
 - Processor: AppPkgCreator
