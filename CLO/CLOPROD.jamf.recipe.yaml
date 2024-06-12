@@ -1,6 +1,5 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.CLOPROD
-ParentRecipe: com.github.5kinner-recipes.pkg.CLO
 MinimumVersion: '2.3'
 
 Input:
