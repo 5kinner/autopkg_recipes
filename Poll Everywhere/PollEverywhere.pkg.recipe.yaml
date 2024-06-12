@@ -1,5 +1,5 @@
 Description: Downloads Poll Everywhere
-Identifier: com.github.5kinner-recipes.download.PollEverywhere
+Identifier: com.github.5kinner-recipes.pkg.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
