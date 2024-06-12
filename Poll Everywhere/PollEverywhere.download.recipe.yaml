@@ -17,4 +17,5 @@ Process:
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
+    filename: '%NAME%.dmg'
 
