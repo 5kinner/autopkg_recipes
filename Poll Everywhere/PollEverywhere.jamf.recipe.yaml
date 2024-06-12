@@ -4,7 +4,7 @@ ParentRecipe: ccom.github.5kinner-recipes.pkg.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Poll Eevrywhere
+  NAME: Poll Everywhere
   CATEGORY: Applications
   AD_GROUP: AD Group
   TESTER_USERNAME: TESTER
