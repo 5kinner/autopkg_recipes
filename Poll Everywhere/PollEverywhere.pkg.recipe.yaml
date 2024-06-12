@@ -1,0 +1,12 @@
+Description: Downloads Poll Everywhere
+Identifier: com.github.5kinner-recipes.download.PollEverywhere
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Poll Everywhere
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: https://www.polleverywhere.com/app.dmg?hsLang=en
+
