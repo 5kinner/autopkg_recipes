@@ -3,7 +3,7 @@ Identifier: com.github.5kinner-recipes.download.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Poll Everywhere
+  NAME: PollEverywhere
 
 Process:
 - Processor: URLDownloader

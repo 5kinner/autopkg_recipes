@@ -1,20 +1,30 @@
 Description: Downloads Poll Everywhere
 Identifier: com.github.5kinner-recipes.pkg.PollEverywhere
+ParentRecipe: com.github.5kinner-recipes.download.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Poll Everywhere
+  NAME: PollEverywhere
 
 Process:
-- Processor: URLDownloader
-  Arguments:
-    url: https://www.polleverywhere.com/app.dmg?hsLang=en
-
 - Processor: CodeSignatureVerifier
   Arguments:
     expected_authority_names:
     - 'Developer ID Installer: Poll Everywhere, Inc. (W48F3X5M8W)'
     - Developer ID Certification Authority
     - Apple Root CA
-    input_path: '%pathname%'
+    input_path: '%pathname%/*.app'
 
+- Processor: FileFinder
+  Arguments:
+    pattern: "%pathname%/*.app/Contents/Info.plist"
+
+
+- Processor: Versioner
+  Arguments:
+    input_plist_path: "%found_filename%"
+    plist_version_key: CFBundleShortVersionString
+
+- Processor: AppPkgCreator
+  Arguments:
+    app_path: "%pathname%/*.app"
