@@ -12,14 +12,9 @@ Process:
     input_path: '%pathname%/*.app'
     requirement: 'identifier "com.polleverywhere.PollEv-Presenter" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = W48F3X5M8W'
 
-- Processor: FileFinder
+- Processor: AppDmgVersioner
   Arguments:
-    pattern: "%pathname%/*.app/Contents/Info.plist"
-
-- Processor: Versioner
-  Arguments:
-    input_plist_path: "%pathname%/*.app/Contents/Info.plist"
-    plist_version_key: CFBundleVersion
+    dmg_path: "%pathname%"
 
 - Processor: AppPkgCreator
   Arguments:
