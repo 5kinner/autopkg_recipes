@@ -1,6 +1,6 @@
 Description: Recipe using Parent download and package recipes and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.PollEverywhere
-ParentRecipe: ccom.github.5kinner-recipes.pkg.PollEverywhere
+ParentRecipe: com.github.5kinner-recipes.pkg.PollEverywhere
 MinimumVersion: '2.3'
 
 Input:
