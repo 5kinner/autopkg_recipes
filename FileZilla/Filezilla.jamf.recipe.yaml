@@ -4,7 +4,7 @@ ParentRecipe: com.github.grahampugh.recipes.pkg.FileZilla
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Filezilla
+  NAME: FileZilla
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
