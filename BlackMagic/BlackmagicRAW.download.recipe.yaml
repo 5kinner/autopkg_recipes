@@ -18,7 +18,8 @@ Input:
   REG_EMAIL: JS@gmail.com
   REG_PHONE: '1234567890'
   REG_STREET: Street
-  REG_CITY: Oklahama
+  REG_CITY: Oklahoma
+  REG_STATE: Oklahoma
   REG_COUNTRY: us
 
 Process:
@@ -34,6 +35,7 @@ Process:
       firstname: '%REG_FIRSTNAME%'
       lastname: '%REG_LASTNAME%'
       phone: '%REG_PHONE%'
+      state: '%REG_STATE%'
 
 - Processor: URLDownloader
   Arguments:
