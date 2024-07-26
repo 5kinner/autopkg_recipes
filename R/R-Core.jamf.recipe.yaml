@@ -36,5 +36,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "RCore"
+    pkg_name_match: "R-Core"
     versions_to_keep: 3
