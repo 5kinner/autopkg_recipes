@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.CitrixWorkspace
-ParentRecipe: com.github.grahampugh.recipes.pkg.CitrixWorkspace
+ParentRecipe: com.github.rtrouton.pkg.citrixworkspace
 MinimumVersion: '2.3'
 
 Input:
