@@ -8,7 +8,7 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AllComputers.xml
+  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: R-Core_Project.png
   UPDATE_PREDICATE: pkg_uploaded == False
