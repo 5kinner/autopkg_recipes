@@ -19,7 +19,7 @@ Process:
 
   - Processor: Versioner
     Arguments:
-      input_plist_path: "%RECIPE_CACHE_DIR%/payload/IWD 3D Editor.app/Contents/Info.plist"
+      input_plist_path: "%RECIPE_CACHE_DIR%/payload/IWD Display 3D.app/Contents/Info.plist"
       plist_version_key: CFBundleShortVersionString
 
   - Processor: PkgCopier
