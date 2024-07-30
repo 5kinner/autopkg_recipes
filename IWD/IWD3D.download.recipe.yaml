@@ -4,7 +4,7 @@ MinimumVersion: "2.3"
 
 Input:
   NAME: IWD 3D
-  URL: https://dl.iwd.io/IWD_3D_Editor_MacOS.pkg
+  URL: https://dl.iwd.io/display_mac.pkg
 
 Process:
 - Processor: URLDownloader
