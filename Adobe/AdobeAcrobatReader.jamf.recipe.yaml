@@ -10,7 +10,7 @@ Input:
   GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
   TESTING_GROUP_NAME: Testers
   POLICY_NAME: Autopkg Auto Update %NAME%
-  POLICY_TEMPLATE: Policy_update-smart-NOselfservice.xml
+  POLICY_TEMPLATE: Policy_update-smart-Login-Once-NOselfservice.xml
   POLICY_CATEGORY: Auto Updating
   UPDATE_PREDICATE: pkg_uploaded == False
 
