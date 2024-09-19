@@ -9,7 +9,7 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  GROUP_NAME: Corporate Computers
+  GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: 3DxWare.png
