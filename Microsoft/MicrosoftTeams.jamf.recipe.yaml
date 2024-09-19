@@ -8,7 +8,8 @@ Input:
   CATEGORY: Applications
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
+  GROUP_NAME: Corporate Computers
+  POLICY_TEMPLATE: Policy_selfservice_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: MSTeams2022.png
   UPDATE_PREDICATE: pkg_uploaded == False
