@@ -9,6 +9,7 @@ Input:
   GROUP_NAME: AutoPkg - AndroidFileTransfer-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   TESTING_GROUP_NAME: Testers
+  TARGET_GROUP_NAME: Corporate Machine
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: AndroidFileTransfer.png
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -32,7 +33,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_selfservice_AllComputers.xml'
+    policy_template: 'Policy_selfservice_TargetGroup.xml'
     policy_name: 'Install Latest %NAME%'
     POLICY_CATEGORY: 'Applications'
     icon: '%SELFSERVICE_ICON%'
