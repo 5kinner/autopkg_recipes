@@ -10,7 +10,8 @@ Input:
   TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: OBS.png
   UPDATE_PREDICATE: pkg_uploaded == False
