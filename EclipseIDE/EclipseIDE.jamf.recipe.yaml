@@ -10,16 +10,13 @@ Input:
   TESTER_USERNAME: TESTER
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Eclipse.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
-  Arguments:
-    category_name: '%CATEGORY%'
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: '%CATEGORY%'
@@ -42,3 +39,4 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
     pkg_name_match: "Eclipse-x86"
+    version_to_keep: 2
