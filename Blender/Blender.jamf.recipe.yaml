@@ -7,12 +7,11 @@ Input:
   NAME: Blender
   CATEGORY: Applications
   AD_GROUP: AD Group
-  GROUP_NAME: Off Network
   TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_NAME2: Off Network
-  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Blender.png
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -30,18 +29,6 @@ Process:
   Arguments:
     policy_name: '%POLICY_NAME%'
     policy_template: '%POLICY_TEMPLATE%'
-    icon: '%SELFSERVICE_ICON%'
-    replace_policy: "True"
-    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
-
-
-    Version: *%version%*'
-
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
-  Arguments:
-    policy_name: '%POLICY_NAME2%'
-    policy_template: 'Policy_selfservice_Group.xml'
-    group_name: '%GROUP_NAME%'
     icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
