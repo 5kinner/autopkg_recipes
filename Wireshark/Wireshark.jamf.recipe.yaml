@@ -9,6 +9,7 @@ Input:
   POLICY_NAME: Install Wireshark
   GROUP_NAME: AutoPkg - Wireshark-Needs-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
+  TARGET_GROUP_NAME: Corporate Machine
   TESTER_USERNAME: Tester
   CUSTOM_TRIGGER: Jamf Trigger
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -31,7 +32,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_customtrigger_AllComputers.xml'
+    policy_template: 'Policy_CustomTrigger_TargetGroup.xml'
     policy_name: '%POLICY_NAME%'
     policy_category: '%CATEGORY%'
     replace_policy: "True"
