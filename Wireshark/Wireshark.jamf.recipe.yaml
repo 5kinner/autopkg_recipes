@@ -39,3 +39,5 @@ Process:
     replace_policy: "True"
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 2
