@@ -12,14 +12,13 @@
     </override_default_settings>
   </general>
   <scope>
-    <all_computers>true</all_computers>
+    <all_computers>false</all_computers>
     <computers/>
-    <limit_to_users>
-        <user_groups>
-            <user_group>%AD_GROUP%</user_group>
-            <user_group>%AD_GROUP2%</user_group>
-        </user_groups>
-    </limit_to_users>
+    <computer_groups>
+      <computer_group>
+        <name>%TARGET_GROUP_NAME%</name>
+      </computer_group>
+    </computer_groups>
     <limitations>
         <users>
             <user>
