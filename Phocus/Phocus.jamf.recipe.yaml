@@ -11,6 +11,7 @@ Input:
   AD_GROUP: AD Group
   TESTER_USERNAME: Tester
   POLICY_CATEGORY: My Applications
+  TARGET_GROUP_NAME: Corporate Machine
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Phocus.png
   COMPLETE_MSG: Message
@@ -35,7 +36,7 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
-    policy_template: 'Policy_selfservice_AD_Group.xml'
+    policy_template: 'Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml'
     policy_name: 'Install Latest %NAME%'
     policy_category: '%POLICY_CATEGORY%'
     icon: '%SELFSERVICE_ICON%'
