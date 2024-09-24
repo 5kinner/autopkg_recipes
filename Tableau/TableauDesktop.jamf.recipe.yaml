@@ -11,7 +11,8 @@ Input:
   TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_2AD_Groups_andextraPKG.xml
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_2AD_Groups_andextraPKG.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: TableauDesktop.png
   EXTRA_PKG: Name
