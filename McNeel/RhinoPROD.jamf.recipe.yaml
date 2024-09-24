@@ -10,7 +10,8 @@ Input:
   AD_GROUP2: AD Group2
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice.xml
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_2AD_Groups_andTester.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Rhino7.png
   RECIPE_IDENTIFIER: local.recipe.identifier
