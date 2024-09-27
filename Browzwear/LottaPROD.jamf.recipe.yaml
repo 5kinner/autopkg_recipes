@@ -35,4 +35,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    versions_to_keep: 5
+    pkg_name_match: "Browzwear_Lotta_2021"
+    versions_to_keep: 0
