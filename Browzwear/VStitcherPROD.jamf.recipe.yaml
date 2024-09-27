@@ -35,5 +35,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Browzwear_VStitcher_20"
-    versions_to_keep: 0
+    pkg_name_match: "VStitcher_20"
+    versions_to_keep: 5
