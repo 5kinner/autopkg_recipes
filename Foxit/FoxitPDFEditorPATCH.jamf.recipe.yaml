@@ -11,6 +11,7 @@ Input:
   POLICY_CATEGORY: Applications
   CUSTOM_TRIGGER: Trigger
   SCRIPT_NAME: Script
+  PRIORITY: Before
   PARA_4: Para4
   PARA_5: Para5
   UPDATE_PREDICATE: pkg_uploaded == False
