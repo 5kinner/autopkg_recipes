@@ -9,7 +9,6 @@ Process:
 - Processor: URLDownloader
   Arguments:
     url: https://cdn01.foxitsoftware.com/pub/foxit/phantomPDF/desktop/mac/13.x/13.1.4/FoxitPDFEditor1314Upd.L10N.pkg
-    prefetch_filename: True
 
 - Processor: CodeSignatureVerifier
   Arguments:
