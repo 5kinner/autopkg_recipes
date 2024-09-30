@@ -43,5 +43,5 @@ Process:
   Arguments:
     policy_name: 'Update %NAME% - If Not Running'
     policy_category: '%POLICY_CATEGORY%'
-    policy_template: 'Policy_update-smart-Script-Custom_Trigger.xml'
+    policy_template: 'dev_Policy_update-smart-Script-Custom-Trigger.xml'
     replace_policy: "True"
