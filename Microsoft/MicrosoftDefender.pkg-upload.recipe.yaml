@@ -1,0 +1,18 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.upload.MicrosoftDefender
+ParentRecipe: com.github.rtrouton.pkg.MicrosoftDefender
+MinimumVersion: '2.3'
+
+Input:
+  CATEGORY: Applications
+
+Process:
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "Microsoft_Defender"
+    versions_to_keep: 3
