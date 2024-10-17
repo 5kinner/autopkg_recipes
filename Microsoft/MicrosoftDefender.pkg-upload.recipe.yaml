@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.upload.MicrosoftDefender
-ParentRecipe: com.github.rtrouton.pkg.MicrosoftDefender
+ParentRecipe: com.github.rtrouton.pkg.microsoftdefender
 MinimumVersion: '2.3'
 
 Input:
