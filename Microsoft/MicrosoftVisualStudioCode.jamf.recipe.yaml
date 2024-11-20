@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of Microsoft Visual Studio Code then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.MicrosoftVSCode
-ParentRecipe: com.github.killahquam.pkg.visualstudioscode
+ParentRecipe: com.github.amsysuk-recipes.pkg.VisualStudioCode
 MinimumVersion: '2.3'
 
 Input:
