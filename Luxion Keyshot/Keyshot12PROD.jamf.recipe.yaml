@@ -1,0 +1,39 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.Keyshot12PROD
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Keyshot 12
+  CATEGORY: Applications
+  TESTER_USERNAME: TESTING
+  AD_GROUP: AD Group1
+  AD_GROUP2: AD Group2
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_2AD_Groups_andextraPKG.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELFSERVICE_ICON: Keyshot12.png
+  EXTRA_PKG: Name
+  RECIPE_IDENTIFIER: local.recipe.identifier
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.recipes.preprocessors/LastRecipeRunChecker
+  Arguments:
+    recipeoverride_identifier: '%RECIPE_IDENTIFIER%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 5
