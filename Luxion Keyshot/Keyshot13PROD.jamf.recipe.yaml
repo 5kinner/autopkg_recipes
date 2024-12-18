@@ -12,6 +12,7 @@ Input:
   POLICY_NAME: Install Latest %NAME%
   TARGET_GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup_1SCRIPT.xml
+  SCRIPT_NAME: SCRIPT_NAME
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Keyshot13.png
   RECIPE_IDENTIFIER: local.recipe.identifier
