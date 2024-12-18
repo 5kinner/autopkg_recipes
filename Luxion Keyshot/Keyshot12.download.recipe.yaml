@@ -8,7 +8,7 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: https://www.keyshot.com/download/370762/
+    url: https://www.keyshot.com/download/357619/
     filename: '%NAME%.pkg'
 
 - Processor: EndOfCheckPhase
