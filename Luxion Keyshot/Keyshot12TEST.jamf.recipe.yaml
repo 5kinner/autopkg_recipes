@@ -15,7 +15,6 @@ Input:
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Keyshot12.png
-  EXTRA_PKG: Name
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:

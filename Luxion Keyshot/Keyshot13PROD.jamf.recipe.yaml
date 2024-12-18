@@ -13,8 +13,7 @@ Input:
   TARGET_GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: Keyshot12.png
-  EXTRA_PKG: Name
+  SELFSERVICE_ICON: Keyshot13.png
   RECIPE_IDENTIFIER: local.recipe.identifier
   UPDATE_PREDICATE: pkg_uploaded == False
 
