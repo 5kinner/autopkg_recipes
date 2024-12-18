@@ -2,14 +2,31 @@ Description: Downloads the latest verison of AutoCAD from a local file.
 Identifier: com.github.5kinner-recipes.download.AutoCADLT
 
 Input:
-  NAME: AutoCAD LT
-  FILE_NAME_SEARCH_TERM: AutoCAD_LT
-  PATH_TO_DMG: /path/to/dmg
-  VERSION_YEAR: 2024
+  NAME: AutoCADLT
+  SEARCH_STRING: AutoCAD_LT
+  MAJOR_VERSION: ''
+  NAME_LIMITATION: ''
+  NAME_EXCEPTION: ''
+  FILE_SHARE: /Path/to/fileshare/
+  VERSION_STRING_SEPARATOR: '_'
+  MAX_FOLDER_DEPTH: '2'
 
 Process:
+- Processor: com.github.mlbz521.SharedProcessors/OfflineApps
+  Arguments:
+    exception_string: '%NAME_EXCEPTION%'
+    limitation_string: '%NAME_LIMITATION%'
+    major_version: '%MAJOR_VERSION%'
+    max_depth: '%MAX_FOLDER_DEPTH%'
+    search_path: '%FILE_SHARE%'
+    search_string: '%SEARCH_STRING%'
+    version_separator: '%VERSION_STRING_SEPARATOR%'
+
 - Processor: FileFinder
   Arguments:
-    pattern: '%PATH_TO_DMG%/*%FILE_NAME_SEARCH_TERM%*.dmg'
+    pattern: '%cached_path%/*.dmg'
 
-- Processor: EndOfCheckPhase
+- Processor: Copier
+  Arguments:
+    source_path: '%found_filename%'
+    destination_path: '%RECIPE_CACHE_DIR%/'
