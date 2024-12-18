@@ -12,7 +12,7 @@ Input:
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   TARGET_GROUP_NAME: Corporate Machine
-  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_1SCRIPT.xml
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_2AD_Groups_andTester_1SCRIPT.xml
   SCRIPT_NAME: SCRIPT_NAME
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: Keyshot13.png
