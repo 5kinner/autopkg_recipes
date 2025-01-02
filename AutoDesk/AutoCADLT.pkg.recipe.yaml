@@ -3,31 +3,54 @@ Identifier: com.github.5kinner-recipes.pkg.AutoCADLT
 ParentRecipe: com.github.5kinner-recipes.download.AutoCADLT
 
 Input:
-  NAME: AutoCAD LT
-  FILE_NAME_SEARCH_TERM: AutoCAD_LT
-  VERSION_YEAR: 2024
-  PRODUCT_KEY: ''
-  EULA_LOCALE: GB
-  SERIAL_NUMBER: ''
-  LIC_SERVER: ''
-  PATH_TO_DMG: /path/to/dmg
+  NAME: AutoCAD
+  PKG_NAME: 'AutoCAD #MAJOR_VERSION#'
 
 Process:
 - Processor: PkgRootCreator
   Arguments:
     pkgdirs:
-      root/private/tmp: '0777'
-    pkgroot: '%RECIPE_CACHE_DIR%/payload'
+      tmp: '0755'
+    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
 
-- Processor: Copier
+- Processor: PkgRootCreator
   Arguments:
-    destination_path: '%pkgroot%/root/private/tmp/%NAME%.app'
-    source_path: '%found_filename%/*.app'
+    pkgdirs: {}
+    pkgroot: '%RECIPE_CACHE_DIR%/scripts'
+
+- Processor: FileMover
+  Arguments:
+    source: '%RECIPE_CACHE_DIR%/%app_name%'
+    target: '%RECIPE_CACHE_DIR%/pkgroot/tmp/%app_name%'
 
 - Processor: PkgCreator
   Arguments:
     pkg_request:
-      id: com.autodesk.AutoCADLT%VERSION_YEAR%
-      pkgname: '%NAME%-%VERSION_YEAR%'
-      pkgroot: '%RECIPE_CACHE_DIR%/payload/root'
-      version: '%VERSION_YEAR%'
+      chown:
+      - group: wheel
+        path: tmp
+        user: root
+      id: '%bundleid%'
+      pkgname: '%NAME%-%version%'
+      pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+      pkgtype: flat
+      scripts: scripts
+      version: '%version%'
+
+- Processor: com.github.mlbz521.SharedProcessors/InputVariableTextSubstituter
+  Arguments:
+    original_string: '%PKG_NAME%'
+    return_variable: PKG_NAME
+    string_to_replace: '#MAJOR_VERSION#'
+    variable_to_use: major_version
+
+- Processor: com.github.mlbz521.SharedProcessors/RenamePath
+  Arguments:
+    new_name: '%RECIPE_CACHE_DIR%/%PKG_NAME%-%version%.pkg'
+    source_path: '%pkg_path%'
+
+- Processor: PathDeleter
+  Arguments:
+    path_list:
+    - '%RECIPE_CACHE_DIR%/pkgroot'
+    - '%RECIPE_CACHE_DIR%/scripts'
