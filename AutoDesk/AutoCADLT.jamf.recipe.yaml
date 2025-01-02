@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.AutoCADLT
-ParentRecipe: com.github.moofit-recipes.pkg.AutoCAD
+ParentRecipe: com.github.mlbz521.pkg.AutoCAD
 MinimumVersion: '2.3'
 
 Input:
