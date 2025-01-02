@@ -10,6 +10,7 @@ Input:
   AD_GROUP: AD Group
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
+  TARGET_GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: AutoCADLT.png
