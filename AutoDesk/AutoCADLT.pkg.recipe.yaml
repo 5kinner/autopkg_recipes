@@ -30,12 +30,12 @@ Process:
       - group: wheel
         path: tmp
         user: root
-      id: '%bundleid%'
-      pkgname: '%NAME%-%version%'
-      pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
-      pkgtype: flat
-      scripts: scripts
-      version: '%version%'
+    id: '%bundleid%'
+    pkgname: '%NAME%-%version%'
+    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+    pkgtype: flat
+    scripts: scripts
+    version: '%version%'
 
 - Processor: com.github.mlbz521.SharedProcessors/InputVariableTextSubstituter
   Arguments:
