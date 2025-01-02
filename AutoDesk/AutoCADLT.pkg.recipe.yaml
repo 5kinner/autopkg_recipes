@@ -30,7 +30,7 @@ Process:
       - group: wheel
         path: tmp
         user: root
-    id: '%bundleid%'
+    id: 'com.autodesk.AutoCADLT2025.StandAlone.installer'
     pkgname: '%NAME%-%version%'
     pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
     pkgtype: flat
