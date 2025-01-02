@@ -5,12 +5,12 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: AutoDesk AutoCADLT
-  CATEGORY: Applications
+  CATEGORY: My Applications
   TESTER_USERNAME: TESTING
   AD_GROUP: AD Group
   POLICY_CATEGORY: UNTESTED
   POLICY_NAME: Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_selfservice_AD_Group.xml
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
   SELFSERVICE_ICON: AutoCADLT.png
   UPDATE_PREDICATE: pkg_uploaded == False
@@ -34,5 +34,3 @@ Process:
 
 
     Version: *%version%*'
-
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner

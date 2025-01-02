@@ -13,7 +13,7 @@ Input:
   TARGET_GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: Fusion360.png
+  SELFSERVICE_ICON: AutoCAD.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -34,3 +34,8 @@ Process:
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
 
     Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "Lotta_20"
+    versions_to_keep: 5
