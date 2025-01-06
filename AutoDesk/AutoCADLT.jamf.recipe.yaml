@@ -35,3 +35,8 @@ Process:
 
 
     Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "AutoCADLT 2025"
+    versions_to_keep: 2
