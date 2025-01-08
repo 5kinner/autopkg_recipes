@@ -28,7 +28,7 @@ Process:
 
 - Processor: AppDmgVersioner
   Arguments:
-    dmg_path: '%found_filename%/*.app'
+    dmg_path: '%found_filename%'
 
 - Processor: Copier
   Arguments:
