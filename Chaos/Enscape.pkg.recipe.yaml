@@ -1,0 +1,48 @@
+Description: Downloads and packages Enscape
+Identifier: com.github.5kinner-recipes.pkg.Enscape
+ParentRecipe: com.github.5kinner-recipes.download.Enscape
+
+Input:
+  NAME: Enscape
+  PKG_NAME: 'AutoCAD #MAJOR_VERSION#'
+
+Process:
+- Processor: PkgRootCreator
+  Arguments:
+    pkgdirs:
+      tmp: '0755'
+    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+
+- Processor: FileMover
+  Arguments:
+    source: '%RECIPE_CACHE_DIR%/%NAME%_Installer.app'
+    target: '%RECIPE_CACHE_DIR%/pkgroot/tmp/%NAME%_Installer.app'
+
+- Processor: PkgCreator
+  Arguments:
+    pkg_request:
+      chown:
+      - group: wheel
+        path: tmp
+        user: root
+    pkgname: '%NAME%-%version%'
+    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
+    pkgtype: flat
+    version: '%version%'
+
+- Processor: com.github.mlbz521.SharedProcessors/InputVariableTextSubstituter
+  Arguments:
+    original_string: '%PKG_NAME%'
+    return_variable: PKG_NAME
+    string_to_replace: '#MAJOR_VERSION#'
+    variable_to_use: major_version
+
+- Processor: com.github.mlbz521.SharedProcessors/RenamePath
+  Arguments:
+    new_name: '%RECIPE_CACHE_DIR%/%PKG_NAME%-%version%.pkg'
+    source_path: '%pkg_path%'
+
+- Processor: PathDeleter
+  Arguments:
+    path_list:
+    - '%RECIPE_CACHE_DIR%/pkgroot'
