@@ -28,9 +28,9 @@ Process:
 
 - Processor: Copier
   Arguments:
-    destination_path: '%RECIPE_CACHE_DIR%/%app_name%'
+    destination_path: '%RECIPE_CACHE_DIR%/%NAME%_Installer.app'
     overwrite: 'true'
-    source_path: '%found_filename%/%app_name%'
+    source_path: '%found_filename%/*.app'
 
 - Processor: CodeSignatureVerifier
   Arguments:
