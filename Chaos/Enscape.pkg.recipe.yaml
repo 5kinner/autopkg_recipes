@@ -18,17 +18,9 @@ Process:
     source: '%RECIPE_CACHE_DIR%/%NAME%_Installer.app'
     target: '%RECIPE_CACHE_DIR%/pkgroot/tmp/%NAME%_Installer.app'
 
-- Processor: PkgCreator
+- Processor: AppPkgCreator
   Arguments:
-    pkg_request:
-      chown:
-      - group: wheel
-        path: tmp
-        user: root
-    pkgname: '%NAME%-%version%'
-    pkgroot: '%RECIPE_CACHE_DIR%/pkgroot'
-    pkgtype: flat
-    version: '%version%'
+    app_path: '%RECIPE_CACHE_DIR%/pkgroot/tmp/%NAME%_Installer.app'
 
 - Processor: com.github.mlbz521.SharedProcessors/InputVariableTextSubstituter
   Arguments:
