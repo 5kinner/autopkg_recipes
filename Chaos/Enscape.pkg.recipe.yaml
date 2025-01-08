@@ -21,6 +21,7 @@ Process:
 - Processor: AppPkgCreator
   Arguments:
     app_path: '%RECIPE_CACHE_DIR%/pkgroot/tmp/%NAME%_Installer.app'
+    bundleid: com.enscape.chaos
 
 - Processor: com.github.mlbz521.SharedProcessors/InputVariableTextSubstituter
   Arguments:
