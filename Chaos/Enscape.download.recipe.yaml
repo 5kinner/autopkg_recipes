@@ -26,10 +26,6 @@ Process:
   Arguments:
     pattern: '%cached_path%/*.dmg'
 
-- Processor: AppDmgVersioner
-  Arguments:
-    dmg_path: '%found_filename%'
-
 - Processor: Copier
   Arguments:
     destination_path: '%RECIPE_CACHE_DIR%/%app_name%'
