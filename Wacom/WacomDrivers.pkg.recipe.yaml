@@ -15,7 +15,7 @@ Process:
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/payload"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%/unpack/Tableau App.pkg/payload"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/unpack/content.pkg/payload"
 
   - Processor: Versioner
     Arguments:
