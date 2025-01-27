@@ -1,6 +1,6 @@
 Description: Downloads the Wacom Drivers version and creates a PKG
 Identifier: com.github.5kinner-recipes.pkg.Wacom
-ParentRecipe: com.github.rustymyers.download.WacomTablet
+ParentRecipe: com.github.5kinner-recipes.download.Wacom
 MinimumVersion: '2.3'
 
 Input:
