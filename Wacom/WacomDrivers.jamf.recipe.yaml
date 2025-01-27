@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Wacom
-ParentRecipe: com.github.jazzace.pkg.WacomIntuosProTabletDriver
+ParentRecipe: com.github.5kinner-recipes.pkg.Wacom
 MinimumVersion: '2.3'
 
 Input:
