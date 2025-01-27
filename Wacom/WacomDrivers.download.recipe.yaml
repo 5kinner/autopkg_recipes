@@ -6,7 +6,7 @@ Input:
   NAME: Wacom Drivers
   DOWNLOAD_PATTERN: (?P&lt;url&gt;https?://.*\.?wacom\.com/.*/drivers?/mac/pro[^/]*/WacomTablet_(?P&lt;version&gt;[\w\d\.-]+)\.dmg)
   DOWNLOAD_URL: https://www.wacom.com/en-us/support/product-support/drivers
-  USER_AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Safari/605.1.15
+  USER_AGENT: Safari
 
 Process:
 - Processor: URLTextSearcher
