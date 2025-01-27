@@ -11,9 +11,9 @@ Input:
 Process:
 - Processor: URLTextSearcher
   Arguments:
+    re_flags: IGNORECASE
     re_pattern: '%DOWNLOAD_PATTERN%'
     url: '%DOWNLOAD_URL%'
-    re_flags: IGNORECASE
     request_headers: 
       user_agent: '%USER_AGENT%'
 
