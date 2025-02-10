@@ -1,9 +1,9 @@
-Description: Downloads the Staged version of Orange Logic Cortex from a local file share.
-Identifier: com.github.5kinner-recipes.download.Cortex
+Description: Downloads the Staged version of FlexPLM from a local file share.
+Identifier: com.github.5kinner-recipes.download.FlexPLM
 
 Input:
-  NAME: Cortex
-  SEARCH_STRING: Cortex Tools
+  NAME: FlexPLM
+  SEARCH_STRING: FlexPLMDesignSuite
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''
   NAME_EXCEPTION: ''
