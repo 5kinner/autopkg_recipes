@@ -1,10 +1,10 @@
-Description: Downloads the Staged version of Orange Logic Cortex from a local file share and creates a PKG
-Identifier: com.github.5kinner-recipes.pkg.Cortex
-ParentRecipe: com.github.5kinner-recipes.download.Cortex
+Description: Downloads the Staged version of FlexPLM from a local file share and creates a PKG
+Identifier: com.github.5kinner-recipes.pkg.FlexPLM
+ParentRecipe: com.github.5kinner-recipes.download.FlexPLM
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Cortex
+  NAME: FlexPLM
 
 Process:
   - Processor: PkgCopier
