@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of PyCharmPE then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.PyCharmPE
-ParentRecipe: com.github.bnpl.autopkg.download.pycharmpe
+ParentRecipe: com.github.5kinner-recipes.pkg.PyCharmPE
 MinimumVersion: '2.3'
 
 Input:
