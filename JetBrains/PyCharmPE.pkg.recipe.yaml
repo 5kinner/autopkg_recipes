@@ -1,4 +1,4 @@
-Description: Downloads and creates a PKG of PyCHarm Professional then uploads to Jamf
+Description: Downloads and creates a PKG of PyCharm Professional then uploads to Jamf
 Identifier: com.github.5kinner-recipes.pkg.PyCharmPE
 ParentRecipe: com.github.bnpl.autopkg.download.pycharmpe
 MinimumVersion: '2.3'
