@@ -1,0 +1,41 @@
+Description: Recipe using Parent download recipe and then uploads to Jamf
+Identifier: com.github.5kinner-recipes.jamf.FlexPLM
+ParentRecipe: com.github.5kinner-recipes.pkg.FlexPLM
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Cortex
+  CATEGORY: My Applications
+  TESTER_USERNAME: TESTING
+  AD_GROUP: AD Group
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELFSERVICE_ICON: FlexPLM.png
+  UPDATE_PREDICATE: pkg_uploaded == False
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: '%CATEGORY%'
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: '%UPDATE_PREDICATE%'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: '%POLICY_NAME%'
+    policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
+    replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    pkg_name_match: "FlexPLMDesignSuite"
+    versions_to_keep: 3

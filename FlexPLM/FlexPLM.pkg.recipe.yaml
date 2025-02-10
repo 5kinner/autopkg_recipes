@@ -1,0 +1,12 @@
+Description: Downloads the Staged version of Orange Logic Cortex from a local file share and creates a PKG
+Identifier: com.github.5kinner-recipes.pkg.Cortex
+ParentRecipe: com.github.5kinner-recipes.download.Cortex
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Cortex
+
+Process:
+  - Processor: PkgCopier
+    Arguments:
+      source_pkg: "%found_filename%"
