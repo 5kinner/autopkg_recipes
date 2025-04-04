@@ -1,6 +1,6 @@
 Description: Downloads the INstaller and creates a PKG
 Identifier: com.github.5kinner-recipes.pkg.Snagit
-ParentRecipe: com.github.ahousseini-recipes.download.Snagit
+ParentRecipe: com.github.5kinner-recipes.download.Snagit
 MinimumVersion: '2.3'
 
 Input:
