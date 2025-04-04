@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Snagit
-ParentRecipe: com.github.ahousseini-recipes.pkg.Snagit
+ParentRecipe: com.github.5kinner-recipes.pkg.Snagit
 MinimumVersion: '2.3'
 
 Input:
