@@ -4,7 +4,7 @@ ParentRecipe: com.github.5kinner-recipes.pkg.FoxitPDFEditorPATCH
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Foxit PDF Editor
+  NAME: Foxit PDF Editor PATCH
   CATEGORY: Applications
   GROUP_NAME: AutoPkg - FoxitPDF-Auto-Update
   GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
