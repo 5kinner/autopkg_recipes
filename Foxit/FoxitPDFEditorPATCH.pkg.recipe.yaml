@@ -19,7 +19,7 @@ Process:
 
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/unpack/Applications/%NAME%.app/Contents/Info.plist"
+      pattern: "%RECIPE_CACHE_DIR%/unpack/Library/PDF Services/Save as Foxit PDF.app/Contents/Info.plist"
 
   - Processor: Versioner
     Arguments:
