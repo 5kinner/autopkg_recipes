@@ -1,19 +1,17 @@
-Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.Astute
-ParentRecipe: com.github.neilmartin83.pkg.Astute Manager
+Description: Download, Packages and Uploads the software to Jamf
+Identifier: com.github.5kinner-recipes.jamf.SalesforceCLI
+ParentRecipe: com.github.5kinner-recipes.pkg.SalesforceCLI
 MinimumVersion: '2.3'
 
 Input:
-  NAME: Astute Manager
+  NAME: Salesforce CLI
   CATEGORY: Applications
-  AD_GROUP: AD Group
-  TESTER_USERNAME: TESTER
   POLICY_CATEGORY: Applications
   POLICY_NAME: Install Latest %NAME%
   TARGET_GROUP_NAME: Corporate Machine
-  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: Astute.png
+  SELFSERVICE_ICON: SalesforceCLI.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -33,9 +31,10 @@ Process:
     replace_policy: "True"
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
 
+
     Version: '*%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Astute"
-    versions_to_keep: 2
+    pkg_name_match: "Salesforce"
+    versions_to_keep: 3
