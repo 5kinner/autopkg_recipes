@@ -32,7 +32,7 @@ Process:
     SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
 
 
-    Version: '*%version%*'
+    Version: *%version%*'
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
