@@ -7,7 +7,12 @@ Input:
   NAME: FierySoftwareManager
 
 Process:
-  - Processor: AppPkgCreator
-    Arguments:
-      app_path: "%found_filename%/*.app"
-      pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/Fiery Software Manager.app/Contents/info.plist'
+
+- Processor: AppPkgCreator
+  Arguments:
+    version: '%version%'
+    app_path: "%found_filename%/*.app"
+    pkg_path: "%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg"
