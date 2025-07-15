@@ -1,6 +1,6 @@
 Description: Downloads the Staged version of Fiery Software Manager from a local file share and creates a PKG
-Identifier: com.github.5kinner-recipes.pkg.FierySoftwareManager
-ParentRecipe: com.github.5kinner-recipes.download.FierySoftwareManager
+Identifier: com.github.5kinner-recipes.pkg.Clementine
+ParentRecipe: com.github.5kinner-recipes.download.Clementine
 MinimumVersion: '2.3'
 
 Input:
