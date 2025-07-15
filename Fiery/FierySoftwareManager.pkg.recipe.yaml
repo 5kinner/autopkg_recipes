@@ -9,7 +9,7 @@ Input:
 Process:
 - Processor: Versioner
   Arguments:
-    input_plist_path: '%RECIPE_CACHE_DIR%/downloads/Fiery-Software-Manager mac/Fiery/Fiery-Software-Manager/Fiery Software Manager.dmg/Fiery Software Manager.app/Contents/info.plist'
+    input_plist_path: '%RECIPE_CACHE_DIR%/downloads/Fiery-Software-Manager mac/Fiery/Fiery-Software-Manager/Fiery-Software-Manager.dmg/Fiery Software Manager.app/Contents/info.plist'
 
 - Processor: AppPkgCreator
   Arguments:
