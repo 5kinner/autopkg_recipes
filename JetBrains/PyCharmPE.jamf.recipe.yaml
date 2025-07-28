@@ -38,6 +38,6 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Pycharm Professional"
+    pkg_name_match: "PyCharm Professional"
     versions_to_keep: 2
 
