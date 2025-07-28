@@ -37,4 +37,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
+    pkg_name_match: "Chronosync"
     versions_to_keep: 2
