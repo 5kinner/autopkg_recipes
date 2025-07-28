@@ -39,5 +39,5 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Node"
+    pkg_name_match: "node"
     versions_to_keep: 2
