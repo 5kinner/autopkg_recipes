@@ -39,3 +39,4 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
     pkg_name_match: "Blender"
+    versions_to_keep: 3
