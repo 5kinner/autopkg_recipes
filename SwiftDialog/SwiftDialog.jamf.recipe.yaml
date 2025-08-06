@@ -6,12 +6,14 @@ MinimumVersion: '2.3'
 Input:
   NAME: Swift Dialog
   CATEGORY: Applications
-  POLICY_CATEGORY: Development
-  GROUP_NAME: Swiftdialog-update-smart
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
-  TESTING_GROUP_NAME: Testing
-  POLICY_NAME: Auto Install Latest %NAME%
-  POLICY_TEMPLATE: Policy_update-smart-NOselfservice.xml
+  AD_GROUP: AD Group
+  TESTER_USERNAME: TESTER
+  POLICY_CATEGORY: Applications
+  POLICY_NAME: Install Latest %NAME%
+  TARGET_GROUP_NAME: Corporate Machine
+  POLICY_TEMPLATE: Policy_selfservice_TargetGroup_Limited_to_AD_Group.xml
+  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
+  SELFSERVICE_ICON: HandBrake.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
@@ -25,15 +27,17 @@ Process:
   Arguments:
     predicate: '%UPDATE_PREDICATE%'
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
-  Arguments:
-    computergroup_name: '%GROUP_NAME%'
-    computergroup_template: '%GROUP_TEMPLATE%'
-
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
   Arguments:
     policy_name: '%POLICY_NAME%'
     policy_template: '%POLICY_TEMPLATE%'
+    icon: '%SELFSERVICE_ICON%'
     replace_policy: "True"
+    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
 
 
+    Version: *%version%*'
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+  Arguments:
+    versions_to_keep: 5
