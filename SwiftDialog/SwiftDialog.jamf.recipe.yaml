@@ -41,3 +41,4 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
     versions_to_keep: 5
+    pkg_name_match: "swiftDialog"
