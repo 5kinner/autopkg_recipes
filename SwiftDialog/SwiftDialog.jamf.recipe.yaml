@@ -38,6 +38,14 @@ Process:
 
     Version: *%version%*'
 
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_template: 'Policy_CustomTrigger_TargetGroup.xml'
+    policy_name: '%NAME% - Custom Install'
+    policy_category: 'Applications - System'
+    CUSTOM_TRIGGER: 'SwiftDialog_Install'
+    replace_policy: "True"
+
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
     versions_to_keep: 5
