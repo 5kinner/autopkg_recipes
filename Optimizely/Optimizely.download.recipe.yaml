@@ -1,0 +1,13 @@
+Description: Downloads Optimizely
+Identifier: com.github.5kinner-recipes.download.Optimizely
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Optimizely
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: 'https://app.optimizely.com/desktop/download?platform=mac'
+    filename: '%NAME%.dmg'
+

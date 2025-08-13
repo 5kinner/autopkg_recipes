@@ -1,0 +1,23 @@
+Description: Downloads Poll Everywhere and makes a package
+Identifier: com.github.5kinner-recipes.pkg.Optimizely
+ParentRecipe: com.github.5kinner-recipes.download.Optimizely
+MinimumVersion: '2.3'
+
+Input:
+  NAME: Optimizely
+
+Process:
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%/*.app'
+    requirement: '    identifier "optimizely.optimizely.com" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = BDMC9C2X5M'
+
+- Processor: Versioner
+  Arguments:
+    input_plist_path: "%pathname%/%NAME%.app/Contents/Info.plist"
+    plist_version_key: CFBundleVersion
+
+- Processor: AppPkgCreator
+  Arguments:
+    app_path: "%pathname%/*.app"
+    pkg_path: '%RECIPE_CACHE_DIR%/%NAME%-v%version%.pkg'
