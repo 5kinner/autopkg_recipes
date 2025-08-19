@@ -8,7 +8,7 @@ Input:
 Process:
 - Processor: URLDownloaderPython
   Arguments:
-    url: 'https://www.foxit.com/downloads/latest.html?product=Foxit-PhantomPDF-Mac&platform=Mac-OS-X&version=&package_type=pkg&language=ML'
+    url: https://www.foxit.com/downloads/latest.html?product=Foxit-PhantomPDF-Mac&platform=Mac-OS-X&version=&package_type=pkg&language=ML
     CHECK_FILESIZE_ONLY: True
 
 - Processor: CodeSignatureVerifier
