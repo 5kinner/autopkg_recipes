@@ -14,7 +14,7 @@ Process:
 - Processor: CodeSignatureVerifier
   Arguments:
     expected_authority_names:
-    - 'Developer ID Installer: Foxit Corporation (8GN47HTP75)'
+    - 'Developer ID Installer: FOXIT SOFTWARE INCORPORATED (8GN47HTP75)'
     - Developer ID Certification Authority
     - Apple Root CA
     input_path: '%pathname%'
