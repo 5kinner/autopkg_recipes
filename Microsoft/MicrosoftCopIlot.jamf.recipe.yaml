@@ -11,7 +11,7 @@ Input:
   TARGET_GROUP_NAME: Corporate Machine
   POLICY_TEMPLATE: Policy_selfservice_TargetGroup.xml
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: MSCopilot.png
+  SELFSERVICE_ICON: M365Copilot.png
   UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
