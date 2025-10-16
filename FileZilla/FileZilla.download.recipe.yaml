@@ -30,6 +30,7 @@ Process:
 - Processor: Unarchiver
   Arguments:
     archive_path: '%found_filename%'
+    purge_destination: True
 
 - Processor: CodeSignatureVerifier
   Arguments:
