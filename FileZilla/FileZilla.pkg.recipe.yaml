@@ -42,3 +42,8 @@ Process:
       id: '%bundleid%'
       pkgdir: '%RECIPE_CACHE_DIR%'
       pkgname: '%NAME%-%version%'
+
+- Processor: PathDeleter
+  Arguments:
+    path_list:
+      - 'pkgroot%/Applications'
