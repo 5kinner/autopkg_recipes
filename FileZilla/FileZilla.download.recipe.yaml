@@ -29,7 +29,7 @@ Process:
 
 - Processor: Unarchiver
   Arguments:
-    pattern: '%foudn_filename%'
+    pattern: '%found_filename%'
 
 - Processor: CodeSignatureVerifier
   Arguments:
