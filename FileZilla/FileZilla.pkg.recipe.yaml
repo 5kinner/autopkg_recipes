@@ -46,4 +46,4 @@ Process:
 - Processor: PathDeleter
   Arguments:
     path_list:
-      - 'pkgroot%/Applications'
+      - '%pkgroot%/Applications'
