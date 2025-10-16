@@ -32,6 +32,10 @@ Process:
     archive_path: '%found_filename%'
     purge_destination: True
 
+- Processor: Versioner
+  Arguments:
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/*.app/Contents/info.plist'
+
 - Processor: CodeSignatureVerifier
   Arguments:
     input_path: '%RECIPE_CACHE_DIR%/%NAME%/*.app'

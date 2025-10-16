@@ -5,35 +5,34 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: FileZilla
-  CATEGORY: Applications
-  POLICY_CATEGORY: Applications
-  POLICY_NAME: Install Latest %NAME%
-  TARGET_GROUP_NAME: Corporate Machine
-  POLICY_TEMPLATE: Policy_selfservice_TargetGroup.xml
-  SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
-  SELFSERVICE_ICON: FileZilla.png
-  UPDATE_PREDICATE: pkg_uploaded == False
 
 Process:
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+- Processor: PkgRootCreator
   Arguments:
-    pkg_category: '%CATEGORY%'
+    pkgdirs:
+      Applications: '0775'
+    pkgroot: '%RECIPE_CACHE_DIR%/%NAME%'
 
-- Processor: StopProcessingIf
+- Processor: Unarchiver
   Arguments:
-    predicate: '%UPDATE_PREDICATE%'
+    archive_path: '%pathname%'
+    destination_path: '%pkgroot%/Applications'
 
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+- Processor: PlistReader
   Arguments:
-    policy_name: '%POLICY_NAME%'
-    policy_template: '%POLICY_TEMPLATE%'
-    icon: '%SELFSERVICE_ICON%'
-    replace_policy: "True"
-    SELF_SERVICE_DESCRIPTION: 'Installs the Latest Version %NAME%
+    info_path: '%pkgroot%/Applications/FileZilla.app'
+    plist_keys:
+      CFBundleIdentifier: bundleid
+      CFBundleVersion: version
 
-    Version: *%version%*'
-
-- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
+- Processor: PkgCreator
   Arguments:
-    pkg_name_match: "FileZilla-"
-    versions_to_keep: 2
+    pkg_request:
+      chown:
+      - group: admin
+        path: Applications
+        user: root
+      id: '%bundleid%'
+      options: purge_ds_store
+      pkgdir: '%RECIPE_CACHE_DIR%'
+      pkgname: '%NAME%-%version%'
