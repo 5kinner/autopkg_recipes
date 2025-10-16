@@ -34,7 +34,7 @@ Process:
 
 - Processor: Versioner
   Arguments:
-    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/*.app/Contents/info.plist'
+    input_plist_path: '%RECIPE_CACHE_DIR%/%NAME%/FileZilla.app/Contents/info.plist'
 
 - Processor: CodeSignatureVerifier
   Arguments:
