@@ -17,6 +17,7 @@ Process:
   Arguments:
     archive_path: '%found_filename%'
     destination_path: '%pkgroot%/Applications'
+    purge_destination: True
 
 - Processor: CodeSignatureVerifier
   Arguments:
