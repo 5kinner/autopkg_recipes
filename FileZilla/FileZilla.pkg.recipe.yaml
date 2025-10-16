@@ -1,6 +1,6 @@
 Description: Recipe using Parent download recipe and then uploads to Jamf
-Identifier: com.github.5kinner-recipes.jamf.FileZilla
-ParentRecipe: com.github.5kinner-recipes.pkg.FileZilla
+Identifier: com.github.5kinner-recipes.pkg.FileZilla
+ParentRecipe: com.github.5kinner-recipes.download.FileZilla
 MinimumVersion: '2.3'
 
 Input:

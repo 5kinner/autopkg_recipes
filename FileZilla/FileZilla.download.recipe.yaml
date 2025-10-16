@@ -1,0 +1,37 @@
+Description: |
+  Downloads the Staged version of a file from a local file share.
+Identifier: com.github.5kinner-recipes.download.FileZilla
+
+Input:
+  NAME: FileZilla
+  SEARCH_STRING: FileZilla
+  MAJOR_VERSION: ''
+  NAME_LIMITATION: ''
+  NAME_EXCEPTION: ''
+  FILE_SHARE: /Path/to/fileshare/
+  VERSION_STRING_SEPARATOR: '_'
+  MAX_FOLDER_DEPTH: '2'
+
+Process:
+- Processor: com.github.mlbz521.SharedProcessors/OfflineApps
+  Arguments:
+    exception_string: '%NAME_EXCEPTION%'
+    limitation_string: '%NAME_LIMITATION%'
+    major_version: '%MAJOR_VERSION%'
+    max_depth: '%MAX_FOLDER_DEPTH%'
+    search_path: '%FILE_SHARE%'
+    search_string: '%SEARCH_STRING%'
+    version_separator: '%VERSION_STRING_SEPARATOR%'
+
+- Processor: FileFinder
+  Arguments:
+    pattern: '%cached_path%/*.bz2'
+
+- Processor: Unarchiver
+  Arguments:
+    pattern: '%pathname%'
+
+- Processor: CodeSignatureVerifier
+  Arguments:
+    input_path: '%pathname%/*.app'
+    requirement: ' identifier "org.filezilla-project.filezilla" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = 5VPGKXL75N'
