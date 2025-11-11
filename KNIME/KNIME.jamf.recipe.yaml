@@ -1,6 +1,6 @@
 Description: Downloads and creates a PKG of KNIME then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.KNIME
-ParentRecipe: com.github.ahousseini-recipes.pkg.KNIME
+ParentRecipe: com.github.grahampugh.recipes.pkg.KNIME
 MinimumVersion: '2.3'
 
 Input:
