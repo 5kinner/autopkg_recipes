@@ -8,7 +8,7 @@ Input:
 Process:
 - Processor: URLTextSearcher
   Arguments:
-    re_pattern: \d+.\d+.\d+
+    re_pattern: .+
     url: https://www.vandyke.com/cgi-bin/download_form_1.php?pid=scrt_mac_arm64_
     result_output_var_name: url
 
