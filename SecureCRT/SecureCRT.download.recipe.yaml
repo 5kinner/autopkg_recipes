@@ -4,7 +4,7 @@ MinimumVersion: '2.3'
 
 Input:
   NAME: SecureCRT
-  SEARCH_STRING: CLO
+  SEARCH_STRING: scrt
   MAJOR_VERSION: ''
   NAME_LIMITATION: ''
   NAME_EXCEPTION: ''
