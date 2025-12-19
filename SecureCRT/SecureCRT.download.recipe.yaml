@@ -14,5 +14,5 @@ Process:
 
 - Processor: URLDownloaderPython
   Arguments:
-    url: %url%
+    url: "%url%"
 
