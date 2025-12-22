@@ -1,25 +1,21 @@
-Description: Copies pkg out of DMG
+Description: Packages SecureCRT app into a PKG
 Identifier: com.github.5kinner-recipes.pkg.SecureCRT
 ParentRecipe: com.github.5kinner-recipes.download.SecureCRT
 MinimumVersion: '2.3'
 
 Input:
   NAME: SecureCRT
-
 Process:
   - Processor: com.github.jazzace.processors/TextSearcher
     Arguments:
-      re_pattern: "[0-9]+[0-9]+[0-9]+"
+      re_pattern: "[0-9]+.[0-9]+.[0-9]+"
       result_output_var_name: "version"
       text_in: "%found_filename%"
 
-  - Processor: com.github.homebysix.FindAndReplace/FindAndReplace
-    Arguments:
-      find: "_"
-      input_string: "%version%"
-      replace: "."
+
 
   - Processor: AppPkgCreator
     Arguments:
       version: "%output_string%"
       app_path: "%found_filename%/*.app"
+      bundleid: "com.clovirtualfashion.CLONetworkOnlineAuth"
