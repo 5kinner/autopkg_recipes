@@ -14,6 +14,6 @@ Process:
 
   - Processor: AppPkgCreator
     Arguments:
-      version: "%output_string%"
+      version: "%version%"
       app_path: "%found_filename%/*.app"
       bundleid: "com.vandyke.SecureCRT"
