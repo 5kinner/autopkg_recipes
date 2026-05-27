@@ -13,16 +13,6 @@ Input:
   MAX_FOLDER_DEPTH: '2'
 
 Process:
-- Processor: com.github.mlbz521.SharedProcessors/OfflineApps
-  Arguments:
-    exception_string: '%NAME_EXCEPTION%'
-    limitation_string: '%NAME_LIMITATION%'
-    major_version: '%MAJOR_VERSION%'
-    max_depth: '%MAX_FOLDER_DEPTH%'
-    search_path: '%FILE_SHARE%'
-    search_string: '%SEARCH_STRING%'
-    version_separator: '%VERSION_STRING_SEPARATOR%'
-
 - Processor: FileFinder
   Arguments:
-    pattern: '%cached_path%/*.dmg'
+    pattern: '%RECIPE_CACHE_DIR%/manual_download/*.dmg'
