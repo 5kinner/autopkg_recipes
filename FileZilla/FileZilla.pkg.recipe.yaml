@@ -47,4 +47,3 @@ Process:
   Arguments:
     path_list:
       - '%pkgroot%/Applications'
-      - '%cached_path%'
