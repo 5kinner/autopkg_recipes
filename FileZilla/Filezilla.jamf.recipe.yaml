@@ -7,7 +7,7 @@ Input:
   NAME: FileZilla
   CATEGORY: Applications
   GROUP_NAME: AutoPkg - FileZilla-Auto-Update
-  GROUP_TEMPLATE: Smart_Group_Update_Testing_Regex.xml
+  GROUP_TEMPLATE: Smart_Group_Update_Regex.xml
   POLICY_CATEGORY: Applications
   TARGET_GROUP_NAME: Corporate Machine
   SELF_SERVICE_DISPLAY_NAME: Install Latest %NAME%
