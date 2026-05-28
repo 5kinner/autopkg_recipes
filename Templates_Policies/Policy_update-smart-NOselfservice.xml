@@ -7,7 +7,7 @@
             <trigger_checkin>true</trigger_checkin>
             <frequency>Ongoing</frequency>
             <category>
-                <name>%policy_category%</name>
+                <name>%POLICY_CATEGORY%</name>
             </category>
         </general>
         <scope>
