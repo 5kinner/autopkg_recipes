@@ -4,13 +4,6 @@ Identifier: com.github.5kinner-recipes.download.FileZilla
 
 Input:
   NAME: FileZilla
-  SEARCH_STRING: FileZilla
-  MAJOR_VERSION: ''
-  NAME_LIMITATION: ''
-  NAME_EXCEPTION: ''
-  FILE_SHARE: /Path/to/fileshare/
-  VERSION_STRING_SEPARATOR: '_'
-  MAX_FOLDER_DEPTH: '2'
 
 Process:
 
