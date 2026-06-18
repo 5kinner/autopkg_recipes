@@ -1,6 +1,6 @@
 Description: Downloads and creates a Universal PKG of Claude then uploads to Jamf
 Identifier: com.github.5kinner-recipes.jamf.Claude
-ParentRecipe: com.github.smithjw.download.Claude
+ParentRecipe: com.github.smithjw.pkg.Claude
 MinimumVersion: '2.3'
 
 Input:
