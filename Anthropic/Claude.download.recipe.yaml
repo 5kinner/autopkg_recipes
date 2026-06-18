@@ -8,16 +8,11 @@ Input:
   BYPASS_STOP_PROCESSING_IF_DOWNLOAD_UNCHANGED: 'False'
 
 Process:
-  - Processor: URLTextSearcher
-    Arguments:
-      re_pattern: https?://downloads\.claude\.ai/releases/darwin/universal/[0-9]+(?:\.[0-9]+)*/Claude-[a-f0-9]{40}(?=\.zip)
-      url: https://downloads.claude.ai/releases/darwin/universal/RELEASES.json
-
   - Processor: URLDownloaderPython
     Arguments:
       download_missing_file: '%DOWNLOAD_MISSING_FILE%'
       filename: '%NAME%.dmg'
-      url: '%match%.dmg'
+      url: 'https://downloads.claude.ai/releases/darwin/universal/1.13576.4/Claude-414f858c8545ff8af38af267a1da714429ee98f9.dmg'
       request_headers:
         user-agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 
