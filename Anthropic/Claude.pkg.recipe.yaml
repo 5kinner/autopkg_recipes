@@ -1,0 +1,11 @@
+Description: Downloads latest version of the Claude DMG and creates a Package.
+Identifier: com.github.5kinner-recipes.pkg.Claude
+ParentRecipe: com.github.5kinner-recipes.download.Claude
+MinimumVersion: '2.9'
+
+Input:
+  NAME: Claude
+  SOFTWARE_TITLE: '%NAME%'
+
+Process:
+  - Processor: AppPkgCreator
