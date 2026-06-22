@@ -8,7 +8,7 @@ Input:
 Process:
 - Processor: URLDownloader
   Arguments:
-    url: https://cdn01.foxitsoftware.com/pub/foxit/phantomPDF/desktop/mac/14.x/14.0.1/FoxitPDFEditor1401Upd.L10N.pkg
+    url: https://cdn01.foxitsoftware.com/pub/foxit/phantomPDF/desktop/mac/14.x/14.0.3/FoxitPDFEditor1403Upd.L10N.pkg
 
 - Processor: CodeSignatureVerifier
   Arguments:
