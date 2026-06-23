@@ -14,7 +14,7 @@ Process:
 
   - Processor: FileFinder
     Arguments:
-      pattern: "%RECIPE_CACHE_DIR%/expanded/"
+      pattern: "%RECIPE_CACHE_DIR%/expanded/*.pkg"
 
   - Processor: PkgPayloadUnpacker
     Arguments:
