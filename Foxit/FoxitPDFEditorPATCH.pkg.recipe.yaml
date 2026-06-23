@@ -10,7 +10,7 @@ Process:
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/downloads"
 
   - Processor: FileFinder
     Arguments:
