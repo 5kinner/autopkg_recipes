@@ -9,7 +9,7 @@ Input:
 Process:
   - Processor: PkgExtractor
     Arguments:
-      destination_path: "%RECIPE_CACHE_DIR%/unpack"
+      extract_root: "%RECIPE_CACHE_DIR%/unpack"
       pkg_path: "%pathname%"
 
   - Processor: FileFinder
