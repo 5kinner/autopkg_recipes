@@ -7,10 +7,15 @@ Input:
   NAME: Foxit PDF Editor PATCH
 
 Process:
+  - Processor: FlatPkgUnpacker
+    Arguments:
+      destination_path: "%RECIPE_CACHE_DIR%/expanded"
+      flat_pkg_path: "%pathname%"
+
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
-      pkg_payload_path: "%RECIPE_CACHE_DIR%/downloads"
+      pkg_payload_path: "%RECIPE_CACHE_DIR%/expanded"
 
   - Processor: FileFinder
     Arguments:
