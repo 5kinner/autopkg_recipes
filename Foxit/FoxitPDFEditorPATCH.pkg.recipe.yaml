@@ -12,6 +12,10 @@ Process:
       destination_path: "%RECIPE_CACHE_DIR%/expanded"
       flat_pkg_path: "%pathname%"
 
+  - Processor: FileFinder
+    Arguments:
+      pattern: "%RECIPE_CACHE_DIR%/expanded/"
+
   - Processor: PkgPayloadUnpacker
     Arguments:
       destination_path: "%RECIPE_CACHE_DIR%/unpack"
