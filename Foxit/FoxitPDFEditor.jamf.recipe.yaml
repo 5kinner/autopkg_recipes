@@ -37,4 +37,4 @@ Process:
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageCleaner
   Arguments:
-    pkg_name_match: "Foxit PDF Editor-v13"
+    pkg_name_match: "Foxit PDF Editor-v14"
